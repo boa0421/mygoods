@@ -26,3 +26,6 @@ Route::group(['prefix' => 'admin'], function() {
      Route::post('post/edit', 'Admin\PostsController@update');
      Route::get('post/delete', 'Admin\PostsController@delete');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
