@@ -18,13 +18,13 @@
 Route::get('/', 'PostsController@index');
 Route::get('post/show', 'PostsController@show');
 
-Route::group(['prefix' => 'admin'], function() {
-     Route::get('post/create', 'Admin\PostsController@add')->middleware('auth');
-     Route::post('post/create', 'Admin\PostsController@create')->middleware('auth');
-     Route::get('post/{user_id}', 'Admin\PostsController@index')->name('admin/post/index');
-     Route::get('post/{id}/edit', 'Admin\PostsController@edit')->middleware('auth');
-     Route::post('post/edit', 'Admin\PostsController@update')->middleware('auth');
-     Route::get('post/delete', 'Admin\PostsController@delete')->middleware('auth');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('posts/create', 'Admin\PostsController@add');
+     Route::post('posts/create', 'Admin\PostsController@create');
+     Route::get('posts', 'Admin\PostsController@index');
+     Route::get('posts/{id}/edit', 'Admin\PostsController@edit');
+     Route::post('posts/edit', 'Admin\PostsController@update');
+     Route::get('posts/delete', 'Admin\PostsController@delete');
 });
 Auth::routes();
 

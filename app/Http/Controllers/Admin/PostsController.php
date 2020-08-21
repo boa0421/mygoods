@@ -11,17 +11,17 @@ use App\User;
 
 class PostsController extends Controller
 {
-     public function index($user_id)
+     public function index()
     {
         $user_id = Auth::user()->id;
         $posts = Post::where('user_id',$user_id)->get();
 
-        return view('admin.post.index',['posts'=>$posts, 'user_id'=>$user_id]);
+        return view('admin.posts.index',['posts'=>$posts]);
     }
     
     public function add()
     {
-        return view('admin.post.create');
+        return view('admin.posts.create');
     }
 
     public function create(Request $request)
@@ -36,9 +36,9 @@ class PostsController extends Controller
         unset($form['_token']);
         unset($form['image']);
         
-        $post->fill($post_form)->save();
+        $post->fill($form)->save();
         
-        return redirect('admin/post/create');
+        return redirect('admin/posts/create');
     }
 
     public function edit($id)
@@ -61,15 +61,16 @@ class PostsController extends Controller
         unset($post_form['_token']);
         $post->fill($post_form)->save();
 
-        return redirect('admin/post/index');
+        return redirect('admin/posts');
     }
     
-    public function delete()
-  {
-
-      return redirect('admin/post/index',['user_id'=>$user]);
-  }  
-
-
+    public function delete(Request $request)
+    {
+        // dd($request);
+        $post = Post::find($request->id);
+        $post->delete();
+        
+        return redirect('admin/posts');
+    }
 
 }
