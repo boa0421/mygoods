@@ -11,7 +11,7 @@ use App\User;
 
 class PostsController extends Controller
 {
-     public function index()
+    public function index()
     {
         $user_id = Auth::user()->id;
         $posts = Post::where('user_id',$user_id)->get();
@@ -45,7 +45,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         
-        return view('admin.post.edit', ['post_form' => $post]);
+        return view('admin.posts.edit', ['post_form' => $post]);
     }
 
     public function update(Request $request)
@@ -73,4 +73,10 @@ class PostsController extends Controller
         return redirect('admin/posts');
     }
 
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+        
+        return view('admin/posts.show', ['post' => $post]);
+    }
 }
