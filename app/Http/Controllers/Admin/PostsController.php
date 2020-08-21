@@ -7,13 +7,17 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use Auth;
 use Validator;
+use App\User;
 
 class PostsController extends Controller
 {
-     public function index()
+     public function index($user_id)
     {
-        return view('admin.post.index');
+        $posts = Post::where('user_id',$user_id)->get();
+
+        return view('admin.post.index',['posts'=>$posts, 'user_id'=>$user_id]);
     }
+    
     public function add()
     {
         return view('admin.post.create');
