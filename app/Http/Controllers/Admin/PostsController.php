@@ -13,6 +13,7 @@ class PostsController extends Controller
 {
      public function index($user_id)
     {
+        $user_id = Auth::user()->id;
         $posts = Post::where('user_id',$user_id)->get();
 
         return view('admin.post.index',['posts'=>$posts, 'user_id'=>$user_id]);
@@ -35,26 +36,38 @@ class PostsController extends Controller
         unset($form['_token']);
         unset($form['image']);
         
-        $post->fill($form);
-        $post->save();
+        $post->fill($post_form)->save();
         
         return redirect('admin/post/create');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('admin.post.edit');
+        $post = Post::findOrFail($id);
+        
+        return view('admin.post.edit', ['post_form' => $post]);
     }
 
-    public function update()
+    public function update(Request $request)
     {
-        return redirect('admin/post/edit');
+        $user = Auth::user()->id;
+        $this->validate($request, Post::$rules);
+        $post = Post::find($request->id);
+        $post_form = $request->all();
+        $path = $request->file('image')->store('public/image');
+        $post->image = basename($path);
+        unset($post_form['image']);
+
+        unset($post_form['_token']);
+        $post->fill($post_form)->save();
+
+        return redirect('admin/post/index');
     }
     
     public function delete()
   {
 
-      return redirect('admin/post/index');
+      return redirect('admin/post/index',['user_id'=>$user]);
   }  
 
 
