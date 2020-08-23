@@ -38,7 +38,7 @@ class PostsController extends Controller
         
         $post->fill($form)->save();
         
-        return redirect('admin/posts/create');
+        return redirect('admin/posts');
     }
 
     public function edit($id)

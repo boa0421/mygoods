@@ -10,7 +10,6 @@
             <div class="col-md-4">
                 <!--<a href="{{ action('Admin\PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>-->
             </div>
-
         </div>
         <div class="row">
             <div class="list-news col-md-12 mx-auto">
