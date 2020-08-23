@@ -44,11 +44,11 @@ class User extends Authenticatable
     
         public function followings()
     {
-        return $this->hasMany('App\Reaction', 'user_id', 'id');
+        return $this->hasMany('App\UserFollow', 'user_id', 'id');
     }
 
     public function followers()
     {
-        return $this->hasMany('App\Reaction', 'following_user_id', 'id');
+        return $this->hasMany('App\UserFollow', 'following_user_id', 'id');
     }
 }
