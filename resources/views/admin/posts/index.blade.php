@@ -15,7 +15,7 @@
         <div class="row">
             <div class="list-news col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-dark">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
