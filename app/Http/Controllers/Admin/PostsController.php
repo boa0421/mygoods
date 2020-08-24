@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Item;
 use Auth;
 use Validator;
 use App\User;
@@ -73,10 +74,14 @@ class PostsController extends Controller
         return redirect('admin/posts');
     }
 
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $post = Post::findOrFail($id);
+        $post_id = $request->post_id;
+        $item = Item::where('post_id',$post_id)->get();
+        // $item->item_name = $request->item_name;
+        // $post->item_id = $request->item_id;
         
-        return view('admin/posts.show', ['post' => $post]);
+        return view('admin.posts.show', ['post' => $post, 'item_name' => $item]);
     }
 }

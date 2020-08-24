@@ -27,6 +27,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::post('posts/edit', 'Admin\PostsController@update');
      Route::get('posts/delete', 'Admin\PostsController@delete');
 });
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('items/{post_id}/create', 'Admin\ItemsController@add');
+     Route::post('items/create', 'Admin\ItemsController@create');
+     Route::get('items/{id}/show', 'Admin\ItemsController@show');
+     Route::get('items/{id}/delete', 'Admin\ItemsController@delete');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

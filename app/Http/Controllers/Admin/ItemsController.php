@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Item;
+use Auth;
+use App\Post;
+use Validator;
 
 class ItemsController extends Controller
 {
-    public function add()
+    public function add($post_id)
     {
-        return view('admin.items.create');
+        // dd($post_id);
+        return view('admin.items.create', ['post_id' => $post_id]);
     }
     
     public function create(Request $request)
@@ -17,14 +22,15 @@ class ItemsController extends Controller
         $this->validate($request, Item::$rules);
         $item = new Item;
         $form = $request->all();
-        $item->user_id = Auth::user()->id;
-        $path = $request->file('image')->store('public/image');
+        $item->post_id = $request->post_id;
+        // dd($request);
+        $path = $request->file('item_image')->store('public/image');
         $item->item_image = basename($path);
         
         unset($form['_token']);
         unset($form['image']);
         
-        $post->fill($form)->save();
+        $item->fill($form)->save();
         
         return redirect('admin/posts');
     }
@@ -41,10 +47,10 @@ class ItemsController extends Controller
         $this->validate($request, Item::$rules);
         $item = Item::find($request->id);
         $item_form = $request->all();
+        
         $path = $request->file('image')->store('public/image');
         $item->item_image = basename($path);
         unset($item_form['image']);
-
         unset($item_form['_token']);
         $item->fill($item_form)->save();
 
@@ -63,6 +69,6 @@ class ItemsController extends Controller
     {
         $item = Item::findOrFail($id);
         
-        return view('admin/items.show', ['item' => $item]);
+        return view('admin.items.show', ['item' => $item]);
     }
 }

@@ -19,7 +19,8 @@
                             <tr>
                                 <th width="10%">ID</th>
                                 <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
+                                <th width="30%">本文</th>
+                                <th width="20%">アイテム</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,12 +28,16 @@
                                 <th>{{ $post->id }}</th>
                                 <td>{{ \Str::limit($post->title, 100) }}</td>
                                 <td>{{ \Str::limit($post->content, 250) }}</td>
+                                <td>{{ \Str::limit($post->item_name, 100) }}</td>
                                 <td>
                                     <div>
                                         <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">編集</a>
                                     </div>
                                     <div>
                                         <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">削除</a>
+                                    </div>
+                                    <div>
+                                        <a href="{{ action('Admin\ItemsController@add', ['post_id' => $post->id]) }}">アイテム追加</a>
                                     </div>
                                 </td>
                             </tr>

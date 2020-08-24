@@ -26,7 +26,8 @@
                         <tbody>
                             @foreach($posts as $post)
                                 <tr>
-                                    <th>{{ $post->id }}</th>
+                                    <!--<th>{{ $post->id }}</th>-->
+                                    <th><a href="{{ action('Admin\PostsController@show', ['id' => $post->id]) }}">{{ $post->id }}</a></a></th>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td>{{ \Str::limit($post->content, 250) }}</td>
                                     <td>
