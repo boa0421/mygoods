@@ -35,11 +35,6 @@
                         <div class="card-content">
                             <h1 class="card-title">{{ \Str::limit($post->title, 100) }}</h1>
                             <p class="card-text">{{ \Str::limit($post->content, 250) }}</p>
-                            @foreach($post->items as $item)
-                                <div class="items">
-                                    <p class="card-text">{{ $item->item_name }}</p>
-                                </div>
-                            @endforeach
                         </div>
                         <div class="card-link">
                             <div>
@@ -51,6 +46,16 @@
                             <div>
                                 <a href="{{ action('Admin\ItemsController@add', ['post_id' => $post->id]) }}">アイテム追加</a>
                             </div>
+                        </div>
+                    </section>
+                    
+                    <section class="card-items">
+                        <div class="card-content">
+                            @foreach($post->items as $item)
+                                <div class="items">
+                                    <p class="card-text">{{ $item->item_name }}</p>
+                                </div>
+                            @endforeach
                         </div>
                     </section>
                 </div>
