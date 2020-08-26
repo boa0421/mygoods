@@ -29,7 +29,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-     Route::get('items/{post_id}/create', 'Admin\ItemsController@add');
+     Route::get('users/create', 'Admin\UsersController@add');
+     Route::post('users/{id}/create', 'Admin\UsersController@create');
+     Route::get('users', 'Admin\UsersController@index');
+     Route::get('users/{id}/show', 'Admin\UsersController@show');
+     Route::get('users/edit', 'Admin\UsersController@edit');
+     Route::post('users/edit', 'Admin\UsersController@update');
+     Route::get('users/delete', 'Admin\UsersController@delete');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('items/create', 'Admin\ItemsController@add');
      Route::post('items/create', 'Admin\ItemsController@create');
      Route::get('items/{id}/show', 'Admin\ItemsController@show');
      Route::get('items/{id}/delete', 'Admin\ItemsController@delete');

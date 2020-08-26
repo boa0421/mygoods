@@ -35,9 +35,9 @@
                         <div class="card-content">
                             <h1 class="card-title">{{ \Str::limit($post->title, 100) }}</h1>
                             <p class="card-text">{{ \Str::limit($post->content, 250) }}</p>
-                            @foreach($items as $post)
+                            @foreach($post->items as $item)
                                 <div class="items">
-                                    <p class="card-text">{{ $post->item_name }}</p>
+                                    <p class="card-text">{{ $item->item_name }}</p>
                                 </div>
                             @endforeach
                         </div>

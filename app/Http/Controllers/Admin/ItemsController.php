@@ -11,10 +11,11 @@ use Validator;
 
 class ItemsController extends Controller
 {
-    public function add($post_id)
+    public function add(Request $request)
     {
+        // dd($request->post_id);
         // dd($post_id);
-        return view('admin.items.create', ['post_id' => $post_id]);
+        return view('admin.items.create', ['post_id' => $request->post_id]);
     }
     
     public function create(Request $request)
@@ -30,7 +31,10 @@ class ItemsController extends Controller
         unset($form['_token']);
         unset($form['image']);
         
-        $item->fill($form)->save();
+        
+        $item->fill($form);
+        // dd($item);
+        $item->save();
         
         return redirect('admin/posts');
     }

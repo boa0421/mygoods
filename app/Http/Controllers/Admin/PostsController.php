@@ -58,10 +58,10 @@ class PostsController extends Controller
         $path = $request->file('image')->store('public/image');
         $post->image = basename($path);
         unset($post_form['image']);
-
+        
         unset($post_form['_token']);
         $post->fill($post_form)->save();
-
+        
         return redirect('admin/posts');
     }
     
@@ -74,14 +74,19 @@ class PostsController extends Controller
         return redirect('admin/posts');
     }
 
-    public function show(Request $request, $id)
+    public function show($id)
     {
         $post = Post::findOrFail($id);
-        $post_id = $request->post_id;
-        $item = Item::where('post_id',$post_id)->get();
+        // dd($post);
+        // $post_id = $request->post_id;
+        
+        // $items = Item::where('post_id',$id)->get();
+        // dd(Item::where('post_id',$post_id));
         // $item->item_name = $request->item_name;
         // $post->item_id = $request->item_id;
+        // dd($items);
+        // dd($post_id);
         
-        return view('admin.posts.show', ['post' => $post, 'item_name' => $item]);
+        return view('admin.posts.show', ['post' => $post]);
     }
 }
