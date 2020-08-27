@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.posts')
 @section('title', '登録済みPostの一覧')
 
 @section('content')
@@ -10,39 +10,30 @@
             <div class="col-md-4">
                 <a href="{{ action('Admin\PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
-
-        </div>
-        <div class="row">
-            <div class="list-news col-md-12 mx-auto">
-                <div class="row">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th width="10%">ID</th>
-                                <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($posts as $post)
-                                <tr>
-                                    <!--<th>{{ $post->id }}</th>-->
-                                    <th><a href="{{ action('Admin\PostsController@show', ['id' => $post->id]) }}">{{ $post->id }}</a></a></th>
-                                    <td>{{ \Str::limit($post->title, 100) }}</td>
-                                    <td>{{ \Str::limit($post->content, 250) }}</td>
-                                    <td>
-                                        <div>
-                                            <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">編集</a>
-                                        </div>
-                                        <div>
-                                            <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">削除</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+            <div class="main">
+                @foreach($posts as $post)
+                    <section class="card-main-index">
+                        <div class="image">
+                            <img class="card-img-index" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title-index">
+                            <a href="{{ action('Admin\PostsController@show', ['id' => $post->id]) }}">{{ \Str::limit($post->title, 100) }}</a>
+                            </div>
+                        </div>
+                        <div class="card-content-index">
+                            <p class="card-text-index">{{ \Str::limit($post->content, 250) }}</p>
+                        </div>
+                        <div class="card-link-index">
+                            <div class="card-link-edit-index">
+                                <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">編集</a>
+                            </div>
+                            <div class="card-link-delete-index">
+                                <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">削除</a>
+                            </div>
+                        </div>
+                    </section>
+                @endforeach
             </div>
         </div>
     </div>

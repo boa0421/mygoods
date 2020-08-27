@@ -79,7 +79,7 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         // dd($post);
         // $post_id = $request->post_id;
-        
+        // dd($post->image);
         // $items = Item::where('post_id',$id)->get();
         // dd(Item::where('post_id',$post_id));
         // $item->item_name = $request->item_name;

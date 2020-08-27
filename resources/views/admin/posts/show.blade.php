@@ -10,7 +10,7 @@
             <div class="main">
                 <section class="card-main">
                     <div class="image">
-                        <img class="card-img" src=="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
+                        <img class="card-img" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
                     </div>
                     <div class="card-content">
                         <!--<h1 class="card-title">画像</h1>-->
@@ -49,15 +49,26 @@
                         </div>
                     </section>
                     
-                    <section class="card-items">
-                        <div class="card-content">
-                            @foreach($post->items as $item)
-                                <div class="items">
-                                    <p class="card-text">{{ $item->item_name }}</p>
+                    @foreach($post->items as $item)
+                        <section class="card-items">
+                            <div class="image-item">
+                                <img class="card-img-item" src="{{ asset('storage/image/' . $item->item_image) }}" alt="アイテム画像">
+                            </div>
+                            <div class="card-content-items">
+                                <div class="card-title-items">
+                                    {{ \Str::limit($item->item_name, 100) }}
                                 </div>
-                            @endforeach
-                        </div>
-                    </section>
+                            </div>
+                            <div class="card-content-items">
+                                <p class="card-text-items">{{ \Str::limit($item->shop, 100) }}</p>
+                            </div>
+                            <div class="card-link-items">
+                                <div class="card-link-delete-items">
+                                    <a href="{{ action('Admin\ItemsController@delete', ['id' => $item->id]) }}">削除</a>
+                                </div>
+                            </div>
+                        </section>
+                    @endforeach
                 </div>
             </div>
         </div>

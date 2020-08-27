@@ -66,6 +66,63 @@
   margin-right: 30px;
 }
 
+.card-main-index {
+  width: 212px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 25px;
+}
+
+.card-img-index {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: 200px;
+}
+
+.card-content-index {
+  padding: 10px;
+}
+
+.card-title-index {
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #333;
+}
+
+.card-text-index {
+  color: #777;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.card-link-index {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 2px;
+}
+
+.card-link-index a {
+  text-decoration: none;
+  color: #0bd;
+  margin: 0 10px;
+}
+
+.card-link-index a:hover {
+  color: #0090aa;
+}
+
+.card-link-edit-index {
+  float: left;
+}
+
+.main {
+  margin-right: 30px;
+}
+
 #sidebar {
   width: 336px;
   float: right;
@@ -84,6 +141,28 @@
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
   margin-top: 30px;
+}
+
+.card-img-items {
+  border-radius: 5px 5px 0 0;
+  width: 100px;
+  height: 100px;
+}
+
+.card-content-items {
+  padding: 20px;
+}
+
+.card-title-items {
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #333;
+}
+
+.card-text-items {
+  color: #777;
+  font-size: 15px;
 }
 
 .clearfix:after {
