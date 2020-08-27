@@ -14,15 +14,17 @@ class PostsController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $user_id = Auth::user()->id;
         $posts = Post::where('user_id',$user_id)->get();
 
-        return view('admin.posts.index',['posts'=>$posts]);
+        return view('admin.posts.index',['posts'=>$posts,'user'=>$user]);
     }
     
     public function add()
     {
-        return view('admin.posts.create');
+        $user = Auth::user();
+        return view('admin.posts.create',['user'=>$user]);
     }
 
     public function create(Request $request)
@@ -44,9 +46,10 @@ class PostsController extends Controller
 
     public function edit($id)
     {
+        $user = Auth::user();
         $post = Post::findOrFail($id);
         
-        return view('admin.posts.edit', ['post_form' => $post]);
+        return view('admin.posts.edit', ['post_form' => $post,'user'=>$user]);
     }
 
     public function update(Request $request)
@@ -77,6 +80,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
+        $user = Auth::user();
         // dd($post);
         // $post_id = $request->post_id;
         // dd($post->image);
@@ -87,6 +91,6 @@ class PostsController extends Controller
         // dd($items);
         // dd($post_id);
         
-        return view('admin.posts.show', ['post' => $post]);
+        return view('admin.posts.show', ['post' => $post, 'user' => $user]);
     }
 }

@@ -53,4 +53,11 @@ class UsersController extends Controller
         $user->save();
         return redirect('admin/posts');
     }
+    
+    public function show()
+    {
+        $user = Auth::user();
+        
+        return view('admin.users.show', ['user' => $user]);
+    }
 }

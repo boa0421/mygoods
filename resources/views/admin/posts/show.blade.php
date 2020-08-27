@@ -2,6 +2,7 @@
 @section('title', '登録済みPostの詳細')
 
 @section('content')
+@include('admin/users/show')
     <div class="container">
         <div class="row">
             <h2>Post詳細</h2>
