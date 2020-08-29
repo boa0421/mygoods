@@ -9,6 +9,8 @@ use App\Item;
 use Auth;
 use Validator;
 use App\User;
+use App\Tag;
+use App\PostTag;
 
 class PostsController extends Controller
 {

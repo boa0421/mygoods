@@ -133,7 +133,9 @@
 }
 
 // アイテム
-
+.item_list {
+  margin-top: 30px;
+}
 .card-items {
   width: 370px;
   background: #fff;
@@ -144,8 +146,8 @@
 
 .card-img-items {
   border-radius: 5px 5px 0 0;
-  width: 100px;
-  height: 100px;
+  max-width: 100%;
+  height: auto;
 }
 .card-content-items {
   padding: 20px;
@@ -167,4 +169,7 @@
   display: block;
 }
 
-
+// タグ
+.tag_list {
+  margin-top: 30px;
+}

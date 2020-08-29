@@ -22,9 +22,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">店名</label>
+                        <label class="col-md-2">店名 URLを入力してください</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="shop" value="{{ old('shop') }}">
+                            <input type="url" class="form-control" name="shop" value="{{ old('shop') }}">
                         </div>
                     </div>
 

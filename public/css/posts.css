@@ -135,6 +135,10 @@
   box-shadow: 0 2px 5px #ccc;
 }
 
+.item_list {
+  margin-top: 30px;
+}
+
 .card-items {
   width: 370px;
   background: #fff;
@@ -145,8 +149,8 @@
 
 .card-img-items {
   border-radius: 5px 5px 0 0;
-  width: 100px;
-  height: 100px;
+  max-width: 100%;
+  height: auto;
 }
 
 .card-content-items {
@@ -169,5 +173,9 @@
   clear: both;
   content: "";
   display: block;
+}
+
+.tag_list {
+  margin-top: 30px;
 }
 

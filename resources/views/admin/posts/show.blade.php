@@ -47,13 +47,18 @@
                             <div>
                                 <a href="{{ action('Admin\ItemsController@add', ['post_id' => $post->id]) }}">アイテム追加</a>
                             </div>
+                            <div>
+                                <a href="{{ action('Admin\TagsController@add', ['post_id' => $post->id]) }}">タグ追加</a>
+                            </div>
                         </div>
                     </section>
-                    
+                    <div class="item_list">
+                        <h3>アイテムリスト</h3>
+                    </div>
                     @foreach($post->items as $item)
                         <section class="card-items">
-                            <div class="image-item">
-                                <img class="card-img-item" src="{{ asset('storage/image/' . $item->item_image) }}" alt="アイテム画像">
+                            <div class="image-items">
+                                <img class="card-img-items" src="{{ asset('storage/image/' . $item->item_image) }}" alt="アイテム画像">
                             </div>
                             <div class="card-content-items">
                                 <div class="card-title-items">
@@ -61,11 +66,28 @@
                                 </div>
                             </div>
                             <div class="card-content-items">
-                                <p class="card-text-items">{{ \Str::limit($item->shop, 100) }}</p>
+                                <a target="_blank" href="{{ $item->shop }}">ショップはこちら</a>
                             </div>
                             <div class="card-link-items">
                                 <div class="card-link-delete-items">
                                     <a href="{{ action('Admin\ItemsController@delete', ['id' => $item->id]) }}">削除</a>
+                                </div>
+                            </div>
+                        </section>
+                    @endforeach
+                    <div class="tag_list">
+                        <h3>タグ一覧</h3>
+                    </div>
+                    @foreach((array)$post->tags as $tag)
+                        <section class="card-tags">
+                            <div class="card-content-tags">
+                                <div class="card-title-tags">
+                                    {{ $tag->tag_name }}
+                                </div>
+                            </div>
+                            <div class="card-link-tags">
+                                <div class="card-link-delete-tags">
+                                    <a href="{{ action('Admin\TagsController@delete', ['id' => $tag->id]) }}">削除</a>
                                 </div>
                             </div>
                         </section>
