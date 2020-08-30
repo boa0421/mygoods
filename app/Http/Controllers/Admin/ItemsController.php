@@ -29,7 +29,7 @@ class ItemsController extends Controller
         $item->item_image = basename($path);
         
         unset($form['_token']);
-        unset($form['image']);
+        unset($form['item_image']);
         
         
         $item->fill($form);

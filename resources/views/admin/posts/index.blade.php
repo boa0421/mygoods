@@ -11,7 +11,7 @@
             <div class="col-md-4">
                 <a href="{{ action('Admin\PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
-            <div class="main">
+            <div class="main-index">
                 @foreach($posts as $post)
                     <section class="card-main-index">
                         <div class="image">

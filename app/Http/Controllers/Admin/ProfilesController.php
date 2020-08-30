@@ -14,33 +14,33 @@ class ProfilesController extends Controller
         return view('admin.profile.index');
     }
     
-     public function add($user_id)
-    {
-        $user_id = Auth::user()->id;
-        return view('admin.profile.create');
-    }
+    //  public function add($user_id)
+    // {
+    //     $user_id = Auth::user()->id;
+    //     return view('admin.profile.create');
+    // }
 
-    public function create(Request $request, $id)
-    {
-        $user_id = Auth::user()->id;
+    // public function create(Request $request, $id)
+    // {
+    //     $user_id = Auth::user()->id;
         
-        $form = $request->all();
+    //     $form = $request->all();
         
-        if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $user->profile_image = basename($path);
-      } else {
-          $user->profile_image = null;
-      }
+    //     if (isset($form['image'])) {
+    //     $path = $request->file('image')->store('public/image');
+    //     $user->profile_image = basename($path);
+    //   } else {
+    //       $user->profile_image = null;
+    //   }
       
-      unset($form['_token']);
-      unset($form['image']);
+    //   unset($form['_token']);
+    //   unset($form['image']);
       
-      $user->fill($form);
-      $user->save();
+    //   $user->fill($form);
+    //   $user->save();
         
-        return redirect('admin/posts');
-    }
+    //     return redirect('admin/posts');
+    // }
 
     public function edit()
     {
