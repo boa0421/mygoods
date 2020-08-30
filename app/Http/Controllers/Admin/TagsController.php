@@ -5,24 +5,37 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Auth;
+use App\Tag;
+use App\Post;
+use App\PostTag;
+use Validator;
+
 class TagsController extends Controller
 {
     public function add(Request $request)
     {
-        return view('admin.tags.create', ['post_id' => $request->post_id]);
+        $user = Auth::user();
+        return view('admin.tags.create', ['post_id' => $request->post_id, 'user' => $user]);
     }
     
     public function create(Request $request)
     {
-        $this->validate($request, Item::$rules);
-        $tag = new Tag;
-        $form = $request->all();
-        $tag->post_id = $request->post_id;
+        // $this->validate($request, Tag::$rules);
+        // $tag = new Tag;
+        // $form = $request->all();
+        // $post_id = Post::find($request->id);
+        // $tag->post_tags()->attach($post_id);
         
-        unset($form['_token']);
+        $post = Post::find($request->id);
+        $tag = new Tag();
+        $tag->fill($request->all());
+        $post->tags()->save($tag);
+                
+        // unset($form['_token']);
         
-        $tag->fill($form);
-        $tag->save();
+        // $tag->fill($form);
+        // $tag->save();
         
         return redirect('admin/posts');
     }
@@ -32,7 +45,7 @@ class TagsController extends Controller
         $tag = Tag::find($request->id);
         $tag->delete();
         
-        return redirect('admin/posts');
+        return redirect()->back();
     }
     
 }

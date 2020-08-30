@@ -45,6 +45,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('items/{id}/delete', 'Admin\ItemsController@delete');
 });
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('tags/create', 'Admin\TagsController@add');
+     Route::post('tags/create', 'Admin\TagsController@create');
+     Route::get('tags/{id}/delete', 'Admin\TagsController@delete');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

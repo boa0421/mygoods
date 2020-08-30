@@ -23,8 +23,8 @@ class Post extends Model
         return $this->hasMany('App\Item');
     }
     
-    public function tags()
+    public function post_tags()
     {
-        return $this->belongsToMany('App\Tag'); 
+        return $this->hasMany('App\PostTag');
     }
 }

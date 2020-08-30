@@ -6,8 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    public function posts()
+    protected $guarded = array('id');
+
+    public static $rules = array(
+        'tag_name' => 'required',
+    );
+    
+    public function post_tags()
     {
-        return $this->belongsToMany('App\Post'); 
+        return $this->hasMany('App\PostTag');
     }
+    
 }
