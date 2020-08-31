@@ -21,16 +21,15 @@ class TagsController extends Controller
     
     public function create(Request $request)
     {
-        // $this->validate($request, Tag::$rules);
+        $this->validate($request, Tag::$rules);
+        $post = Post::find($request->post_id);
+        $tag = new Tag();
+        $tag->fill($request->all())->save();
+        $post->tags()->attach($tags->id);
         // $tag = new Tag;
         // $form = $request->all();
         // $post_id = Post::find($request->id);
         // $tag->post_tags()->attach($post_id);
-        
-        $post = Post::find($request->id);
-        $tag = new Tag();
-        $tag->fill($request->all());
-        $post->tags()->save($tag);
                 
         // unset($form['_token']);
         

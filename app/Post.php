@@ -23,8 +23,8 @@ class Post extends Model
         return $this->hasMany('App\Item');
     }
     
-    public function post_tags()
+    public function tags()
     {
-        return $this->hasMany('App\PostTag');
+        return $this->belongsToMany('App\Tag', 'post_tag')->withTimestamps();
     }
 }

@@ -78,7 +78,7 @@
                     <div class="tag_list">
                         <h3>タグ一覧</h3>
                     </div>
-                    @foreach((array)$post->tags as $tag)
+                    @foreach($post->tags as $tag)
                         <section class="card-tags">
                             <div class="card-content-tags">
                                 <div class="card-title-tags">

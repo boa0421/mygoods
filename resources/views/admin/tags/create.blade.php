@@ -21,7 +21,7 @@
                             <input type="text" class="form-control" name="tag_name" value="{{ old('tag_name') }}">
                         </div>
                     </div>
-
+                    <input type="hidden" name="post_id" value="{{ $post_id }}">
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="登録">
                 </form>

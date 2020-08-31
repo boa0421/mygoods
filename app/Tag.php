@@ -12,9 +12,9 @@ class Tag extends Model
         'tag_name' => 'required',
     );
     
-    public function post_tags()
+    public function posts()
     {
-        return $this->hasMany('App\PostTag');
+        return $this->belongsToMany('App\Post', 'post_tag')->withTimestamps();
     }
     
 }
