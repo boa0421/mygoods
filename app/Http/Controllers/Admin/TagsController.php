@@ -23,9 +23,20 @@ class TagsController extends Controller
     {
         $this->validate($request, Tag::$rules);
         $post = Post::find($request->post_id);
-        $tag = new Tag();
-        $tag->fill($request->all())->save();
-        $post->tags()->attach($tag_id);
+        
+        $post_tag = new PostTag;
+        if ( Tag::where("tag_name", $request->tag_name)->exists() ){
+            $tag = Tag::where("tag_name", $request->tag_name)->first();
+        }else{
+            $tag = new Tag();
+            $tag->tag_name = $request->tag_name;
+            $tag->save();
+        }
+        $post->tags()->attach(
+                    ['post_id' => $post->id],
+                    ['tag_id' => $tag->id]
+            );
+
         // $tag = new Tag;
         // $form = $request->all();
         // $post_id = Post::find($request->id);
