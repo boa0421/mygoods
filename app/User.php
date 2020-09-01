@@ -44,13 +44,55 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
     
-        public function followings()
-    {
-        return $this->hasMany('App\UserFollow', 'user_id', 'id');
-    }
+    //     public function followings()
+    // {
+    //     return $this->hasMany('App\UserFollow', 'user_id', 'id');
+    // }
 
+    // public function followers()
+    // {
+    //     return $this->hasMany('App\UserFollow', 'following_user_id', 'id');
+    // }
+    
+    public function followings()
+    {
+        return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'following_user_id')->withTimestamps();
+    }
+    
     public function followers()
     {
-        return $this->hasMany('App\UserFollow', 'following_user_id', 'id');
+        return $this->belongsToMany(User::class, 'user_follow', 'following_user_id', 'user_id')->withTimestamps();
     }
+    
+     public function follow($userId)
+    {
+        $exist = $this->is_following($userId);
+        $its_me = $this->id == $userId;
+        
+        if ($exist || $its_me) {
+            return false;
+        } else {
+            $this->followings()->attach($userId);
+            return true;
+        }
+    }
+    
+    public function unfollow($userId)
+    {
+        $exist = $this->is_following($userId);
+        $its_me = $this->id == $userId;
+
+        if ($exist && !$its_me) {
+            $this->followings()->detach($userId);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function is_following($userId)
+    {
+        return $this->followings()->where('following_user_id', $userId)->exists();
+    }
+
 }

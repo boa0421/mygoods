@@ -25,7 +25,7 @@ class TagsController extends Controller
         $post = Post::find($request->post_id);
         $tag = new Tag();
         $tag->fill($request->all())->save();
-        $post->tags()->attach($tags->id);
+        $post->tags()->attach($tag_id);
         // $tag = new Tag;
         // $form = $request->all();
         // $post_id = Post::find($request->id);

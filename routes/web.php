@@ -17,6 +17,8 @@
 
 Route::get('/', 'PostsController@index');
 Route::get('posts/{id}/show', 'PostsController@show');
+Route::get('users/{id}/show', 'UsersController@show');
+Route::get('users/index', 'UsersController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('posts/create', 'Admin\PostsController@add');
@@ -52,5 +54,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 });
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () {
+     Route::group(['prefix' => 'users/{id}'], function () {
+        Route::match(['get', 'post'],'follow', 'Admin\UserFollowController@create');
+        Route::match(['get', 'post'],'unfollow', 'Admin\UserFollowController@delete');
+    });
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
