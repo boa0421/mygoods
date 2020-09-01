@@ -24,7 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('posts/create', 'Admin\PostsController@add');
      Route::post('posts/create', 'Admin\PostsController@create');
      Route::get('posts', 'Admin\PostsController@index');
-     Route::get('posts/{id}/show', 'Admin\PostsController@show');
+     Route::get('posts/{id}/show', 'Admin\PostsController@show')->name('admin.posts.show');
      Route::get('posts/{id}/edit', 'Admin\PostsController@edit');
      Route::post('posts/edit', 'Admin\PostsController@update');
      Route::get('posts/delete', 'Admin\PostsController@delete');
@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('users/create', 'Admin\UsersController@add');
      Route::post('users/{id}/create', 'Admin\UsersController@create');
      Route::get('users', 'Admin\UsersController@index');
-     Route::get('users/{id}/show', 'Admin\UsersController@show');
+     Route::get('users/{id}/show', 'Admin\UsersController@show')->name('admin.user.show');
      Route::get('users/edit', 'Admin\UsersController@edit');
      Route::post('users/edit', 'Admin\UsersController@update');
      Route::get('users/delete', 'Admin\UsersController@delete');
@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('tags/create', 'Admin\TagsController@add');
      Route::post('tags/create', 'Admin\TagsController@create');
-     Route::get('tags/{id}/delete', 'Admin\TagsController@delete');
+     Route::get('tags/delete', 'Admin\TagsController@delete');
 });
 
 Auth::routes();

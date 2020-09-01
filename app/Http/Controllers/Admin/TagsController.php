@@ -47,7 +47,8 @@ class TagsController extends Controller
         // $tag->fill($form);
         // $tag->save();
         
-        return redirect('admin/posts');
+        // return redirect('admin/posts/show', ['id' => $post]);
+        return back();
     }
     
     public function delete(Request $request)
@@ -55,7 +56,7 @@ class TagsController extends Controller
         $tag = Tag::find($request->id);
         $tag->delete();
         
-        return redirect()->back();
+        return redirect('admin/posts');
     }
     
 }
