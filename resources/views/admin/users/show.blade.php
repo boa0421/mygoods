@@ -14,7 +14,9 @@
         <div class="col-md-8">
             <div class="row">
                 <h1>{{ $user->name }}</h1>
-                <a class="btn btn-outline-dark common-btn edit-profile-btn" href="/users/edit">プロフィールを編集</a>
+                <div>
+                    <a class="btn btn-outline-dark common-btn edit-profile-btn" href="{{ action('Admin\ProfilesController@create', ['id' => $user->id]) }}">プロフィールを編集</a>
+                </div>
             </div>
             <div class="row">
                 <p>

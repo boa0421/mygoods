@@ -11,46 +11,46 @@ class ProfilesController extends Controller
 {
      public function index()
     {
-        return view('admin.profile.index');
+        return view('admin.profiles.index');
     }
     
-    //  public function add($user_id)
-    // {
-    //     $user_id = Auth::user()->id;
-    //     return view('admin.profile.create');
-    // }
+     public function add()
+    {
+        $user = Auth::user();
+        return view('admin.profiles.create', ['user'=>$user]);
+    }
 
-    // public function create(Request $request, $id)
-    // {
-    //     $user_id = Auth::user()->id;
+    public function create(Request $request)
+    {
+        $user = Auth::user();
         
-    //     $form = $request->all();
+        $form = $request->all();
         
-    //     if (isset($form['image'])) {
-    //     $path = $request->file('image')->store('public/image');
-    //     $user->profile_image = basename($path);
-    //   } else {
-    //       $user->profile_image = null;
-    //   }
+        if (isset($form['image'])) {
+        $path = $request->file('profile_image')->store('public/image');
+        $user->profile_image = basename($path);
+      } else {
+          $user->profile_image = null;
+      }
       
-    //   unset($form['_token']);
-    //   unset($form['image']);
+      unset($form['_token']);
+      unset($form['profile_image']);
       
-    //   $user->fill($form);
-    //   $user->save();
+      $user->fill($form);
+      $user->save();
         
-    //     return redirect('admin/posts');
-    // }
+        return redirect('admin/posts');
+    }
 
     public function edit()
     {
-        $user_id = Auth::user()->id;
+        $user = Auth::user();
         
-        return view('admin.profile.edit');
+        return view('admin.profiles.edit');
     }
 
     public function update()
     {
-        return redirect('admin/profile/edit');
+        return redirect('admin/profiles/edit');
     }
 }

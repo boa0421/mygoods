@@ -53,6 +53,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('tags/delete', 'Admin\TagsController@delete');
 });
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('profiles/create', 'Admin\ProfilesController@add');
+     Route::post('profiles/create', 'Admin\ProfilesController@create');
+     Route::get('psrofiles/delete', 'Admin\ProfilesController@delete');
+});
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
