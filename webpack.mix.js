@@ -16,4 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/admin.scss', 'public/css')
     .sass('resources/sass/posts.scss', 'public/css')
     .sass('resources/sass/users.scss', 'public/css')
+    .sass('resources/sass/navbar.scss', 'public/css')
     .sass('resources/sass/front.scss', 'public/css');

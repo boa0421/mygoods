@@ -3,6 +3,7 @@
 
 @section('content')
 @include('admin/users/show')
+@include('navbar')
     <div class="container">
         <div class="row">
             <h2>Post詳細</h2>

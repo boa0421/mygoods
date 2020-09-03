@@ -20,6 +20,7 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/posts.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/users.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/navbar.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
