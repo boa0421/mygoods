@@ -4,24 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+use DB;
 
 class PostsController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::all()->sortByDesc('updated_at');
-        if (count($posts) > 0) {
-            $headline = $posts->shift();
-        } else {
-            $headline = null;
-        }
+        $posts = Post::all();
         
-        return view('posts.index', ['headline' => $headline, 'posts' => $posts]);
+        return view('posts.index',['posts'=>$posts]);
     }
 
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $post = Post::findOrFail($id);
+        // $user = User::find($request->id);
         
         return view('posts.show', ['post' => $post]);
     }
