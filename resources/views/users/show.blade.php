@@ -27,17 +27,9 @@
                 </p>
             </div>
             <div>
-                @if (Auth::id() != $user->id)
-                    @if (Auth::user()->is_following($user->id))
-                        <div>
-                            <a href="{{ action('Admin\UserFollowController@delete', ['id' => $user->id]) }}">アンフォロー</a>
-                        </div>
-                    @else
-                        <div>
-                            <a href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
-                        </div>
-                    @endif
-                @endif
+                <div>
+                    <a href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+                </div>
             </div>
         </div>
     </div>
