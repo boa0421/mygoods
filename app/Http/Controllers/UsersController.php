@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\UserFollow;
 
 class UsersController extends Controller
 {
@@ -25,10 +24,7 @@ class UsersController extends Controller
     public function followings($id)
     {
         $user = User::findOrFail($id);
-        
-        $user->loadRelationshipCounts();
-        
-        $followings = $user->followings()->paginate(10);
+        $followings = $user->followings();
         
         return view('users.followings', ['user' => $user,'users' => $followings,]);
     }
@@ -36,10 +32,7 @@ class UsersController extends Controller
     public function followers($id)
     {
         $user = User::findOrFail($id);
-        
-        $user->loadRelationshipCounts();
-        
-        $followers = $user->followers()->paginate(10);
+        $followers = $user->followers();
         
         return view('users.followers', ['user' => $user, 'users' => $followers,]);
     }

@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('users/edit', 'Admin\UsersController@edit');
      Route::post('users/edit', 'Admin\UsersController@update');
      Route::get('users/delete', 'Admin\UsersController@delete');
+     Route::get('users/{id}/followings', 'Admin\UsersController@followings')->name('admin.users.followings');
+     Route::get('users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
