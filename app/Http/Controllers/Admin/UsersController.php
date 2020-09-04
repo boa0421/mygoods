@@ -61,12 +61,17 @@ class UsersController extends Controller
         return view('admin.users.show', ['user' => $user]);
     }
     
-        public function followings($id)
+    public function followings($id)
     {
         $user = User::find($id);
         $followings = $user->followings();
+        // $user->followings()->attach(
+        //             ['user_id' => $user->id],
+        //             ['following_user_id' => $followings->following_user_id]
+        //     );
+        var_dump($followings->count());
         
-        return view('admin.users.followings', ['user' => $user,'followings' => $followings]);
+        return view('admin.users.followings', ['user' => $user]);
     }
 
     public function followers($id)

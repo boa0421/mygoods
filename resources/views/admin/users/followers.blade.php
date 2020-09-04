@@ -12,26 +12,26 @@
         <div class="row">
             <div class="main-index">
                 @if(isset($followsers))
-                @foreach($followers as $follower)
-                    <section class="card-main-index">
-                        @if (isset($follower->profile_image))
-                            <div class="image">
-                                <img class="card-img-index" src="{{ asset('storage/image/' . $follower->profile_image) }}" alt="プロフィール 画像">
+                    @foreach($followers as $follower)
+                        <section class="card-main-index">
+                            @if (isset($follower->profile_image))
+                                <div class="image">
+                                    <img class="card-img-index" src="{{ asset('storage/image/' . $follower->profile_image) }}" alt="プロフィール 画像">
+                                </div>
+                            @endif
+                            <div class="card-content">
+                                <div class="card-title-index">
+                                    <a href="{{ action('UsersController@show', ['id' => $follower->id]) }}">{{ \Str::limit($follower->name, 100) }}</a>
+                                </div>
                             </div>
-                        @endif
-                        <div class="card-content">
-                            <div class="card-title-index">
-                            <a href="{{ action('UsersController@show', ['id' => $follower->id]) }}">{{ \Str::limit($follower->name, 100) }}</a>
+                            <div class="card-content-index">
+                                <p class="card-text-index">{{ \Str::limit($follower->profile, 250) }}</p>
                             </div>
-                        </div>
-                        <div class="card-content-index">
-                            <p class="card-text-index">{{ \Str::limit($follower->profile, 250) }}</p>
-                        </div>
-                        <!--<div class="card-link-index">-->
-
-                        <!--</div>-->
-                    </section>
-                @endforeach
+                            <!--<div class="card-link-index">-->
+    
+                            <!--</div>-->
+                        </section>
+                    @endforeach
                 @endif
             </div>
         </div>

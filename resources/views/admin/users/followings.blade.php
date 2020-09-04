@@ -11,27 +11,31 @@
         </div>
         <div class="row">
             <div class="main-index">
-                @if(isset($users))
-                @foreach($followings as $following)
-                    <section class="card-main-index">
-                        @if (isset($following->profile_image))
-                            <div class="image">
-                                <img class="card-img-index" src="{{ asset('storage/image/' . $following->profile_image) }}" alt="プロフィール 画像">
+                @if(isset($user))
+                    @foreach($user->followings as $following)
+                        <section class="card-main-index">
+                            @if (isset($following->profile_image))
+                                <div class="image">
+                                    <img class="card-img-index" src="{{ asset('storage/image/' . $following->profile_image) }}" alt="プロフィール 画像">
+                                </div>
+                            @endif
+                            @if(isset($following->following_user_id))
+                            <div class="card-content">
+                                <div class="card-title-index">
+                                    <a href="{{ action('UsersController@show', ['id' => $following->following_user_id]) }}">{{ \Str::limit($following->name, 100) }}</a>
+                                </div>
                             </div>
-                        @endif
-                        <div class="card-content">
-                            <div class="card-title-index">
-                            <a href="{{ action('UsersController@show', ['id' => $following->id]) }}">{{ \Str::limit($following->name, 100) }}</a>
+                            @endif
+                            @if(isset($following->profile))
+                            <div class="card-content-index">
+                                <p class="card-text-index">{{ \Str::limit($following->profile, 250) }}</p>
                             </div>
-                        </div>
-                        <div class="card-content-index">
-                            <p class="card-text-index">{{ \Str::limit($following->profile, 250) }}</p>
-                        </div>
-                        <!--<div class="card-link-index">-->
-
-                        <!--</div>-->
-                    </section>
-                @endforeach
+                            @endif
+                            <!--<div class="card-link-index">-->
+    
+                            <!--</div>-->
+                        </section>
+                    @endforeach
                 @endif
             </div>
         </div>
