@@ -64,12 +64,7 @@ class UsersController extends Controller
     public function followings($id)
     {
         $user = User::find($id);
-        $followings = $user->followings();
-        // $user->followings()->attach(
-        //             ['user_id' => $user->id],
-        //             ['following_user_id' => $followings->following_user_id]
-        //     );
-        var_dump($followings->count());
+        // $followings = $user->followings();
         
         return view('admin.users.followings', ['user' => $user]);
     }
@@ -77,8 +72,8 @@ class UsersController extends Controller
     public function followers($id)
     {
         $user = User::find($id);
-        $followers = $user->followers();
+        // $followers = $user->followers();
         
-        return view('admin.users.followers', ['user' => $user, 'followers' => $followers]);
+        return view('admin.users.followers', ['user' => $user]);
     }
 }
