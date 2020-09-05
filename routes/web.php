@@ -70,5 +70,9 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('posts/{post_id}/likes', 'Admin\LikesController@create');
+     Route::get('likes/{like_id}', 'Admin\LikesController@destroy');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
