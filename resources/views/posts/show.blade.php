@@ -17,7 +17,17 @@
                     <!--</div>-->
                     <div class="card-link">
                         <div>
-                            <h3>いいねボタン</h3>
+                            <div class="like-show">
+                                <div class="row parts">
+                                    <div id="like-icon-post-{{ $post->id }}">
+                                        @if ($post->likedBy(Auth::user())->count() > 0)
+                                            <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/admin/likes/{{ $post->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
+                                        @else
+                                            <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/admin/posts/{{ $post->id }}/likes">いいね</a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <h3>フォローボタン</h3>

@@ -12,7 +12,7 @@ use Validator;
 
 class LikesController extends Controller
 {
-    public function create(Request $request)
+    public function create(Request $request, $id)
     {
         $like = new Like;
         $like->post_id = $request->post_id;
@@ -22,7 +22,7 @@ class LikesController extends Controller
         return redirect('admin/posts');
     }
     
-    public function delete(Request $request)
+    public function delete(Request $request, $id)
     {
         $like = Like::find($request->like_id);
         $like->delete();
