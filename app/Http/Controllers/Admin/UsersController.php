@@ -57,7 +57,6 @@ class UsersController extends Controller
     public function show()
     {
         $user = Auth::user();
-        
         return view('admin.users.show', ['user' => $user]);
     }
     

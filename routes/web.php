@@ -16,7 +16,7 @@
 // });
 
 Route::get('/', 'PostsController@index');
-Route::get('posts/{id}/show', 'PostsController@show');
+Route::get('posts/{id}/show', 'PostsController@show')->name('posts.show');
 Route::get('users/{id}/show', 'UsersController@show');
 Route::get('users/index', 'UsersController@index');
 
@@ -70,9 +70,16 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-     Route::get('posts/{post_id}/likes', 'Admin\LikesController@create');
-     Route::get('likes/{like_id}', 'Admin\LikesController@delete');
+// Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+//      Route::get('posts/{post_id}/likes', 'Admin\LikesController@create');
+//      Route::get('likes/{like_id}', 'Admin\LikesController@delete');
+// });
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::group(['prefix'=>'posts/{id}'],function(){
+       Route::post('like','LikesController@create')->name('likes.like');
+       Route::delete('unlike','LikesController@delete')->name('likes.unflike');
+    });
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

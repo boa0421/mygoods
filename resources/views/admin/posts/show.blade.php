@@ -15,15 +15,17 @@
                         <img class="card-img" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
                     </div>
                     <div class="card-content">
-                        <!--<h1 class="card-title">画像</h1>-->
+                        <div id="like-icon-post-{{ $post->id }}">
+                            @if (Auth::user() != $post->user_id)
+                                @if ($post->likedBy(Auth::user())->count() > 0)
+                                    <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/admin/likes/{{ $post->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
+                                @else
+                                    <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/admin/posts/{{ $post->id }}/likes">いいね</a>
+                                @endif
+                            @endif
+                        </div>
                     </div>
                     <div class="card-link">
-                        <div>
-                            <h3>いいねボタン</h3>
-                        </div>
-                        <div>
-                            <h3>フォローボタン</h3>
-                        </div>
                         <div>
                             <h3>コメント蘭</h3>
                         </div>

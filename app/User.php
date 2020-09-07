@@ -44,11 +44,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
     
-    public function likes()
-    {
-        return $this->hasMany('App\Like');
-    }
-    
     public function followings()
     {
         return $this->belongsToMany('App\User', 'user_follow', 'user_id', 'following_user_id')->withTimestamps();
@@ -58,6 +53,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\User', 'user_follow', 'following_user_id', 'user_id')->withTimestamps();
     }
+    
+    public function likes()
+    {
+        return $this->belongsToMany('Like\class', 'likes', 'user_id', 'post_id')->withTimestamps();
+    }
+
     
      public function follow($userId)
     {
@@ -88,6 +89,36 @@ class User extends Authenticatable
     public function is_following($userId)
     {
         return $this->followings()->where('following_user_id', $userId)->exists();
+    }
+    
+    
+    public function like($postId)
+    {
+        $exist = $this->is_like($postId);
+        
+        if($exist){
+            return false;
+        }else{
+            $this->likes()->attach($postId);
+            return true;
+        }
+    }
+
+    public function unlike($postId)
+    {
+        $exist = $this->is_like($postId);
+        
+        if($exist){
+            $this->likes()->detach($postId);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function is_like($postId)
+    {
+        return $this->likes()->where('post_id',$postId)->exists();
     }
 
 }

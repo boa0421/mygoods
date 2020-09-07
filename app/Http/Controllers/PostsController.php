@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
-use DB;
 
 class PostsController extends Controller
 {
@@ -19,9 +18,9 @@ class PostsController extends Controller
     public function show(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        // $user = User::find($request->id);
+        $user = User::find($request->id);
         
-        return view('posts.show', ['post' => $post]);
+        return view('posts.show', ['post' => $post, 'user' => $user]);
     }
 
 }

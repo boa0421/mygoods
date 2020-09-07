@@ -14,20 +14,14 @@ class LikesController extends Controller
 {
     public function create(Request $request, $id)
     {
-        $like = new Like;
-        $like->post_id = $request->post_id;
-        $like->user_id = Auth::user()->id;
-        $like->save();
-        
-        return redirect('admin/posts');
+        \Auth::user()->like($id);
+        return back();
     }
-    
-    public function delete(Request $request, $id)
+
+    public function delete($id)
     {
-        $like = Like::find($request->like_id);
-        $like->delete();
-        
-        return redirect('admin/posts');
+        \Auth::user()->unlike($id);
+        return back();
     }
 
 }

@@ -19,13 +19,13 @@
                         <div>
                             <div class="like-show">
                                 <div class="row parts">
-                                    <div id="like-icon-post-{{ $post->id }}">
-                                        @if ($post->likedBy(Auth::user())->count() > 0)
-                                            <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/admin/likes/{{ $post->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
-                                        @else
-                                            <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/admin/posts/{{ $post->id }}/likes">いいね</a>
+                                    @if (Auth::id() != $post->user_id)
+                                        @if (Auth::user()->is_like($post->id))
+                                            <a href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}">いいね取り消す</a></a>
+                                                @else
+                                            <a href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}">いいね</a>
                                         @endif
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -37,6 +37,7 @@
                         </div>
                     </div>
                 </section>
+                
             </div>
             
             <div id="sidebar">

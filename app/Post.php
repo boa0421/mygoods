@@ -28,13 +28,9 @@ class Post extends Model
         return $this->belongsToMany('App\Tag', 'post_tag', 'post_id', 'tag_id')->withTimestamps();
     }
     
-    public function likes()
+    public function like_users()
     {
-        return $this->hasMany('App\Like');
+        return $this->belongsToMany('User\class','likes','post_id','user_id')->withTimestamps();
     }
-    
-    Public function likedBy($user)
-    {
-        return Like::where('user_id', $user->id)->where('post_id', $this->id);
-    }
+
 }
