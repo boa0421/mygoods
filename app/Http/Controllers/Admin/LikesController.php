@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Like;
 use App\Post;
 use Auth;
-use Validator;
+use User;
 
 class LikesController extends Controller
 {

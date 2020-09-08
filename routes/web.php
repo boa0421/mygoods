@@ -77,8 +77,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix'=>'posts/{id}'],function(){
-       Route::post('like','LikesController@create')->name('likes.like');
-       Route::delete('unlike','LikesController@delete')->name('likes.unflike');
+       Route::match(['get', 'post'],'like','Admin\LikesController@create')->name('likes.like');
+       Route::match(['get', 'post'],'unlike','Admin\LikesController@delete')->name('likes.unlike');
     });
 });
 

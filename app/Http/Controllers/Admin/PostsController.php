@@ -79,10 +79,11 @@ class PostsController extends Controller
         return redirect('admin/posts');
     }
 
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $post = Post::findOrFail($id);
         $user = Auth::user();
+        // $user = User::find($request->id);
         // dd($post);
         // $post_id = $request->post_id;
         // dd($post->image);

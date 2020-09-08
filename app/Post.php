@@ -30,7 +30,7 @@ class Post extends Model
     
     public function like_users()
     {
-        return $this->belongsToMany('User\class','likes','post_id','user_id')->withTimestamps();
+        return $this->belongsToMany('App\User','likes','post_id','user_id')->withTimestamps();
     }
 
 }

@@ -22,7 +22,7 @@
                                     @if (Auth::id() != $post->user_id)
                                         @if (Auth::user()->is_like($post->id))
                                             <a href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}">いいね取り消す</a></a>
-                                                @else
+                                        @else
                                             <a href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}">いいね</a>
                                         @endif
                                     @endif

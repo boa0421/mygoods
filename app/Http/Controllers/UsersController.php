@@ -31,7 +31,7 @@ class UsersController extends Controller
 
     public function followers($id)
     {
-        $user = User::findOrFail($id);
+        $user = $request->user();
         $followers = $user->followers();
         
         return view('users.followers', ['user' => $user, 'users' => $followers,]);
