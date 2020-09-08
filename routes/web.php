@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('users/delete', 'Admin\UsersController@delete');
      Route::get('users/{id}/followings', 'Admin\UsersController@followings')->name('admin.users.followings');
      Route::get('users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
+     Route::get('users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {

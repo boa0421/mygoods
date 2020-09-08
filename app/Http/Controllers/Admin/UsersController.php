@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use App\Post;
 
 class UsersController extends Controller
 {
@@ -74,5 +75,14 @@ class UsersController extends Controller
         // $followers = $user->followers();
         
         return view('admin.users.followers', ['user' => $user]);
+    }
+    
+    public function likes(Request $request, $id)
+    {
+        $user = User::find($id);
+        $post = $request->post();
+        // dd($post);
+        
+        return view('admin.users.likes', ['user' => $user, 'post' => $post]);
     }
 }
