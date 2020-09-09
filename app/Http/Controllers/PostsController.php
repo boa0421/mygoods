@@ -18,7 +18,7 @@ class PostsController extends Controller
     public function show(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        $user = User::find($request->id);
+        $user = User::find($post->user_id);
         
         return view('posts.show', ['post' => $post, 'user' => $user]);
     }

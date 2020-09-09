@@ -14,12 +14,12 @@ use App\PostTag;
 
 class PostsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $user = Auth::user();
-        $user_id = Auth::user()->id;
+        $user = User::find($request->user_id);
+        $user_id = $user->id;
         $posts = Post::where('user_id',$user_id)->get();
-
+        
         return view('admin.posts.index',['posts'=>$posts,'user'=>$user]);
     }
     

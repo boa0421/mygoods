@@ -2,6 +2,8 @@
 @section('title', '登録済みPostの詳細')
 
 @section('content')
+@include('users/show')
+@include('navbar')
 
     <div class="container">
         <div class="row">
@@ -31,9 +33,9 @@
                         </div>
                         <div>
                             <div id="comment-post-{{ $post->id }}">
-                                @include('posts.comment_list')
+                            @include('posts.comment_list')
                             </div>
-                            <a class="light-color post-time no-text-decoration" href="/posts/{{ $post->id }}">{{ $post->created_at }}</a>
+                            <a class="light-color post-time no-text-decoration" href="# {{ $post->id }}">{{ $post->created_at }}</a>
                             <hr>
                             
                             <div class="row actions" id="comment-form-post-{{ $post->id }}">
@@ -59,9 +61,22 @@
                             <h1 class="card-title">{{ \Str::limit($post->title, 100) }}</h1>
                             <p class="card-text">{{ \Str::limit($post->content, 250) }}</p>
                         </div>
-                        <!--<div class="card-link">-->
-
-                        <!--</div>-->
+                        @if (Auth::id() == $user->id)
+                            <div class="card-link">
+                                <div>
+                                    <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">編集</a>
+                                </div>
+                                <div>
+                                    <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">削除</a>
+                                </div>
+                                <div>
+                                    <a href="{{ action('Admin\ItemsController@add', ['post_id' => $post->id]) }}">アイテム追加</a>
+                                </div>
+                                <div>
+                                    <a href="{{ action('Admin\TagsController@add', ['post_id' => $post->id]) }}">タグ追加</a>
+                                </div>
+                            </div>
+                        @endif
                     </section>
                     <div class="item_list">
                         <h3>アイテムリスト</h3>
@@ -79,9 +94,13 @@
                             <div class="card-content-items">
                                 <a target="_blank" href="{{ $item->shop }}">ショップはこちら</a>
                             </div>
-                            <!--<div class="card-link-items">-->
-
-                            <!--</div>-->
+                            @if (Auth::id() == $user->id)
+                                <div class="card-link-items">
+                                    <div class="card-link-delete-items">
+                                        <a href="{{ action('Admin\ItemsController@delete', ['id' => $item->id]) }}">削除</a>
+                                    </div>
+                                </div>
+                            @endif
                         </section>
                     @endforeach
                     <div class="tag_list">
@@ -94,9 +113,13 @@
                                     {{ $tag->tag_name }}
                                 </div>
                             </div>
-                            <!--<div class="card-link-tags">-->
-
-                            <!--</div>-->
+                            @if (Auth::id() == $user->id)
+                                <div class="card-link-tags">
+                                    <div class="card-link-delete-tags">
+                                        <a href="{{ action('Admin\TagsController@delete', ['id' => $tag->id]) }}">削除</a>
+                                    </div>
+                                </div>
+                            @endif
                         </section>
                     @endforeach
                 </div>

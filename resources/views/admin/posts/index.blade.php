@@ -2,7 +2,7 @@
 @section('title', '登録済みPostの一覧')
 
 @section('content')
-@include('admin/users/show')
+@include('users/show')
 @include('navbar')
 
     <div class="container">
@@ -10,9 +10,11 @@
             <h2>Post一覧</h2>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <a href="{{ action('Admin\PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
-            </div>
+            @if (Auth::id() == $user->id)
+                <div class="col-md-4">
+                    <a href="{{ action('Admin\PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+                </div>
+            @endif
             @if (isset($posts))
                 <div class="main-index">
                     @foreach($posts as $post)

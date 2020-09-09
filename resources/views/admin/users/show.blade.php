@@ -5,7 +5,7 @@
     <div class="profile-wrap">
         <div class="row">
             <div class="col-md-4 text-center">
-                @if ($user->profile_image)
+                @if (isset($user->profile_image))
                     <p>
                         <img class="round-img" src="{{ asset('storage/images/' . $user->profile_image) }}"/>
                     </p>

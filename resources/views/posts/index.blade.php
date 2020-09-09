@@ -22,12 +22,14 @@
                         <div class="card-content-index">
                             <p class="card-text-index">{{ \Str::limit($post->content, 250) }}</p>
                         </div>
-                        <!--<div class="card-link-index">-->
+                        <div class="card-link-index">
 
-                        <!--</div>-->
+                        </div>
                     </section>
                 @endforeach
             </div>
         </div>
     </div>
 @endsection
+
+

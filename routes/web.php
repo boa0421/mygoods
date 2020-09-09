@@ -21,6 +21,8 @@ Route::get('users/{id}/show', 'UsersController@show');
 Route::get('users/index', 'UsersController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     
+     // ポスト
      Route::get('posts/create', 'Admin\PostsController@add');
      Route::post('posts/create', 'Admin\PostsController@create');
      Route::get('posts', 'Admin\PostsController@index');
@@ -28,9 +30,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('posts/{id}/edit', 'Admin\PostsController@edit');
      Route::post('posts/edit', 'Admin\PostsController@update');
      Route::get('posts/delete', 'Admin\PostsController@delete');
-});
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     
+     // ユーザー
      Route::get('users/create', 'Admin\UsersController@add');
      Route::post('users/{id}/create', 'Admin\UsersController@create');
      Route::get('users', 'Admin\UsersController@index');
@@ -41,24 +42,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('users/{id}/followings', 'Admin\UsersController@followings')->name('admin.users.followings');
      Route::get('users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
      Route::get('users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
+     
+     // コメント
      Route::post('comments/{id}','Admin\CommentsController@create');
      Route::get('comments/{id}', 'Admin\CommentsController@delete');
-});
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     
+     // アイテム
      Route::get('items/create', 'Admin\ItemsController@add');
      Route::post('items/create', 'Admin\ItemsController@create');
      Route::get('items/{id}/show', 'Admin\ItemsController@show');
      Route::get('items/{id}/delete', 'Admin\ItemsController@delete');
-});
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     
+     // タグ
      Route::get('tags/create', 'Admin\TagsController@add');
      Route::post('tags/create', 'Admin\TagsController@create');
      Route::get('tags/delete', 'Admin\TagsController@delete');
-});
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     
+     // プロフィール
      Route::get('profiles/create', 'Admin\ProfilesController@add');
      Route::post('profiles/create', 'Admin\ProfilesController@create');
      Route::get('psrofiles/delete', 'Admin\ProfilesController@delete');
@@ -72,11 +72,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::match(['get', 'post'],'unfollow', 'Admin\UserFollowController@delete');
     });
 });
-
-// Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-//      Route::get('posts/{post_id}/likes', 'Admin\LikesController@create');
-//      Route::get('likes/{like_id}', 'Admin\LikesController@delete');
-// });
 
 Route::group(['middleware'=>'auth'],function(){
     Route::group(['prefix'=>'posts/{id}'],function(){

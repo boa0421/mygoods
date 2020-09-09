@@ -1,6 +1,3 @@
-@extends('layouts.front')
-
-@section('content')
 <div class="container">
     <div class="row">
         <h2>User詳細</h2>
@@ -8,7 +5,7 @@
     <div class="profile-wrap">
         <div class="row">
             <div class="col-md-4 text-center">
-                @if ($user->profile_image)
+                @if (isset($user->profile_image))
                     <p>
                         <img class="round-img" src="{{ asset('storage/images/' . $user->profile_image) }}"/>
                     </p>
@@ -18,6 +15,11 @@
             <div class="row">
                 <h1>{{ $user->name }}</h1>
             </div>
+            @if (Auth::id() == $user->id)
+                <div>
+                    <a class="btn btn-outline-dark common-btn edit-profile-btn" href="{{ action('Admin\ProfilesController@create', ['id' => $user->id]) }}">プロフィールを編集</a>
+                </div>
+            @endif
             <div class="row">
                 <p>
                     {{ $user->profile }}
@@ -38,4 +40,3 @@
         </div>
     </div>
 </div>
-@endsection
