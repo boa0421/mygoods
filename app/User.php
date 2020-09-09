@@ -120,5 +120,10 @@ class User extends Authenticatable
     {
         return $this->likes()->where('post_id',$postId)->exists();
     }
+    
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 
 }

@@ -32,5 +32,10 @@ class Post extends Model
     {
         return $this->belongsToMany('App\User','likes','post_id','user_id')->withTimestamps();
     }
+    
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 
 }
