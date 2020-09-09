@@ -30,10 +30,22 @@
                             </div>
                         </div>
                         <div>
-                            <h3>フォローボタン</h3>
-                        </div>
-                        <div>
-                            <h3>コメント蘭</h3>
+                            <div id="comment-post-{{ $post->id }}">
+                                @include('posts.comment_list')
+                            </div>
+                            <a class="light-color post-time no-text-decoration" href="/posts/{{ $post->id }}">{{ $post->created_at }}</a>
+                            <hr>
+                            
+                            <div class="row actions" id="comment-form-post-{{ $post->id }}">
+                                <form action="{{ action('Admin\CommentsController@create', ['id' => $post->id]) }}" method="post" enctype="multipart/form-data">
+                                    <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" >
+                                    <input value="{{ $post->id }}" type="hidden" name="post_id" >
+                                    <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" >
+                                    {{csrf_field()}} 
+                                    <input type="submit" class="btn btn-primary" value="更新">
+                                </form>
+                            </div>
+                            
                         </div>
                     </div>
                 </section>
