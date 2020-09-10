@@ -14,7 +14,7 @@ class ProfilesController extends Controller
         return view('admin.profiles.index');
     }
     
-     public function add()
+    public function add()
     {
         $user = Auth::user();
         return view('admin.profiles.create', ['user'=>$user]);

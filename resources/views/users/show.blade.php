@@ -29,11 +29,13 @@
                 </p>
             </div>
             <div>
-            @if (Auth::id() != $user->id)
-                @if (Auth::user()->is_following($user->id))
-                    <a href="{{ action('Admin\UserFollowController@delete', ['id' => $user->id]) }}">アンフォロー</a>
-                @else
-                    <a href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+            @if ( Auth::check() )
+                @if (Auth::id() != $user->id)
+                    @if (Auth::user()->is_following($user->id))
+                        <a href="{{ action('Admin\UserFollowController@delete', ['id' => $user->id]) }}">アンフォロー</a>
+                    @else
+                        <a href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+                    @endif
                 @endif
             @endif
             </div>

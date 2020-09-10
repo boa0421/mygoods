@@ -24,7 +24,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-title-index">
-                                <a href="{{ action('Admin\PostsController@show', ['id' => $post->id]) }}">{{ \Str::limit($post->title, 100) }}</a>
+                                <a href="{{ action('PostsController@show', ['id' => $post->id]) }}">{{ \Str::limit($post->title, 100) }}</a>
                                 </div>
                             </div>
                             <div class="card-content-index">

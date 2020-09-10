@@ -21,12 +21,16 @@
                         <div>
                             <div class="like-show">
                                 <div class="row parts">
-                                    @if (Auth::id() != $post->user_id)
-                                        @if (Auth::user()->is_like($post->id))
-                                            <a href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}">いいね取り消す</a></a>
-                                        @else
-                                            <a href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}">いいね</a>
+                                    @if ( Auth::check() )
+                                        @if (Auth::id() != $post->user_id)
+                                            @if (Auth::user()->is_like($post->id))
+                                                <a href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}">いいね取り消す</a></a>
+                                            @else
+                                                <a href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}">いいね</a>
+                                            @endif
                                         @endif
+                                    @else
+                                        <a href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}">いいね</a>
                                     @endif
                                 </div>
                             </div>
@@ -37,17 +41,17 @@
                             </div>
                             <a class="light-color post-time no-text-decoration" href="# {{ $post->id }}">{{ $post->created_at }}</a>
                             <hr>
-                            
-                            <div class="row actions" id="comment-form-post-{{ $post->id }}">
-                                <form action="{{ action('Admin\CommentsController@create', ['id' => $post->id]) }}" method="post" enctype="multipart/form-data">
-                                    <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" >
-                                    <input value="{{ $post->id }}" type="hidden" name="post_id" >
-                                    <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" >
-                                    {{csrf_field()}} 
-                                    <input type="submit" class="btn btn-primary" value="更新">
-                                </form>
-                            </div>
-                            
+                            @if ( Auth::check() )
+                                <div class="row actions" id="comment-form-post-{{ $post->id }}">
+                                    <form action="{{ action('Admin\CommentsController@create', ['id' => $post->id]) }}" method="post" enctype="multipart/form-data">
+                                        <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" >
+                                        <input value="{{ $post->id }}" type="hidden" name="post_id" >
+                                        <input class="form-control comment-input border-0" placeholder="コメントを書く" autocomplete="off" type="text" name="comment" >
+                                        {{csrf_field()}} 
+                                        <input type="submit" class="btn btn-primary" value="更新">
+                                    </form>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </section>

@@ -16,8 +16,13 @@ class PostsController extends Controller
 {
     public function index(Request $request)
     {
-        $user = User::find($request->user_id);
-        $user_id = $user->id;
+        if ( Auth::check() ) {
+            $user = Auth::user();
+            $user_id = $user->id;
+        }else {
+            $user = User::find($request->user_id);
+            $user_id = $user->id;
+        }
         $posts = Post::where('user_id',$user_id)->get();
         
         return view('admin.posts.index',['posts'=>$posts,'user'=>$user]);

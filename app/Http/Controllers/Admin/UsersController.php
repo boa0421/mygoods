@@ -10,11 +10,6 @@ use App\Post;
 
 class UsersController extends Controller
 {
-    public function index()
-    {
-        return view('admin.users.index');
-    }
-    
      public function add()
     {
         return view('admin.users.create');
@@ -55,11 +50,11 @@ class UsersController extends Controller
         return redirect('admin/posts');
     }
     
-    public function show()
-    {
-        $user = User::findOrFail($id);
-        return view('admin.users.show', ['user' => $user]);
-    }
+    // public function show()
+    // {
+    //     $user = User::findOrFail($id);
+    //     return view('admin.users.show', ['user' => $user]);
+    // }
     
     public function followings($id)
     {
@@ -81,8 +76,47 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $post = $request->post();
-        // dd($post);
         
         return view('admin.users.likes', ['user' => $user, 'post' => $post]);
+    }
+    
+    public function profile_add()
+    {
+        $user = Auth::user();
+        return view('admin.profiles.create', ['user'=>$user]);
+    }
+
+    public function profile_create(Request $request)
+    {
+        $user = Auth::user();
+        
+        $form = $request->all();
+        
+        if (isset($form['image'])) {
+        $path = $request->file('profile_image')->store('public/image');
+        $user->profile_image = basename($path);
+      } else {
+          $user->profile_image = null;
+      }
+      
+      unset($form['_token']);
+      unset($form['profile_image']);
+      
+      $user->fill($form);
+      $user->save();
+        
+        return redirect('admin/posts');
+    }
+
+    public function profile_edit()
+    {
+        $user = Auth::user();
+        
+        return view('admin.profiles.edit');
+    }
+
+    public function profile_update()
+    {
+        return redirect('admin/profiles/edit');
     }
 }
