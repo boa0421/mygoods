@@ -15,17 +15,21 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@top');
+Route::get('posts', 'PostsController@index');
 Route::get('posts/{id}/show', 'PostsController@show')->name('posts.show');
 Route::get('users/{id}/show', 'UsersController@show');
 Route::get('users/index', 'UsersController@index');
+Route::get('admin/users/{id}/followings', 'Admin\UsersController@followings')->name('admin.users.followings');
+Route::get('admin/users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
+Route::get('admin/users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      
      // ポスト
      Route::get('posts/create', 'Admin\PostsController@add');
      Route::post('posts/create', 'Admin\PostsController@create');
-     Route::get('posts', 'Admin\PostsController@index');
+     // Route::get('posts', 'Admin\PostsController@index');
      Route::get('posts/{id}/show', 'Admin\PostsController@show')->name('admin.posts.show');
      Route::get('posts/{id}/edit', 'Admin\PostsController@edit');
      Route::post('posts/edit', 'Admin\PostsController@update');
@@ -39,9 +43,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('users/edit', 'Admin\UsersController@edit');
      Route::post('users/edit', 'Admin\UsersController@update');
      Route::get('users/delete', 'Admin\UsersController@delete');
-     Route::get('users/{id}/followings', 'Admin\UsersController@followings')->name('admin.users.followings');
-     Route::get('users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
-     Route::get('users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
      
      // コメント
      Route::post('comments/{id}','Admin\CommentsController@create');
