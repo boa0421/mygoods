@@ -16,7 +16,7 @@
 // });
 
 Route::get('/', 'PostsController@top');
-Route::get('posts', 'PostsController@index');
+Route::get('posts/{id}', 'PostsController@index');
 Route::get('posts/{id}/show', 'PostsController@show')->name('posts.show');
 Route::get('users/{id}/show', 'UsersController@show');
 Route::get('users/index', 'UsersController@index');
@@ -60,9 +60,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('tags/delete', 'Admin\TagsController@delete');
      
      // プロフィール
-     Route::get('profiles/create', 'Admin\ProfilesController@add');
-     Route::post('profiles/create', 'Admin\ProfilesController@create');
-     Route::get('psrofiles/delete', 'Admin\ProfilesController@delete');
+     Route::get('profiles/create', 'Admin\UsersController@profile_add');
+     Route::post('profiles/create', 'Admin\UsersController@profile_create');
+     Route::get('psrofiles/delete', 'Admin\UsersController@profile_delete');
 });
 
 Auth::routes();

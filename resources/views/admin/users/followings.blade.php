@@ -2,7 +2,7 @@
 @section('title', 'フォロー一覧')
 
 @section('content')
-@include('admin/users/show')
+@include('users/show')
 @include('navbar')
 
     <div class="container">
@@ -14,7 +14,7 @@
                 @if(isset($user))
                     @foreach($user->followings as $following)
                         <section class="card-main-index">
-                            @if (isset($following->pivot->profile_image))
+                            @if (isset($following->profile_image))
                                 <div class="image">
                                     <img class="card-img-index" src="{{ asset('storage/image/' . $following->profile_image) }}" alt="プロフィール 画像">
                                 </div>
@@ -22,11 +22,11 @@
                             @if(isset($following->pivot->following_user_id))
                             <div class="card-content">
                                 <div class="card-title-index">
-                                    <a href="{{ action('UsersController@show', ['id' => $following->pivot->following_user_id]) }}">{{ \Str::limit($following->name, 100) }}</a>
+                                    <a href="{{ action('PostsController@index', ['id' => $following->pivot->following_user_id]) }}">{{ \Str::limit($following->name, 100) }}</a>
                                 </div>
                             </div>
                             @endif
-                            @if(isset($following->pivot->profile))
+                            @if(isset($following->profile))
                             <div class="card-content-index">
                                 <p class="card-text-index">{{ \Str::limit($following->profile, 250) }}</p>
                             </div>

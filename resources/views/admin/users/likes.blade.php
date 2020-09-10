@@ -2,7 +2,7 @@
 @section('title', 'お気に入り一覧')
 
 @section('content')
-@include('admin/users/show')
+@include('users/show')
 @include('navbar')
 
     <div class="container">
@@ -14,9 +14,9 @@
                 @if(isset($user))
                     @foreach($user->likes as $like)
                         <section class="card-main-index">
-                            @if (isset($like->pivot->image))
+                            @if (isset($like->image))
                                 <div class="image">
-                                    <img class="card-img-index" src="{{ asset('storage/image/' . $like->image) }}" alt="プロフィール 画像">
+                                    <img class="card-img-index" src="{{ asset('storage/image/' . $like->image) }}" alt="画像">
                                 </div>
                             @endif
                             @if(isset($like->pivot->post_id))
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             @endif
-                            @if(isset($like->pivot->content))
+                            @if(isset($like->content))
                             <div class="card-content-index">
                                 <p class="card-text-index">{{ \Str::limit($like->content, 250) }}</p>
                             </div>

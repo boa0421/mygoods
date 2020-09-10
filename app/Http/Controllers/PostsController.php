@@ -9,10 +9,10 @@ use Auth;
 
 class PostsController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
         if ( Auth::check() ) {
-            $user = Auth::user();
+            $user = Auth::user($id);
             $user_id = $user->id;
         }else {
             $user = User::find($request->user_id);

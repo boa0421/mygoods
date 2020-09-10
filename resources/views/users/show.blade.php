@@ -17,7 +17,7 @@
             </div>
             @if (Auth::id() == $user->id)
                 <div>
-                    <a class="btn btn-outline-dark common-btn edit-profile-btn" href="{{ action('Admin\ProfilesController@create', ['id' => $user->id]) }}">プロフィールを編集</a>
+                    <a class="btn btn-outline-dark common-btn edit-profile-btn" href="{{ action('Admin\UsersController@profile_create', ['id' => $user->id]) }}">プロフィールを編集</a>
                 </div>
             @endif
             <div class="row">
