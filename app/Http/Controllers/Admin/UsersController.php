@@ -17,7 +17,7 @@ class UsersController extends Controller
 
     public function create(Request $request, $id)
     {
-        return redirect('admin/posts');
+        return redirect('posts');
     }
 
     public function edit()
@@ -47,7 +47,7 @@ class UsersController extends Controller
       
         $user->fill($form);
         $user->save();
-        return redirect('admin/posts');
+        return redirect('posts');
     }
     
     // public function show()
@@ -89,23 +89,21 @@ class UsersController extends Controller
     public function profile_create(Request $request)
     {
         $user = Auth::user();
-        
         $form = $request->all();
-        
         if (isset($form['image'])) {
-        $path = $request->file('profile_image')->store('public/image');
-        $user->profile_image = basename($path);
-      } else {
-          $user->profile_image = null;
-      }
+            $path = $request->file('profile_image')->store('public/image');
+            $user->profile_image = basename($path);
+        } else {
+            $user->profile_image = null;
+        }
       
-      unset($form['_token']);
-      unset($form['profile_image']);
-      
-      $user->fill($form);
-      $user->save();
+        unset($form['_token']);
+        unset($form['profile_image']);
         
-        return redirect('admin/posts');
+        $user->fill($form);
+        $user->save();
+        
+        return redirect('admin/profiles/create');
     }
 
     public function profile_edit()
