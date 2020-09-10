@@ -20,11 +20,13 @@
                     @foreach($posts as $post)
                         <section class="card-main-index">
                             <div class="image">
-                                <img class="card-img-index" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
+                                <a href="{{ action('PostsController@show', ['id' => $post->id]) }}">
+                                    <img class="card-img-index" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
+                                </a>
                             </div>
                             <div class="card-content">
                                 <div class="card-title-index">
-                                <a href="{{ action('Admin\PostsController@show', ['id' => $post->id]) }}">{{ \Str::limit($post->title, 100) }}</a>
+                                    {{ \Str::limit($post->title, 100) }}
                                 </div>
                             </div>
                             <div class="card-content-index">

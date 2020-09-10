@@ -32,9 +32,9 @@
             @if ( Auth::check() )
                 @if (Auth::id() != $user->id)
                     @if (Auth::user()->is_following($user->id))
-                        <a href="{{ action('Admin\UserFollowController@delete', ['id' => $user->id]) }}">アンフォロー</a>
+                        <a class="btn btn-delete" href="{{ action('Admin\UserFollowController@delete', ['id' => $user->id]) }}">アンフォロー</a>
                     @else
-                        <a href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+                        <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
                     @endif
                 @endif
             @endif
