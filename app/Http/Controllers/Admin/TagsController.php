@@ -56,7 +56,7 @@ class TagsController extends Controller
         $tag = Tag::find($request->id);
         $tag->delete();
         
-        return redirect('admin/posts');
+        return redirect('posts');
     }
     
 }
