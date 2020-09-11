@@ -21,7 +21,7 @@ class CommentsController extends Controller
         $comment->user_id = Auth::user()->id;
         $comment->save();
         
-        return redirect()->route('admin.posts.show', ['id' => $comment->user_id]);
+        return redirect()->route('posts.show', ['id' => $id]);
     }
     
     public function delete(Request $request, $id)

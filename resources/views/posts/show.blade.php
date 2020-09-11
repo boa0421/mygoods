@@ -38,7 +38,7 @@
                         <hr>
                         <div>
                             <div class="comment-post">
-                                @if(isset($post->comment))
+                                @if(isset($post->comments))
                                     @include('posts.comment_list')
                                 @else
                                     <p>コメントはまだありません</p>

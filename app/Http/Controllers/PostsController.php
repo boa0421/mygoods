@@ -11,14 +11,9 @@ class PostsController extends Controller
 {
     public function index(Request $request, $id)
     {
-        if ( Auth::check() ) {
-            $user = Auth::user($id);
-            $user_id = $user->id;
-        }else {
-            $user = User::find($request->user_id);
-            $user_id = $user->id;
-        }
-        $posts = Post::where('user_id',$user_id)->get();
+        $user = User::find($id);
+
+        $posts = Post::where('user_id',$id)->get();
         
         return view('posts.index',['posts'=>$posts,'user'=>$user]);
     }
@@ -27,7 +22,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $user = User::find($post->user_id);
-        
+
         return view('posts.show', ['post' => $post, 'user' => $user]);
     }
     
