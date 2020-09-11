@@ -7,7 +7,7 @@
             <div class="col-md-4 text-center">
                 @if (isset($user->profile_image))
                     <p>
-                        <img class="round-img" src="{{ asset('storage/images/' . $user->profile_image) }}"/>
+                        <img class="round-img" src="{{ asset('storage/image/' . $user->profile_image) }}"/>
                     </p>
                 @endif
             </div>

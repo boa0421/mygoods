@@ -18,19 +18,19 @@
                     <div class="form-group row">
                         <label class="col-md-2">ニックネーム</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="nickname" value="{{ old('nickname') }}">
+                            <input type="text" class="form-control" name="nickname" value="{{ old('nickname') ?? $user->nickname }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">趣味</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="hobby" value="{{ old('hobby') }}">
+                            <input type="text" class="form-control" name="hobby" value="{{ old('hobby') ?? $user->hobby }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">自己紹介</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="profile" rows="20">{{ old('profile') }}</textarea>
+                            <textarea class="form-control" name="profile" rows="20">{{ old('profile') ?? $user->profile }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

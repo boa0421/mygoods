@@ -90,7 +90,7 @@ class UsersController extends Controller
     {
         $user = Auth::user();
         $form = $request->all();
-        if (isset($form['image'])) {
+        if (isset($form['profile_image'])) {
             $path = $request->file('profile_image')->store('public/image');
             $user->profile_image = basename($path);
         } else {
@@ -99,11 +99,11 @@ class UsersController extends Controller
       
         unset($form['_token']);
         unset($form['profile_image']);
-        
+
         $user->fill($form);
         $user->save();
         
-        return redirect('admin/profiles/create');
+        return redirect('posts/'.$user->id);
     }
 
     public function profile_edit()
