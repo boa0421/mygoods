@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -12,7 +14,7 @@
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1000px !important;
   margin: 0 auto;
 }
 
@@ -23,10 +25,40 @@
   box-shadow: 0 2px 5px #ccc;
 }
 
-.card-img {
-  border-radius: 5px 5px 0 0;
-  max-width: 100%;
-  height: auto;
+@media screen and (max-width: 767px) {
+  /*　画面サイズが480pxからはここを読み込む　*/
+
+  .original-img {
+    border-radius: 5px 5px 0 0;
+    width: 128px;
+    height: 128px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+
+  .original-img {
+    border-radius: 5px 5px 0 0;
+    width: 196px;
+    height: 196px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /*　画面サイズが1024pxからはここを読み込む　*/
+
+  .original-img {
+    border-radius: 5px 5px 0 0;
+    width: 590px;
+    height: 600px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
 
 .card-content {
@@ -97,8 +129,10 @@
 
 .card-img-items {
   border-radius: 5px 5px 0 0;
-  max-width: 30%;
-  height: 70px;
+  width: 80px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
   float: left;
 }
 
@@ -216,8 +250,10 @@ a.btn-tag-delete:hover {
 
 .card-img-index {
   border-radius: 5px 5px 0 0;
-  max-width: 100%;
+  width: 212px;
   height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card-img-index:hover {

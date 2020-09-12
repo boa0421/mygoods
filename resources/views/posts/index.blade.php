@@ -11,7 +11,7 @@
         </div>
         <div class="row">
             @if (Auth::id() == $user->id)
-                <div class="col-md-4">
+                <div class="col-md-4 offset-md-4">
                     <a href="{{ action('Admin\PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
                 </div>
             @endif

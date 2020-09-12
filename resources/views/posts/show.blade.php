@@ -13,7 +13,7 @@
             <div class="main">
                 <section class="card-main">
                     <div class="image">
-                        <img class="card-img" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
+                        <img class="card-img original-img" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
                     </div>
                     <div class="card-link">
                         <div>
