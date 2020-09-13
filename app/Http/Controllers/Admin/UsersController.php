@@ -17,7 +17,7 @@ class UsersController extends Controller
 
     public function create(Request $request, $id)
     {
-        return redirect('posts');
+        return redirect('posts/'.$user->id);
     }
 
     public function edit()
@@ -47,7 +47,7 @@ class UsersController extends Controller
       
         $user->fill($form);
         $user->save();
-        return redirect('posts');
+        return redirect('posts/'.$user->id);
     }
     
     // public function show()

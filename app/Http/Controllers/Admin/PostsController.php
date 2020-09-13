@@ -25,7 +25,7 @@ class PostsController extends Controller
         }
         $posts = Post::where('user_id',$user_id)->get();
         
-        return view('admin.posts.index',['posts'=>$posts,'user'=>$user]);
+        return view('posts/'.$user->id,['posts'=>$posts,'user'=>$user]);
     }
     
     public function add()
@@ -48,7 +48,7 @@ class PostsController extends Controller
         
         $post->fill($form)->save();
         
-        return redirect('posts');
+        return redirect('posts/'.$user->id);
     }
 
     public function edit($id)
@@ -72,7 +72,7 @@ class PostsController extends Controller
         unset($post_form['_token']);
         $post->fill($post_form)->save();
         
-        return redirect('posts');
+        return redirect('posts/'.$user->id);
     }
     
     public function delete(Request $request)
@@ -81,7 +81,7 @@ class PostsController extends Controller
         $post = Post::find($request->id);
         $post->delete();
         
-        return redirect('posts');
+        return redirect('posts/'.$user->id);
     }
 
     public function show(Request $request, $id)
