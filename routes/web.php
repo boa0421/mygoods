@@ -29,7 +29,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      // ポスト
      Route::get('posts/create', 'Admin\PostsController@add');
      Route::post('posts/create', 'Admin\PostsController@create');
-     // Route::get('posts', 'Admin\PostsController@index');
      Route::get('posts/{id}/show', 'Admin\PostsController@show')->name('admin.posts.show');
      Route::get('posts/{id}/edit', 'Admin\PostsController@edit');
      Route::post('posts/edit', 'Admin\PostsController@update');

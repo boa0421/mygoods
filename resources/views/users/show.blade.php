@@ -6,9 +6,15 @@
         <div class="row">
             <div class="col-md-4 text-center">
                 @if (isset($user->profile_image))
-                    <p>
+                    <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
                         <img class="round-img" src="{{ asset('storage/image/' . $user->profile_image) }}"/>
-                    </p>
+                    </a>
+                @else
+                <div class="profile-icon">
+                    <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
+                        <i class="fas fa-user-alt fa-4x fa-border plofile-icon"></i>
+                    </a>
+                </div>
                 @endif
             </div>
         <div class="col-md-8">
@@ -37,6 +43,8 @@
                         <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
                     @endif
                 @endif
+            @else
+                    <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
             @endif
             </div>
         </div>

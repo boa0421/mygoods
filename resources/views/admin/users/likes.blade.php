@@ -16,13 +16,15 @@
                         <section class="card-main-index">
                             @if (isset($like->image))
                                 <div class="image">
-                                    <img class="card-img-index" src="{{ asset('storage/image/' . $like->image) }}" alt="画像">
+                                    <a href="{{ action('PostsController@show', ['id' => $like->pivot->post_id]) }}">
+                                        <img class="card-img-index" src="{{ asset('storage/image/' . $like->image) }}" alt="画像">
+                                    </a>
                                 </div>
                             @endif
                             @if(isset($like->pivot->post_id))
                             <div class="card-content">
                                 <div class="card-title-index">
-                                    <a href="{{ action('PostsController@show', ['id' => $like->pivot->post_id]) }}">{{ \Str::limit($like->title, 100) }}</a>
+                                    {{ \Str::limit($like->title, 100) }}
                                 </div>
                             </div>
                             @endif

@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-md-4 text-center">
                 @if (isset($user->profile_image))
-                    <p>
+                    <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
                         <img class="round-img" src="{{ asset('storage/images/' . $user->profile_image) }}"/>
-                    </p>
+                    </a>
                 @endif
             </div>
         <div class="col-md-8">
