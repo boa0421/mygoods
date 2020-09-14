@@ -13,6 +13,32 @@
   color: #000 !important;
 }
 
+// // パンくずリスト
+
+.breadcrumbs li::after{
+  content: '>';
+  padding: 0 5px;
+  color: #C0C0C0;
+}
+
+.breadcrumbs li{
+  content: '>';
+  padding: 0 5px;
+  display: inline-block;
+}
+
+.breadcrumbs {
+  list-style: none;
+}
+
+.breadcrumbs li:last-child::after{
+  display: none;
+}
+
+.plofile-icon {
+  color: #000;
+  font-weight: 900;
+}
 
 // コンテンツ
 

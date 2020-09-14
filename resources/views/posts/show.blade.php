@@ -1,12 +1,17 @@
 @extends('layouts.posts')
 @section('title', '登録済みPostの詳細')
-
-@section('content')
 @include('users/show')
+@section('content')
 
     <div class="container">
         <div class="row">
-            <h2>Post詳細</h2>
+            <nav>
+                <ol class="breadcrumbs">
+                    <li><a href="#"><i class="fas fa-house top-icon"></i>top</a></li>
+                    <li><a href="#">{{ $user->name }}</a></li>
+                    <li>{{ $post->created_at }}の投稿</li>
+                </ol>
+            </nav>
         </div>
         <div class="row">
             <div class="main">
@@ -143,3 +148,5 @@
     </div>
 
 @endsection
+
+
