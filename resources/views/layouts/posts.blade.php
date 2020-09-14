@@ -17,12 +17,12 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
-
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/posts.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/users.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/navbar.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/footer.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -73,10 +73,23 @@
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}
-
+            <div>
+                @yield('user')
+            </div>
             <main class="py-4">
                 @yield('content')
             </main>
         </div>
+        <footer>
+            <ul class="footer-menu">
+                <li><a href="#">投稿一覧</a></li>
+                <li><a href="#">ユーザー一覧</a></li>
+                <li><a href="#">アイテム一覧</a></li>
+                <li><a href="#">カテゴリー一覧</a></li>
+                <li><a href="#">問い合わせ</a></li>
+            </ul>
+            <p>© All rights reserved by ai_sogabe.</p>
+        </footer>
     </body>
+
 </html>
