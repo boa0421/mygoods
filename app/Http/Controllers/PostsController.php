@@ -28,7 +28,7 @@ class PostsController extends Controller
     
     public function top(Request $request)
     {
-        $posts = Post::all();
+        $posts = Post::all()->sortByDesc('updated_at');
         
         return view('posts.top',['posts'=>$posts]);
     }

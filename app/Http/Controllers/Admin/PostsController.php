@@ -14,20 +14,6 @@ use App\PostTag;
 
 class PostsController extends Controller
 {
-    public function index(Request $request)
-    {
-        if ( Auth::check() ) {
-            $user = Auth::user();
-            $user_id = $user->id;
-        }else {
-            $user = User::find($request->user_id);
-            $user_id = $user->id;
-        }
-        $posts = Post::where('user_id',$user_id)->get();
-        
-        return view('posts/'.$user->id,['posts'=>$posts,'user'=>$user]);
-    }
-    
     public function add()
     {
         $user = Auth::user();
@@ -82,23 +68,5 @@ class PostsController extends Controller
         $post->delete();
         
         return redirect('posts/'.$user->id);
-    }
-
-    public function show(Request $request, $id)
-    {
-        $post = Post::findOrFail($id);
-        $user = Auth::user();
-        // $user = User::find($request->id);
-        // dd($post);
-        // $post_id = $request->post_id;
-        // dd($post->image);
-        // $items = Item::where('post_id',$id)->get();
-        // dd(Item::where('post_id',$post_id));
-        // $item->item_name = $request->item_name;
-        // $post->item_id = $request->item_id;
-        // dd($items);
-        // dd($post_id);
-        
-        return view('admin.posts.show', ['post' => $post, 'user' => $user]);
     }
 }

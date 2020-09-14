@@ -10,16 +10,6 @@ use App\Post;
 
 class UsersController extends Controller
 {
-     public function add()
-    {
-        return view('admin.users.create');
-    }
-
-    public function create(Request $request, $id)
-    {
-        return redirect('posts/'.$user->id);
-    }
-
     public function edit()
     {
         $user = Auth::user();
@@ -49,12 +39,6 @@ class UsersController extends Controller
         $user->save();
         return redirect('posts/'.$user->id);
     }
-    
-    // public function show()
-    // {
-    //     $user = User::findOrFail($id);
-    //     return view('admin.users.show', ['user' => $user]);
-    // }
     
     public function followings($id)
     {
@@ -104,17 +88,5 @@ class UsersController extends Controller
         $user->save();
         
         return redirect('posts/'.$user->id);
-    }
-
-    public function profile_edit()
-    {
-        $user = Auth::user();
-        
-        return view('admin.profiles.edit');
-    }
-
-    public function profile_update()
-    {
-        return redirect('admin/profiles/edit');
     }
 }

@@ -14,13 +14,6 @@ class UsersController extends Controller
         return view('users.index', ['users' => $users]);
     }
     
-    // public function show(Request $request, $id)
-    // {
-    //     $user = User::findOrFail($id);
-        
-    //     return view('users.show', ['user' => $user]);
-    // }
-    
     public function followings($id)
     {
         $user = User::findOrFail($id);
