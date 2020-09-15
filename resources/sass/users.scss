@@ -1,6 +1,12 @@
+.container_user {
+  background-color: #fff;
+}
+
 .profile-wrap{
   margin:0px 0px;
   border-bottom: solid 2px #C0C0C0;
+  padding-left: 250px;
+  padding-top: 50px;
 }
 
 .round-img{
@@ -29,16 +35,6 @@
   font-size: 14px;
 }
 
-.setting {
-  background-image: url("/images/parts4.png");
-  background-repeat: no-repeat;
-  height: 24px;
-  width: 24px;
-  background-color: transparent;
-  margin: 18px 0 0 10px;
-  background-size: 22px!important;
-  border: none;
-  &:hover {
-    cursor: pointer;
-  }
+.profile-contents {
+  list-style: none;
 }

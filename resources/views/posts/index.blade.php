@@ -2,12 +2,17 @@
 @section('title', '登録済みPostの一覧')
 
 @section('content')
-@include('users/show')
-@include('navbar')
 
     <div class="container">
         <div class="row">
-            <h2>Post一覧</h2>
+            <nav class= "nav-user">
+                <ul>
+                    <li><a href="{{ action('PostsController@index', ['id' => $user->id]) }}">投稿</a></li>
+                    <li><a href="{{ action('Admin\UsersController@likes', ['id' => $user->id]) }}">お気に入り</a></li>
+                    <li><a href="{{ action('Admin\UsersController@followings', ['id' => $user->id]) }}">フォロー</a></li>
+                    <li><a href="{{ action('Admin\UsersController@followers', ['id' => $user->id]) }}">フォロワー</a></li>
+                </ul>
+            </nav>
         </div>
         <div class="row">
             @if (Auth::id() == $user->id)

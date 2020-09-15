@@ -1,7 +1,5 @@
-<div class="container">
-    <div class="row">
-        <h2>User詳細</h2>
-    </div>
+
+<div class="container_user">
     <div class="profile-wrap">
         <div class="row">
             <div class="col-md-4 text-center">
@@ -10,11 +8,11 @@
                         <img class="round-img" src="{{ asset('storage/image/' . $user->profile_image) }}"/>
                     </a>
                 @else
-                <div class="profile-icon">
-                    <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
-                        <i class="fas fa-user-alt fa-4x fa-border plofile-icon"></i>
-                    </a>
-                </div>
+                    <div class="profile-icon">
+                        <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
+                            <i class="fas fa-user-alt fa-4x fa-border plofile-icon"></i>
+                        </a>
+                    </div>
                 @endif
             </div>
         <div class="col-md-8">
@@ -27,12 +25,10 @@
                 </div>
             @endif
             <div class="row">
-                <p>
-                    {{ $user->profile }}
-                </p>
-                <p>
-                    {{ $user->hobby }}
-                </p>
+                <ul class="profile-contents">
+                    <li>{{ $user->profile }}</li>
+                    <li>{{ $user->hobby }}</li>
+                </ul>
             </div>
             <div>
             @if ( Auth::check() )
@@ -44,9 +40,10 @@
                     @endif
                 @endif
             @else
-                    <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+                <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
             @endif
             </div>
         </div>
     </div>
 </div>
+

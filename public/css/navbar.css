@@ -1,9 +1,9 @@
-.nav {
-  border-bottom: 1px solid #ccc;
+.nav-user {
+  border: 1px solid #ccc;
   margin-bottom: 40px;
 }
 
-.nav ul {
+.nav-user ul {
   display: table;
   margin: 0 auto;
   padding: 0;
@@ -11,33 +11,34 @@
   text-align: center;
 }
 
-.nav ul li {
+.nav-user ul li {
   display: table-cell;
   min-width: 50px;
   border-right: 1px solid #ccc;
 }
 
-.nav ul li:first-child {
+.nav-user ul li:first-child {
   border-left: 1px solid #ccc;
 }
 
-.nav ul li a {
+.nav-user ul li a {
   display: block;
   width: 242px;
   padding: 10px 0;
   text-decoration: none;
   color: #aaa;
+  background-color: #fff;
 }
 
-.nav ul li a:hover {
+.nav-user ul li a:hover {
   background-color: #EEEEEE;
 }
 
-.nav ul li.current {
+.nav-user ul li.current {
   font-weight: bold;
 }
 
-.nav ul li.current a {
+.nav-user ul li.current a {
   border-bottom: 5px solid #00B0F0;
   color: #00B0F0;
 }

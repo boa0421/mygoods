@@ -1,6 +1,6 @@
 @extends('layouts.posts')
 @section('title', '登録済みPostの詳細')
-@include('users/show')
+
 @section('content')
 
     <div class="container">

@@ -43,6 +43,10 @@
   margin: 0 auto;
 }
 
+body {
+  background-color: #F6F7F8;
+}
+
 .card-main {
   width: 590px;
   background: #fff;
@@ -128,12 +132,12 @@
 }
 
 #sidebar {
-  width: 336px;
+  width: 370px;
   float: right;
 }
 
 .card-side {
-  width: 350px;
+  width: 370px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
