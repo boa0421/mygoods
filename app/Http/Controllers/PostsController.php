@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Tag;
 use Auth;
 
 class PostsController extends Controller
@@ -15,7 +16,7 @@ class PostsController extends Controller
 
         $posts = Post::where('user_id',$id)->get();
         
-        return view('posts.index',['posts'=>$posts,'user'=>$user]);
+        return view('posts.index',['posts'=>$posts, 'user'=>$user]);
     }
 
     public function show(Request $request, $id)
@@ -23,14 +24,16 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $user = User::find($post->user_id);
         
-        return view('posts.show', ['post' => $post, 'user' => $user]);
+        return view('posts.show', ['post'=>$post, 'user'=>$user]);
     }
     
     public function top(Request $request)
     {
         $posts = Post::all()->sortByDesc('updated_at');
+        $users = User::all()->sortByDesc('created_at');
+        $tags = Tag::all()->sortByDesc('created_at');
         
-        return view('posts.top',['posts'=>$posts]);
+        return view('posts.top',['posts'=>$posts, 'users'=>$users, 'tags'=>$tags]);
     }
 
 }

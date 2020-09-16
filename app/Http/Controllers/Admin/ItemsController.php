@@ -36,7 +36,7 @@ class ItemsController extends Controller
         // dd($item);
         $item->save();
         
-        return redirect('posts');
+        return redirect('posts/'.$post->id.'/show');
     }
     
     public function edit($id)
@@ -58,7 +58,7 @@ class ItemsController extends Controller
         unset($item_form['_token']);
         $item->fill($item_form)->save();
 
-        return redirect('posts');
+        return redirect('posts/'.$post->id);
     }
     
     public function delete(Request $request)

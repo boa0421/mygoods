@@ -1,0 +1,223 @@
+// ナビバー
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  color: #000 !important;
+}
+
+.nav-link {
+  color: #000 !important;
+}
+
+.top-image {
+   height: 200px;
+   margin: 5px 0 20px 0;
+   object-fit: cover;
+}
+
+
+// コンテンツ
+
+.container {
+  max-width: 1000px !important;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #F6F7F8;
+}
+
+// ナビバー２つめ
+
+.user-category p {
+  font-size: 18px;
+}
+.nav-top{
+  border: 1px solid #ccc;
+  width: 700px;
+  margin-bottom:40px;
+  margin-right: 0px;
+}
+
+.nav-top ul{
+  display: table;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-top ul li{
+  display: table-cell;
+  border-right: 1px solid #ccc;
+}
+
+.nav-top ul li:first-child{
+  border-left: 1px solid #ccc;
+}
+
+.nav-top ul li a{
+  display: block;
+  width: 140px;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #aaa;
+  background-color: #fff;
+}
+
+.nav-top ul li a:hover{
+  background-color:#EEEEEE;
+}
+
+.nav-top ul li.current{
+  font-weight: bold;
+}
+
+.nav-top ul li.current a{
+  border-bottom: 5px solid #00B0F0;
+  color: #00B0F0;
+}
+
+// サイドバー
+
+.side-navigation {
+  width: 212px;
+  float: left;
+  margin-right: 20px;
+}
+
+.link-title {
+  color: #444444;
+  font-size: 20px;
+}
+
+.side-top p {
+  margin-bottom: 20px;
+}
+
+.side-top a {
+  color: #444444;
+}
+
+.icon-gray {
+  color: #444444;
+  margin-right: 10px;
+}
+
+.search-lomk {
+  margin: 20px 0 30px 0;
+}
+// サイド　ユーザー
+
+.link-user {
+  margin: 20px 0 30px 0;
+}
+
+.side-top-user {
+  display: flex;
+  margin-bottom: 20px;
+}
+.side-user-image {
+  border-radius:50%;
+  width: 50px;
+  height: 50px;
+  color: #444444;
+}
+
+.side-user-name {
+  font-size: 18px;
+  color: #444444;
+  margin-left: 10px;
+}
+
+.more-look {
+  border: solid;
+  border-width:thin;
+  text-decoration: none;
+  border-color: #666666;
+  padding: 5px;
+  margin-left: 100px;
+  background-color: #fff;
+}
+
+.side-tag {
+  border: solid;
+  border-width:thin;
+  text-decoration: none;
+  border-color: #666666;
+  color: #444444;
+  padding: 5px;
+}
+
+.link-tags {
+  margin: 20px 0 30px 0;
+}
+// メイン
+
+.card-main-index {
+  width: 220px;
+  // margin:0 auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  float: left;
+  margin-right:25px;
+  margin-bottom: 25px;
+}
+
+.card-img-index {
+  border-radius: 5px 5px 0 0;
+  width: 220px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-img-index:hover {
+  opacity: 0.6;
+  filter: brightness(110%);
+}
+
+.card-content-index {
+  padding: 10px;
+}
+
+.card-title-index {
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #333;
+}
+.card-text-index {
+  color: #777;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.card-link-index {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 2px;
+}
+.card-link-index a {
+  text-decoration: none;
+  color: #0bd;
+  margin: 0 10px;
+}
+.card-link-index a:hover {
+  color: #0090aa;
+}
+.card-link-edit-index {
+  float: left;
+}
+.main {
+  margin-right: 30px;
+}
+
+.clearfix:after {
+  clear: both;
+  content: '';
+  display: block;
+}

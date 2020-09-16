@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('layouts.posts')
 
 @section('content')
     <div class="container">
@@ -24,7 +24,7 @@
                             </div>
                             <div class="image col-md-6 text-right mt-4">
                                 @if ($user->profile_image)
-                                    <img src="{{ asset('storage/image/' . $post->image) }}">
+                                    <img src="{{ asset('storage/image/' . $user->profile_image) }}">
                                 @endif
                             </div>
                         </div>

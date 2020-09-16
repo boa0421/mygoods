@@ -15,10 +15,12 @@
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
 
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/posts.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/top.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/footer.css') }}" rel="stylesheet">
     </head>
     <body>
@@ -70,7 +72,10 @@
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}
-
+            
+            <div class="row top-image">
+                <img class="top-image col-lg-12" src="{{ asset('storage/image/Flowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
+            </div>
             <main class="py-4">
                 @yield('content')
             </main>
