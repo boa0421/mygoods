@@ -2,7 +2,6 @@
 @section('title', 'フォロワー一覧')
 
 @section('content')
-@include('users/show')
 @include('navbar')
 
     <div class="container">

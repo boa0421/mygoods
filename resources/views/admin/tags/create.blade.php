@@ -2,7 +2,6 @@
 @section('title', 'Tagの新規作成')
 
 @section('content')
-@include('users/show')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">

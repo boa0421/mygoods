@@ -2,7 +2,6 @@
 @section('title', '登録済みPostの詳細')
 
 @section('content')
-@include('users/show')
 @include('navbar')
     <div class="container">
         <div class="row">
