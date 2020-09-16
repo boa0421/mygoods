@@ -1,4 +1,4 @@
-@extends('layouts.posts')
+@extends('layouts.top')
 @section('title', '登録済みPostの一覧')
 
 @section('content')
@@ -18,11 +18,11 @@
                         </div>
                         <div class="card-content">
                             <div class="card-title-index">
-                                {{ \Str::limit($post->title, 100) }}
+                                {{ \Str::limit($post->title, 10) }}
                             </div>
                         </div>
                         <div class="card-content-index">
-                            <p class="card-text-index">{{ \Str::limit($post->content, 250) }}</p>
+                            <p class="card-text-index">{{ \Str::limit($post->content, 45) }}</p>
                         </div>
                         <div class="card-link-index">
 
