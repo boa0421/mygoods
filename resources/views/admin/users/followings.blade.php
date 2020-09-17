@@ -44,5 +44,6 @@
                 @endif
             </div>
         </div>
+        {{ $followings->links() }}
     </div>
 @endsection

@@ -14,7 +14,7 @@ class PostsController extends Controller
     {
         $user = User::find($id);
 
-        $posts = Post::where('user_id',$id)->get();
+        $posts = Post::where('user_id',$id)->paginate(12);
         
         return view('posts.index',['posts'=>$posts, 'user'=>$user]);
     }
@@ -29,7 +29,7 @@ class PostsController extends Controller
     
     public function top(Request $request)
     {
-        $posts = Post::all()->sortByDesc('updated_at');
+        $posts = Post::paginate(6);
         $users = User::all()->sortByDesc('created_at');
         $tags = Tag::all()->sortByDesc('created_at');
         

@@ -38,13 +38,11 @@
                                 <p class="card-text-index">{{ \Str::limit($like->content, 250) }}</p>
                             </div>
                             @endif
-                            <!--<div class="card-link-index">-->
-    
-                            <!--</div>-->
                         </section>
                     @endforeach
                 @endif
             </div>
         </div>
+        {{ $likes->links() }}
     </div>
 @endsection

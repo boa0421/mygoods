@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
 use App\Post;
+use App\Like;
 
 class UsersController extends Controller
 {
@@ -43,25 +44,26 @@ class UsersController extends Controller
     public function followings($id)
     {
         $user = User::find($id);
-        // $followings = $user->followings();
+        $followings = $user->followings()->paginate(1);
         
-        return view('admin.users.followings', ['user' => $user]);
+        return view('admin.users.followings', ['user' => $user, 'followings' => $followings]);
     }
 
     public function followers($id)
     {
         $user = User::find($id);
-        // $followers = $user->followers();
+        $followers = $user->followers()->paginate(1);
         
-        return view('admin.users.followers', ['user' => $user]);
+        return view('admin.users.followers', ['user' => $user, 'followers' => $followers]);
     }
     
     public function likes(Request $request, $id)
     {
         $user = User::find($id);
         $post = $request->post();
+        $likes = $user->likes()->paginate(1);
         
-        return view('admin.users.likes', ['user' => $user, 'post' => $post]);
+        return view('admin.users.likes', ['user' => $user, 'post' => $post, 'likes' => $likes]);
     }
     
     public function profile_add()

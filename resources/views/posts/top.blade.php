@@ -41,7 +41,7 @@
                                 @else
                                     <div class="side-user-image">
                                         <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
-                                            <i class="fas fa-user-alt fa-border side-user-image"></i>
+                                            <i class="fas fa-user-circle fa-3x"></i>
                                         </a>
                                     </div>
                                 @endif
@@ -83,12 +83,10 @@
                         <div class="card-content-index">
                             <p class="card-text-index">{{ \Str::limit($post->content, 45) }}</p>
                         </div>
-                        <div class="card-link-index">
-                            
-                        </div>
                     </section>
                 @endforeach
             </div>
         </div>
+        {{ $posts->links() }}
     </div>
 @endsection
