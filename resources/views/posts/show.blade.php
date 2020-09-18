@@ -1,4 +1,4 @@
-@extends('layouts.posts')
+@extends('layouts.show')
 @section('title', '登録済みPostの詳細')
 
 @section('content')
@@ -7,7 +7,7 @@
         <div class="row">
             <nav>
                 <ol class="breadcrumbs">
-                    <li><a href="#"><i class="fas fa-house top-icon"></i>top</a></li>
+                    <li><a href="#"><i class="fas fa-home"></i>top</a></li>
                     <li><a href="#">{{ $user->name }}</a></li>
                     <li>{{ $post->created_at }}の投稿</li>
                 </ol>
@@ -26,14 +26,14 @@
                                     @if ( Auth::check() )
                                         @if (Auth::id() != $post->user_id)
                                             @if (Auth::user()->is_like($post->id))
-                                                <a class="btn btn-delete" href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}">いいね取り消す</a></a>
+                                                <a class="btn btn-delete" href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}"><i class="fas fa-heart"></i></a>
                                             @else
-                                                <a class="btn btn-blue" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}">いいね</a>
+                                                <a class="btn btn-blue" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}"><i class="fas fa-heart"></i></a>
                                             @endif
                                         @endif
                                     @else
                                         @if (Auth::id() != $post->user_id)
-                                            <a class="btn btn-blue" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}">いいね</a>
+                                            <a class="btn btn-blue" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}"><i class="fas fa-heart"></i></a>
                                         @endif
                                     @endif
                                 </div>
@@ -89,9 +89,25 @@
                             <h3>アイテムリスト</h3>
                         @endif
                         @if (Auth::id() == $user->id)
-                            <div class="item_create">
-                                <a class="btn btn-black" href="{{ action('Admin\ItemsController@add', ['post_id' => $post->id]) }}">アイテムを追加する</a>
+                            <!--<div class="item_create">-->
+                            <!--    <a class="btn btn-black" href="{{ action('Admin\ItemsController@add', ['post_id' => $post->id]) }}">アイテムを追加する+</a>-->
+                            <!--</div>-->
+                            
+                            
+                            
+                            
+                            <!--<div class="items">-->
+                            <!--    <div class="login" id="create-items-show">アイテムを追加する</div>-->
+                            <!--</div>-->
+                            
+                            <div class="items">
+                                <div class="btn btn-black" id='create-items'>アイテムを追加する+</div>
                             </div>
+                                                    
+@include('admin.items.create')
+            
+            
+            
                         @endif
                         @foreach($post->items as $item)
                             <section class="card-items">
@@ -109,7 +125,7 @@
                                         @if (Auth::id() == $user->id)
                                             <div class="card-link-items">
                                                 <div class="card-link-delete-items">
-                                                    <a href="{{ action('Admin\ItemsController@delete', ['id' => $item->id]) }}" class="btn btn-delete">削除</a>
+                                                    <a href="{{ action('Admin\ItemsController@delete', ['id' => $item->id]) }}" class="item-cercle-icon"><i class="far fa-times-circle"></i></a>
                                                 </div>
                                             </div>
                                         @endif
@@ -124,7 +140,7 @@
                         @endif
                         @if (Auth::id() == $user->id)
                             <div class="tag-create">
-                                <a class="btn btn-black" href="{{ action('Admin\TagsController@add', ['post_id' => $post->id]) }}">タグを追加する</a>
+                                <a class="btn btn-black" href="{{ action('Admin\TagsController@add', ['post_id' => $post->id]) }}">タグを追加する+</a>
                             </div>
                         @endif
                         @foreach($post->tags as $tag)
@@ -135,7 +151,7 @@
                                 @if (Auth::id() == $user->id)
                                     <div class="card-link-tags">
                                         <div class="card-link-delete-tags">
-                                            <a href="{{ action('Admin\TagsController@delete', ['id' => $tag->id]) }}" class="btn btn-tag-delete">削除</a>
+                                            <a href="{{ action('Admin\TagsController@delete', ['id' => $tag->id]) }}" class="tag-cercle-icon"><i class="far fa-times-circle"></i></a>
                                         </div>
                                     </div>
                                 @endif

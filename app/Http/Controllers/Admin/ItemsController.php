@@ -21,19 +21,17 @@ class ItemsController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, Item::$rules);
+        // $post = Post::find($request->id);
         $item = new Item;
         $form = $request->all();
         $item->post_id = $request->post_id;
-        // dd($request);
         $path = $request->file('item_image')->store('public/image');
         $item->item_image = basename($path);
         
         unset($form['_token']);
         unset($form['item_image']);
         
-        
         $item->fill($form);
-        // dd($item);
         $item->save();
         
         return redirect('posts/'.$post->id.'/show');

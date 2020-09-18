@@ -36,18 +36,7 @@ class TagsController extends Controller
                     ['post_id' => $post->id],
                     ['tag_id' => $tag->id]
             );
-
-        // $tag = new Tag;
-        // $form = $request->all();
-        // $post_id = Post::find($request->id);
-        // $tag->post_tags()->attach($post_id);
-                
-        // unset($form['_token']);
-        
-        // $tag->fill($form);
-        // $tag->save();
-        
-        // return redirect('admin/posts/show', ['id' => $post]);
+            
         return back();
     }
     

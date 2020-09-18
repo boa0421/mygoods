@@ -1,11 +1,13 @@
-@extends('layouts.admin')
-@section('title', 'Itemの新規作成')
-
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>Item新規作成</h2>
+<div class="container create-items-wrapper" id="create-items-show">
+    <div class="row" id="modal">
+        <div class="col-md-8 mx-auto">
+        
+            <div class="close-modal">
+                <i class="fa fa-2x fa-times"></i>
+            </div>
+            
+            <div id="item-form"></div>
+                <h2>アイテム作成</h2>
                 <form action="{{ action('Admin\ItemsController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -16,15 +18,15 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">名前</label>
+                        <!--<label class="col-md-2">名前</label>-->
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="item_name" value="{{ old('item_name') }}">
+                            <input type="text" placeholder="名前" class="form-control" name="item_name" value="{{ old('item_name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">店名 URLを入力してください</label>
+                        <!--<label class="col-md-2">店名 URLを入力してください</label>-->
                         <div class="col-md-10">
-                            <input type="url" class="form-control" name="shop" value="{{ old('shop') }}">
+                            <input type="url" placeholder="店名　URLを入力してください" class="form-control" name="shop" value="{{ old('shop') }}">
                         </div>
                     </div>
 
@@ -36,10 +38,10 @@
                     </div>
                     <input type="hidden" name="post_id" value="{{ $post_id }}">
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="更新">
+                    <input type="submit" id='item-submit-btn' value="更新">
                     
                 </form>
             </div>
         </div>
     </div>
-@endsection
+</div>

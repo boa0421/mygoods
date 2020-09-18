@@ -7,6 +7,8 @@ use App\Post;
 use App\User;
 use App\Tag;
 use Auth;
+use App\Item;
+use Validator;
 
 class PostsController extends Controller
 {

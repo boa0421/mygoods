@@ -11,6 +11,7 @@
 
         <!-- Scripts -->
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -21,7 +22,6 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/posts.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/users.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/navbar.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/footer.css') }}" rel="stylesheet">
     </head>
     <body>
@@ -138,6 +138,7 @@
             </ul>
             <p>© All rights reserved by ai_sogabe.</p>
         </footer>
+        <script src="{{ secure_asset('js/items.js') }}"></script>
     </body>
 
 </html>
