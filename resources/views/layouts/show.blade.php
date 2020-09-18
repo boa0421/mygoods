@@ -72,7 +72,9 @@
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}
-            <div>
+            <div class="row top-image">
+                <img class="top-image col-lg-12" src="{{ asset('storage/image/SmallFlowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
+            </div>
                 
             <div class="container_user">
                 <div class="profile-wrap">
@@ -121,8 +123,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
             </div>
             <main class="py-4">
                 @yield('content')

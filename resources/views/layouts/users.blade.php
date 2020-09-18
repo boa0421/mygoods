@@ -72,6 +72,9 @@
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}
+            <div class="row top-image">
+                <img class="top-image col-lg-12" src="{{ asset('storage/image/SmallFlowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
+            </div>
 
             <main class="py-4">
                 @yield('content')

@@ -22,6 +22,12 @@ body {
   background-color: #F6F7F8;
 }
 
+.top-image {
+   height: 70px;
+   margin: 5px 0 20px 0;
+   object-fit: cover;
+}
+
 // // パンくずリスト
 
 .breadcrumbs li::after{
@@ -84,7 +90,7 @@ color: #AAAAAA;
 // ユーザー index
 
 // メイン
-.card-main-index {
+.card-main-user-index {
   width: 700px;
   // margin:0 auto;
   background: #fff;
@@ -95,19 +101,19 @@ color: #AAAAAA;
   margin-bottom: 25px;
 }
 
-.card-img-index {
+.card-img-user-index {
   border-radius: 5px 5px 0 0;
   width: 212px;
   height: 200px;
   object-fit: cover;
 }
 
-.card-img-index:hover {
+.card-img-user-index:hover {
   opacity: 0.6;
   filter: brightness(110%);
 }
 
-.profile-image {
+.profile-user-image {
   float: left;
 }
 

@@ -38,6 +38,13 @@
   font-weight: 900;
 }
 
+.top-image-post {
+  height: 70px;
+  margin: 5px 0 20px 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .container {
   max-width: 1000px !important;
   margin: 0 auto;

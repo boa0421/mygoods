@@ -23,7 +23,7 @@
                 <div class="search-link">
                     <p class="link-title">探す</p>
                     <p><a href="{{ action('UsersController@index' ) }}"><i class="fas fa-user fa-lg icon-gray"></i>ユーザーを探す</a></p>
-                    <p><a href="#"><i class="fas fa-shopping-bag fa-lg icon-gray"></i>アイテムを探す</a></p>
+                    <p><a href="{{ action('ItemsController@index' ) }}"><i class="fas fa-shopping-bag fa-lg icon-gray"></i>アイテムを探す</a></p>
                 </div>
                 <hr>
                 <div class="link-user">

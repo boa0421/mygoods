@@ -17,11 +17,11 @@
             <hr>
         </div>
         <div class="row">
-            <div class="user-main-index">
+            <div class="user-main-user-index">
                 @foreach($users as $user)
                     <div class="post">
-                        <section class="card-main-index">
-                            <div class="profile_image image">
+                        <section class="card-main-user-index">
+                            <div class="profile_user-image image">
                                 @if (isset($user->profile_image))
                                     <a href="{{ action('UsersController@show', ['id' => $user->id]) }}">
                                         <img class="card-img-index" src="{{ asset('storage/image/' . $user->profile_image) }}" alt="プロフィール画像">
@@ -33,7 +33,7 @@
                                 @endif
                             </div>
                             
-                            <div class="card-content">
+                            <div class="card-user-content">
                                 <div class="user-name">
                                     <div>
                                         {{ str_limit($user->name, 150) }}
