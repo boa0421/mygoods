@@ -1,37 +1,52 @@
-@extends('layouts.posts')
+@extends('layouts.users')
+@section('title', 'ユーザー一覧')
 
 @section('content')
     <div class="container">
-        <hr color="#c0c0c0">
+        <div class="row side-navigation">
+            <div class="side-user">
+                <div class="search-link">
+                    <p class="link-title">カテゴリー検索</p>
+                    <p><a href="#">Books</a></p>
+                    <p><a href="#">Sports</a></p>
+                    <p><a href="#">Beauty</a></p>
+                    <p><a href="#">Home</a></p>
+                    <p><a href="#">Fashion</a></p>
+                </div>
+            </div>
+            <hr>
+        </div>
         <div class="row">
-            <div class="posts col-md-8 mx-auto mt-3">
+            <div class="user-main-index">
                 @foreach($users as $user)
                     <div class="post">
-                        <div class="row">
-                            <div class="text col-md-6">
-                                <div class="date">
-                                    {{ $user->updated_at->format('Y年m月d日') }}
-                                </div>
-                                <div class="title">
+                        <section class="card-main-index">
+                            <div class="profile_image image">
+                                @if (isset($user->profile_image))
+                                    <a href="{{ action('UsersController@show', ['id' => $user->id]) }}">
+                                        <img class="card-img-index" src="{{ asset('storage/image/' . $user->profile_image) }}" alt="プロフィール画像">
+                                    </a>
+                                @else
+                                    <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
+                                        <i class="fas fa-user-alt fa-4x fa-border plofile-icon"></i>
+                                    </a>
+                                @endif
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="user-name">
                                     <div>
-                                        <a href="{{ action('UsersController@show', ['id' => $user->id]) }}">{{ str_limit($user->name, 150) }}</a>
+                                        {{ str_limit($user->name, 150) }}
                                     </div>
-                                    
                                 </div>
-                                <div class="body mt-3">
+                                <div class="user-profile">
                                     {{ str_limit($user->profile, 1500) }}
                                 </div>
                             </div>
-                            <div class="image col-md-6 text-right mt-4">
-                                @if ($user->profile_image)
-                                    <img src="{{ asset('storage/image/' . $user->profile_image) }}">
-                                @endif
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 @endforeach
             </div>
         </div>
-    </div>
     </div>
 @endsection

@@ -1,3 +1,51 @@
+// ナビバー
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  color: #000 !important;
+}
+
+.nav-link {
+  color: #000 !important;
+}
+
+.container {
+  max-width: 1000px !important;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #F6F7F8;
+}
+
+// // パンくずリスト
+
+.breadcrumbs li::after{
+  content: '>';
+  padding: 0 5px;
+  color: #C0C0C0;
+}
+
+.breadcrumbs li{
+  content: '>';
+  padding: 0 5px;
+  display: inline-block;
+}
+
+.breadcrumbs {
+  list-style: none;
+}
+
+.breadcrumbs li:last-child::after{
+  display: none;
+}
+
+// ユーザーナビ
+
 .container_user {
   background-color: #fff;
 }
@@ -32,3 +80,60 @@ color: #AAAAAA;
 .profile-contents {
   list-style: none;
 }
+
+// ユーザー index
+
+// メイン
+.card-main-index {
+  width: 700px;
+  // margin:0 auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  float: left;
+  margin-right:25px;
+  margin-bottom: 25px;
+}
+
+.card-img-index {
+  border-radius: 5px 5px 0 0;
+  width: 212px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-img-index:hover {
+  opacity: 0.6;
+  filter: brightness(110%);
+}
+
+.profile-image {
+  float: left;
+}
+
+// サイドバー
+
+.side-navigation {
+  width: 212px;
+  float: left;
+  margin-right: 20px;
+}
+
+.link-title {
+  color: #444444;
+  font-size: 20px;
+}
+
+.side-user p {
+  margin-bottom: 20px;
+}
+
+.side-user a {
+  color: #444444;
+}
+
+.icon-gray {
+  color: #444444;
+  margin-right: 10px;
+}
+
