@@ -20,6 +20,7 @@ Route::get('posts/{id}', 'PostsController@index');
 Route::get('posts/{id}/show', 'PostsController@show')->name('posts.show');
 Route::get('users/{id}/show', 'UsersController@show');
 Route::get('users/index', 'UsersController@index');
+Route::get('items/index', 'ItemsController@index');
 Route::get('admin/users/{id}/followings', 'Admin\UsersController@followings')->name('admin.users.followings');
 Route::get('admin/users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
 Route::get('admin/users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
