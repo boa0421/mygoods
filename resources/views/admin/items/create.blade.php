@@ -1,15 +1,12 @@
 <div class="container create-items-wrapper" id="create-items-show">
-    <div class="row" id="modal">
+    <div class="row" id="modal-items">
         <div class="col-md-8 mx-auto">
-        
             <div class="close-modal">
                 <i class="fa fa-2x fa-times"></i>
             </div>
-            
-            <div id="item-form"></div>
+            <div id="items-form">
                 <h2>アイテム作成</h2>
                 <form action="{{ action('Admin\ItemsController@create') }}" method="post" enctype="multipart/form-data">
-
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)

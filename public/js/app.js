@@ -49671,9 +49671,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/items.js":
+/***/ "./resources/js/modal.js":
 /*!*******************************!*\
-  !*** ./resources/js/items.js ***!
+  !*** ./resources/js/modal.js ***!
   \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -49684,6 +49684,12 @@ $(function () {
   });
   $('.close-modal').click(function () {
     $('#create-items-show').fadeOut();
+  });
+  $('#create-tags').click(function () {
+    $('#create-tags-show').fadeIn();
+  });
+  $('.close-modal').click(function () {
+    $('#create-tags-show').fadeOut();
   });
 });
 
@@ -49779,13 +49785,13 @@ $(function () {
 
 /***/ 0:
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/js/items.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/posts.scss ./resources/sass/users.scss ./resources/sass/navbar.scss ./resources/sass/footer.scss ./resources/sass/top.scss ./resources/sass/front.scss ***!
+  !*** multi ./resources/js/app.js ./resources/js/modal.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/posts.scss ./resources/sass/users.scss ./resources/sass/navbar.scss ./resources/sass/footer.scss ./resources/sass/top.scss ./resources/sass/front.scss ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/js/items.js */"./resources/js/items.js");
+__webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/js/modal.js */"./resources/js/modal.js");
 __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/admin.scss */"./resources/sass/admin.scss");
 __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/posts.scss */"./resources/sass/posts.scss");

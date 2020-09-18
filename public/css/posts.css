@@ -143,11 +143,13 @@ body {
   box-shadow: 0 2px 5px #ccc;
 }
 
-#create-items-show {
+#create-items-show,
+#create-tags-show {
   display: none;
 }
 
-.create-items-wrapper {
+.create-items-wrapper,
+.create-tags-wrapper {
   position: fixed;
   top: 0;
   right: 0;
@@ -158,14 +160,26 @@ body {
   display: none;
 }
 
-#modal {
+#modal-items {
   position: absolute;
   top: 20%;
-  left: 34%;
-  background-color: #e6ecf0;
+  left: 20%;
+  background-color: #F6F7F8;
   padding: 20px 0 40px;
   border-radius: 10px;
   width: 600px;
+  height: auto;
+  text-align: center;
+}
+
+#modal-tags {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  background-color: #F6F7F8;
+  padding: 20px 0 40px;
+  border-radius: 10px;
+  width: 500px;
   height: auto;
   text-align: center;
 }
@@ -178,11 +192,17 @@ body {
   cursor: pointer;
 }
 
-#item-form {
+#items-form,
+#tags-form {
   width: 100%;
 }
 
-#item-form h2 {
+#tags-form {
+  margin-left: 100px;
+}
+
+#items-form h2,
+#tags-form h2 {
   color: #5f5d60;
   letter-spacing: 1px;
   margin-bottom: 40px;
@@ -197,7 +217,17 @@ body {
   border-radius: 5px;
 }
 
-#item-submit-btn {
+#tags-form input {
+  width: 300px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  padding: 12px 12px;
+  border: 1px solid #d0d5d8;
+  border-radius: 5px;
+}
+
+#item-submit-btn,
+#tags-submit-btn {
   display: inline-block;
   padding: 14px 140px;
   background-color: #0bd;

@@ -26,7 +26,7 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $user = User::find($post->user_id);
         
-        return view('posts.show', ['post'=>$post, 'user'=>$user]);
+        return view('posts.show', ['post'=>$post, 'user'=>$user, 'post_id' => $request->post_id]);
     }
     
     public function top(Request $request)

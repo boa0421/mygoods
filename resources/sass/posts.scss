@@ -152,14 +152,13 @@ body {
   box-shadow: 0 2px 5px #ccc;
 }
 
-// アイテム
+// モーダル
 
-// アイテム　モーダル
-#create-items-show {
+#create-items-show, #create-tags-show {
   display: none;
 }
 
-.create-items-wrapper {
+.create-items-wrapper, .create-tags-wrapper {
   position: fixed;
   top: 0;
   right: 0;
@@ -170,14 +169,26 @@ body {
   display: none;
 }
 
-#modal {
+#modal-items {
   position: absolute;
   top: 20%;
-  left: 34%;
-  background-color: #e6ecf0;
+  left: 20%;
+  background-color: #F6F7F8;
   padding: 20px 0 40px;
   border-radius: 10px;
   width: 600px;
+  height: auto;
+  text-align: center;
+}
+
+#modal-tags {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  background-color: #F6F7F8;
+  padding: 20px 0 40px;
+  border-radius: 10px;
+  width: 500px;
   height: auto;
   text-align: center;
 }
@@ -190,11 +201,15 @@ body {
   cursor: pointer;
 }
 
-#item-form {
+#items-form, #tags-form {
   width: 100%;
 }
 
-#item-form h2 {
+#tags-form {
+  margin-left: 100px;
+}
+
+#items-form h2, #tags-form h2 {
   color: #5f5d60;
   letter-spacing: 1px;
   margin-bottom: 40px;
@@ -209,7 +224,16 @@ body {
   border-radius: 5px;
 }
 
-#item-submit-btn {
+#tags-form input {
+  width: 300px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  padding: 12px 12px;
+  border: 1px solid #d0d5d8;
+  border-radius: 5px;
+}
+
+#item-submit-btn, #tags-submit-btn {
   display: inline-block;
   padding: 14px 140px;
   background-color: #0bd;
@@ -220,6 +244,7 @@ body {
   cursor: pointer;
 }
 
+// アイテム
 
 .item_list {
   margin-top: 30px;
@@ -321,6 +346,7 @@ a.btn-black:hover {
   text-align: center;
   margin-top: 10px;
 }
+
 .card-tags {
   // width: 70%;
   border: 1px solid;
@@ -329,6 +355,7 @@ a.btn-black:hover {
   border-color: #ccc;
   padding: 10px;
 }
+
 .btn-tag-delete,
 a.btn-tag-delete {
   font-size: 10px;
@@ -336,11 +363,13 @@ a.btn-tag-delete {
   color: #fff;
   background-color: #FF0066;
 }
+
 .btn-tag-delete:hover,
 a.btn-tag-delete:hover {
   color: #fff;
   background: #CC0066;
 }
+
 .card-content-tags {
   float: left;
 }
@@ -380,27 +409,33 @@ a.btn-tag-delete:hover {
   text-align: center;
   color: #333;
 }
+
 .card-text-index {
   color: #777;
   font-size: 10px;
   line-height: 1.5;
 }
+
 .card-link-index {
   text-align: center;
   border-top: 1px solid #eee;
   padding: 2px;
 }
+
 .card-link-index a {
   text-decoration: none;
   color: #0bd;
   margin: 0 10px;
 }
+
 .card-link-index a:hover {
   color: #0090aa;
 }
+
 .card-link-edit-index {
   float: left;
 }
+
 .main {
   margin-right: 30px;
 }

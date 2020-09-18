@@ -89,25 +89,10 @@
                             <h3>アイテムリスト</h3>
                         @endif
                         @if (Auth::id() == $user->id)
-                            <!--<div class="item_create">-->
-                            <!--    <a class="btn btn-black" href="{{ action('Admin\ItemsController@add', ['post_id' => $post->id]) }}">アイテムを追加する+</a>-->
-                            <!--</div>-->
-                            
-                            
-                            
-                            
-                            <!--<div class="items">-->
-                            <!--    <div class="login" id="create-items-show">アイテムを追加する</div>-->
-                            <!--</div>-->
-                            
                             <div class="items">
                                 <div class="btn btn-black" id='create-items'>アイテムを追加する+</div>
                             </div>
-                                                    
-@include('admin.items.create')
-            
-            
-            
+                            @include('admin.items.create')
                         @endif
                         @foreach($post->items as $item)
                             <section class="card-items">
@@ -140,8 +125,9 @@
                         @endif
                         @if (Auth::id() == $user->id)
                             <div class="tag-create">
-                                <a class="btn btn-black" href="{{ action('Admin\TagsController@add', ['post_id' => $post->id]) }}">タグを追加する+</a>
+                                <div class="btn btn-black" id='create-tags'>タグを追加する+</div>
                             </div>
+                            @include('admin.tags.create')
                         @endif
                         @foreach($post->tags as $tag)
                             <section class="card-tags">
