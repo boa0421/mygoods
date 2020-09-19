@@ -90,7 +90,7 @@
                         @endif
                         @if (Auth::id() == $user->id)
                             <div class="items">
-                                <div class="btn btn-black" id='create-items'>アイテムを追加する+</div>
+                                <div class="btn btn-outline-dark " id='create-items'>アイテムを追加する+</div>
                             </div>
                             @include('admin.items.create')
                         @endif
@@ -125,9 +125,9 @@
                         @endif
                         @if (Auth::id() == $user->id)
                             <div class="tag-create">
-                                <div class="btn btn-black" id='create-tags'>タグを追加する+</div>
+                                <div class="btn btn-outline-dark" id='create-tags'>タグを追加する+</div>
                             </div>
-                            @include('admin.tags.create')
+                            @include('admin.tags.create', ['post_id' => $post->id])
                         @endif
                         @foreach($post->tags as $tag)
                             <section class="card-tags">
