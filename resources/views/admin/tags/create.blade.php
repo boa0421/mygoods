@@ -19,7 +19,7 @@
                         <input type="text" placeholder="タグ" class="form-control" name="tag_name" value="{{ old('tag_name') }}">
                     </div>
                 </div>
-                <input type="hidden" name="post_id" value="{{ $post_id }}">
+                <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
                 {{ csrf_field() }}
                 <input type="submit" id="tags-submit-btn" value="登録">
             </form>
