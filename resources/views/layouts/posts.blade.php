@@ -30,7 +30,7 @@
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Goods') }}
+                        Goods
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -72,10 +72,11 @@
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}
+            <div>
             <div class="row top-image-post">
                 <img class="top-image-post col-lg-12" src="{{ asset('storage/image/SmallFlowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
             </div>
-                
+            
             <div class="container_user">
                 <div class="profile-wrap">
                     <div class="row">
@@ -127,6 +128,7 @@
             <main class="py-4">
                 @yield('content')
             </main>
+        </div>
         </div>
         <footer>
             <ul class="footer-menu">

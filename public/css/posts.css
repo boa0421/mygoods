@@ -40,7 +40,7 @@
 
 .top-image-post {
   height: 70px;
-  margin: 5px 0 20px 0;
+  margin-top: 5px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -51,6 +51,10 @@
 }
 
 body {
+  background-color: #F6F7F8 !important;
+}
+
+main {
   background-color: #F6F7F8;
 }
 
@@ -305,18 +309,6 @@ a.btn-delete:hover {
   background: #CC0066;
 }
 
-.btn-black,
-a.btn-black {
-  color: #fff;
-  background-color: #808080;
-}
-
-.btn-black:hover,
-a.btn-black:hover {
-  color: #fff;
-  background: #000;
-}
-
 .fa-position-left {
   position: absolute;
   top: calc(50% - .5em);
@@ -369,8 +361,18 @@ a.btn-tag-delete:hover {
   float: left;
 }
 
+.post-new-create {
+  margin-bottom: 40px;
+  width: 200px;
+}
+
+.post-new-create-btn {
+  background-color: #0bd;
+  width: 200px;
+}
+
 .card-main-index {
-  width: 212px;
+  width: 223px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
@@ -381,7 +383,7 @@ a.btn-tag-delete:hover {
 
 .card-img-index {
   border-radius: 5px 5px 0 0;
-  width: 212px;
+  width: 223px;
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
