@@ -30,7 +30,7 @@
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Goods') }}
+                        Goods
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -130,11 +130,9 @@
         </div>
         <footer>
             <ul class="footer-menu">
-                <li><a href="#">投稿一覧</a></li>
-                <li><a href="#">ユーザー一覧</a></li>
-                <li><a href="#">アイテム一覧</a></li>
-                <li><a href="#">カテゴリー一覧</a></li>
-                <li><a href="#">問い合わせ</a></li>
+                <li><a href="/">投稿一覧</a></li>
+                <li><a href="{{ action('UsersController@index' ) }}">ユーザー一覧</a></li>
+                <li><a href="{{ action('ItemsController@index' ) }}">アイテム一覧</a></li>
             </ul>
             <p>© All rights reserved by ai_sogabe.</p>
         </footer>
