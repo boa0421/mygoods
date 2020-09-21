@@ -12,12 +12,12 @@ class UserFollowController extends Controller
      public function create($id)
     {
         \Auth::user()->follow($id);
-        return redirect('posts/'.$user->id);
+        return back();
     }
     
     public function delete($id)
     {
         \Auth::user()->unfollow($id);
-        return redirect('posts/'.$user->id);
+        return back();
     }
 }
