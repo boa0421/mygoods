@@ -29,6 +29,7 @@ body {
 
 main {
   background-color: #F6F7F8;
+  height: 800px;
 }
 
 .breadcrumbs li::after {
@@ -125,7 +126,7 @@ a.btn-delete-user-index:hover {
 }
 
 .side-navigation {
-  width: 212px;
+  width: 300px;
   float: left;
   margin-right: 20px;
 }

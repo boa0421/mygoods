@@ -16,6 +16,18 @@
                 <div class="search-link">
                     <p class="link-title">検索</p>
                 </div>
+                <form action="{{ action('ItemsController@index') }}" method="get">
+                    <div class="form-group row">
+                        <!--<label class="col-md-2">名前</label>-->
+                        <div class="col-md-8">
+                            <input type="text" placeholder="アイテム名で探す"class="form-control" name="cond_title" value="{{ $cond_title }}">
+                        </div>
+                        <div class="col-md-2">
+                            {{ csrf_field() }}
+                            <input type="submit" class="btn btn-primary" value="検索">
+                        </div>
+                    </div>
+                </form>
             </div>
             <hr>
         </div>
@@ -44,5 +56,6 @@
                 @endforeach
             </div>
         </div>
+        {{ $items->links() }}
     </div>
 @endsection

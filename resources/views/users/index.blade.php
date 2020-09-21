@@ -20,6 +20,9 @@
                     <p><a href="#">Beauty</a></p>
                     <p><a href="#">Home</a></p>
                     <p><a href="#">Fashion</a></p>
+                    <p><a href="#">Cooking</a></p>
+                    <p><a href="#">Pets</a></p>
+                    <p><a href="#">Business</a></p>
                 </div>
             </div>
             <hr>
@@ -71,5 +74,6 @@
                 @endforeach
             </div>
         </div>
+        {{ $users->links() }}
     </div>
 @endsection
