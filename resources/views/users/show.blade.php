@@ -27,7 +27,7 @@
             <div class="row">
                 <ul class="profile-contents">
                     <li>{{ $user->profile }}</li>
-                    <li>{{ $user->hobby }}</li>
+                    <li>{{ $user->interest }}</li>
                 </ul>
             </div>
             <div>

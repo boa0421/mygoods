@@ -8,6 +8,7 @@ use Auth;
 use App\User;
 use App\Post;
 use App\Like;
+use App\Interest;
 
 class UsersController extends Controller
 {
@@ -75,6 +76,20 @@ class UsersController extends Controller
     public function profile_create(Request $request)
     {
         $user = Auth::user();
+        
+        $interest_user = new Interest;
+        if ( Interest::where("interest", $request->interest)->exists() ){
+            $interest = Interest::where("interest", $request->interest)->first();
+        }else{
+            $interest = new Interest();
+            $interest->interest = $request->interest;
+            $interest->save();
+        }
+        $user->interests()->attach(
+                    ['user_id' => $user->id],
+                    ['interest_id' => $interest->id]
+            );
+        
         $form = $request->all();
         if (isset($form['profile_image'])) {
             $path = $request->file('profile_image')->store('public/image');

@@ -128,6 +128,6 @@ class User extends Authenticatable
     
     public function interests()
     {
-        return $this->belongsToMany('App\Interest'); 
+        return $this->belongsToMany('App\Interest', 'interest_user', 'user_id', 'interest_id')->withTimestamps();
     }
 }

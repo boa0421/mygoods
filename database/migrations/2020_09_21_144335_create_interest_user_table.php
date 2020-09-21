@@ -21,6 +21,8 @@ class CreateInterestUserTable extends Migration
             
             $table->foreign('interest_id')->references('id')->on('interests')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
+            $table->unique(['interest_id', 'user_id']);
         });
     }
 

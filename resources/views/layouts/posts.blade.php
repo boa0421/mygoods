@@ -96,7 +96,11 @@
                         </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <h1>{{ $user->name }}</h1>
+                            @if (isset($user->nickname))
+                                <h1>{{ $user->nickname }}</h1>
+                            @else
+                                <h1>{{ $user->name }}</h1>
+                            @endif
                         </div>
                         @if (Auth::id() == $user->id)
                             <div>
@@ -105,22 +109,24 @@
                         @endif
                         <div class="row">
                             <ul class="profile-contents">
-                                <li>{{ $user->profile }}</li>
-                                <li>{{ $user->hobby }}</li>
+                                <p>{{ $user->profile }}</p>
+                                @foreach($user->interests as $interest)
+                                    <p>{{ $interest->interest }}</p>
+                                @endforeach
                             </ul>
                         </div>
                         <div>
-                        @if ( Auth::check() )
-                            @if (Auth::id() != $user->id)
-                                @if (Auth::user()->is_following($user->id))
-                                    <a class="btn btn-delete" href="{{ action('Admin\UserFollowController@delete', ['id' => $user->id]) }}">アンフォロー</a>
-                                @else
-                                    <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+                            @if ( Auth::check() )
+                                @if (Auth::id() != $user->id)
+                                    @if (Auth::user()->is_following($user->id))
+                                        <a class="btn btn-delete" href="{{ action('Admin\UserFollowController@delete', ['id' => $user->id]) }}">アンフォロー</a>
+                                    @else
+                                        <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+                                    @endif
                                 @endif
+                            @else
+                                <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
                             @endif
-                        @else
-                            <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
-                        @endif
                         </div>
                     </div>
                 </div>
