@@ -27,6 +27,12 @@ body {
      object-fit: cover;
 }
 
+.top-image:hover {
+  opacity: 0.8;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
 main {
   background-color: #F6F7F8;
 }
@@ -91,13 +97,14 @@ main {
 }
 
 .card-main-user-index {
-  width: 700px;
+  width: 490px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
-  margin-right: 25px;
-  margin-bottom: 25px;
+  margin-right: 5px;
+  margin-bottom: 5px;
   display: flex;
+  float: left;
 }
 
 .card-img-user-index {
@@ -120,13 +127,27 @@ main {
           filter: brightness(110%);
 }
 
+.plofile-icon:hover {
+  opacity: 0.6;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
 .card-user-content {
   width: 400px;
   padding: 30px;
 }
 
-.user-name {
+.user-follow {
+  margin: 20px;
+}
+
+.card-title-follow {
   font-size: 30px;
+}
+
+.card-content-follow {
+  font-size: 20px;
 }
 
 .follow-btn {

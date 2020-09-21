@@ -15,30 +15,44 @@
             </nav>
         </div>
         <div class="row">
-            <div class="main-index">
+            <nav>
+                <ol class="breadcrumbs">
+                    <li><a href="/"><i class="fas fa-home"></i>top</a></li>
+                    <li><a href="{{ action('PostsController@index', ['id' => $user->id]) }}">{{ $user->name }}</a></li>
+                    <li>{{ $user->name }}のフォロー一覧</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="main-user-index">
                 @if(isset($user))
                     @foreach($user->followings as $following)
-                        <section class="card-main-index">
+                        <section class="card-main-user-index">
                             @if (isset($following->profile_image))
                                 <div class="image">
-                                    <img class="card-img-index" src="{{ asset('storage/image/' . $following->profile_image) }}" alt="プロフィール 画像">
+                                    <a href="{{ action('PostsController@index', ['id' => $following->pivot->following_user_id]) }}">
+                                        <img class="card-img-user-index" src="{{ asset('storage/image/' . $following->profile_image) }}" alt="プロフィール 画像">
+                                    </a>
+                                </div>
+                            @else
+                                <div class="profile-icon">
+                                    <a href="{{ action('PostsController@index', ['id' => $following->pivot->following_user_id]) }}">
+                                        <i class="fas fa-user-circle plofile-icon"></i>
+                                    </a>
                                 </div>
                             @endif
-                            @if(isset($following->pivot->following_user_id))
-                            <div class="card-content">
-                                <div class="card-title-index">
-                                    <a href="{{ action('PostsController@index', ['id' => $following->pivot->following_user_id]) }}">{{ \Str::limit($following->name, 100) }}</a>
-                                </div>
+                            <div class="user-follow">
+                                @if(isset($following->pivot->following_user_id))
+                                    <div class="card-title-follow">
+                                        {{ \Str::limit($following->name, 100) }}
+                                    </div>
+                                @endif
+                                @if(isset($following->profile))
+                                    <div class="card-content-follow">
+                                        {{ \Str::limit($following->profile, 250) }}
+                                    </div>
+                                @endif
                             </div>
-                            @endif
-                            @if(isset($following->profile))
-                            <div class="card-content-index">
-                                <p class="card-text-index">{{ \Str::limit($following->profile, 250) }}</p>
-                            </div>
-                            @endif
-                            <!--<div class="card-link-index">-->
-    
-                            <!--</div>-->
                         </section>
                     @endforeach
                 @endif
