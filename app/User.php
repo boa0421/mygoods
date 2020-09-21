@@ -125,5 +125,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
-
+    
+    public function interests()
+    {
+        return $this->belongsToMany('App\Interest'); 
+    }
 }
