@@ -28,6 +28,9 @@ body {
    object-fit: cover;
 }
 
+main {
+  background-color: #F6F7F8;
+}
 // // パンくずリスト
 
 .breadcrumbs li::after{
@@ -70,7 +73,7 @@ body {
 }
 
 .plofile-icon {
-color: #AAAAAA;
+  color: #AAAAAA;
 }
 
 .edit-profile-btn {
@@ -87,25 +90,38 @@ color: #AAAAAA;
   list-style: none;
 }
 
+
 // ユーザー index
+// パンくずリスト
+
+.breadcrumbs-user-index {
+  margin-bottom: 20px;
+}
 
 // メイン
+
 .card-main-user-index {
   width: 700px;
   // margin:0 auto;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
-  float: left;
-  margin-right:25px;
+  margin-right: 25px;
   margin-bottom: 25px;
+  display: flex;
 }
 
 .card-img-user-index {
-  border-radius: 5px 5px 0 0;
-  width: 212px;
-  height: 200px;
+  border-radius: 50%;
+  width: 146px;
+  height: 146px;
+  margin: 5px;
   object-fit: cover;
+}
+
+.plofile-icon {
+  font-size: 10em;
+  margin: 5px;
 }
 
 .card-img-user-index:hover {
@@ -113,10 +129,43 @@ color: #AAAAAA;
   filter: brightness(110%);
 }
 
-.profile-user-image {
-  float: left;
+.card-user-content {
+  width: 400px;
+  padding: 30px;
 }
 
+.user-name {
+  font-size: 30px;
+}
+
+.follow-btn {
+  padding-top: 50px;
+}
+
+.btn-blue-user-index,
+a.btn-blue-user-index {
+  color: #fff;
+  background-color: #0bd;
+  margin: 0 30px;
+}
+
+.btn-blue-user-index:hover,
+a.btn-blue-user-index:hover {
+  color: #fff;
+  background: #0090aa;
+}
+
+.btn-delete-user-index,
+a.btn-delete-user-index {
+  color: #fff;
+  background-color: #FF0066;
+}
+
+.btn-delete-user-index:hover,
+a.btn-delete-user-index:hover {
+  color: #fff;
+  background: #CC0066;
+}
 // サイドバー
 
 .side-navigation {

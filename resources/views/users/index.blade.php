@@ -3,6 +3,14 @@
 
 @section('content')
     <div class="container">
+        <div class="row">
+            <nav>
+                <ol class="breadcrumbs breadcrumbs-user-in">
+                    <li><a href="/"><i class="fas fa-home"></i>top</a></li>
+                    <li>ユーザー一覧</li>
+                </ol>
+            </nav>
+        </div>
         <div class="row side-navigation">
             <div class="side-user">
                 <div class="search-link">
@@ -17,32 +25,47 @@
             <hr>
         </div>
         <div class="row">
-            <div class="user-main-user-index">
+            <div class="users-list-index">
                 @foreach($users as $user)
                     <div class="post">
                         <section class="card-main-user-index">
                             <div class="profile_user-image image">
                                 @if (isset($user->profile_image))
-                                    <a href="{{ action('UsersController@show', ['id' => $user->id]) }}">
-                                        <img class="card-img-index" src="{{ asset('storage/image/' . $user->profile_image) }}" alt="プロフィール画像">
+                                    <a href="{{ action('PostsController@show', ['id' => $user->id]) }}">
+                                        <img class="card-img-user-index" src="{{ asset('storage/image/' . $user->profile_image) }}" alt="プロフィール画像">
                                     </a>
                                 @else
-                                    <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
-                                        <i class="fas fa-user-alt fa-4x fa-border plofile-icon"></i>
-                                    </a>
+                                    <div class="profile-icon">
+                                        <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
+                                            <i class="fas fa-user-circle fa-7x plofile-icon card-img-user-index"></i>
+                                        </a>
+                                    </div>
                                 @endif
                             </div>
                             
                             <div class="card-user-content">
                                 <div class="user-name">
-                                    <div>
-                                        {{ str_limit($user->name, 150) }}
-                                    </div>
+                                    {{ str_limit($user->name, 150) }}
                                 </div>
                                 <div class="user-profile">
                                     {{ str_limit($user->profile, 1500) }}
                                 </div>
                             </div>
+                            
+                            <div class="follow-btn">
+                                @if ( Auth::check() )
+                                    @if (Auth::id() != $user->id)
+                                        @if (Auth::user()->is_following($user->id))
+                                            <a class="btn btn-delete-user-index" href="{{ action('Admin\UserFollowController@delete', ['id' => $user->id]) }}">アンフォロー</a>
+                                        @else
+                                            <a class="btn btn-blue-user-index" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+                                        @endif
+                                    @endif
+                                @else
+                                    <a class="btn btn-blue-user-index" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
+                                @endif
+                            </div>
+                            
                         </section>
                     </div>
                 @endforeach
