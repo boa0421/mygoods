@@ -20,7 +20,7 @@
 
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/users.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/index.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/footer.css') }}" rel="stylesheet">
     </head>
     <body>

@@ -1,0 +1,166 @@
+// ナビバー
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  color: #000 !important;
+}
+
+.nav-link {
+  color: #000 !important;
+}
+
+.container {
+  max-width: 1000px !important;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #F6F7F8;
+}
+
+.top-image {
+   height: 70px;
+   margin: 5px 0 20px 0;
+   object-fit: cover;
+}
+
+main {
+  background-color: #F6F7F8;
+}
+// // パンくずリスト
+
+.breadcrumbs li::after{
+  content: '>';
+  padding: 0 5px;
+  color: #C0C0C0;
+}
+
+.breadcrumbs li{
+  content: '>';
+  padding: 0 5px;
+  display: inline-block;
+}
+
+.breadcrumbs {
+  list-style: none;
+}
+
+.breadcrumbs li:last-child::after{
+  display: none;
+}
+
+// パンくずリスト
+
+.breadcrumbs-user-index {
+  margin-bottom: 20px;
+}
+
+// ユーザーメイン
+
+.card-main-user-index {
+  width: 700px;
+  // margin:0 auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  display: flex;
+}
+
+.card-img-user-index {
+  border-radius: 50%;
+  width: 146px;
+  height: 146px;
+  margin: 5px;
+  object-fit: cover;
+}
+
+.plofile-icon {
+  color: #AAAAAA;
+  font-size: 10em;
+  margin: 5px;
+}
+
+.card-img-user-index:hover {
+  opacity: 0.6;
+  filter: brightness(110%);
+}
+
+.card-user-content {
+  width: 400px;
+  padding: 30px;
+}
+
+.user-name {
+  font-size: 30px;
+}
+
+.follow-btn {
+  padding-top: 50px;
+}
+
+.btn-blue-user-index,
+a.btn-blue-user-index {
+  color: #fff;
+  background-color: #0bd;
+  margin: 0 30px;
+}
+
+.btn-blue-user-index:hover,
+a.btn-blue-user-index:hover {
+  color: #fff;
+  background: #0090aa;
+}
+
+.btn-delete-user-index,
+a.btn-delete-user-index {
+  color: #fff;
+  background-color: #FF0066;
+}
+
+.btn-delete-user-index:hover,
+a.btn-delete-user-index:hover {
+  color: #fff;
+  background: #CC0066;
+}
+// ユーザー　サイドバー
+
+.side-navigation {
+  width: 212px;
+  float: left;
+  margin-right: 20px;
+}
+
+.link-title {
+  color: #444444;
+  font-size: 20px;
+}
+
+.side-user p {
+  margin-bottom: 20px;
+}
+
+.side-user a {
+  color: #444444;
+}
+
+.icon-gray {
+  color: #444444;
+  margin-right: 10px;
+}
+
+// アイテム　メイン
+
+.card-item-content {
+  width: 400px;
+  padding: 30px;
+}
+
+.item-name {
+  font-size: 30px;
+}
