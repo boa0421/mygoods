@@ -27,6 +27,12 @@ body {
      object-fit: cover;
 }
 
+.top-image:hover {
+  opacity: 0.8;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
 main {
   background-color: #F6F7F8;
   height: 800px;
@@ -156,5 +162,46 @@ a.btn-delete-user-index:hover {
 
 .item-name {
   font-size: 30px;
+}
+
+.card-main-index {
+  width: 223px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  float: left;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
+
+.card-img-index {
+  border-radius: 5px 5px 0 0;
+  width: 223px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card-img-index:hover {
+  opacity: 0.6;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
+.card-content-index {
+  padding: 10px;
+}
+
+.card-title-index {
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #333;
+}
+
+.card-text-index {
+  color: #777;
+  font-size: 10px;
+  line-height: 1.5;
 }
 

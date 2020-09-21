@@ -24,6 +24,7 @@ Route::get('items/index', 'ItemsController@index');
 Route::get('admin/users/{id}/followings', 'Admin\UsersController@followings')->name('admin.users.followings');
 Route::get('admin/users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
 Route::get('admin/users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
+Route::get('tags/{id}', 'TagsController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      
