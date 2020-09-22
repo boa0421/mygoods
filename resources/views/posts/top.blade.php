@@ -59,7 +59,7 @@
                     <p class="link-title">最近のタグ</p>
                     @foreach($tags as $tag)
                         <section class="side-top-tag">
-                            <p><a class="side-tag" href="{{ action('PostsController@index', ['id' => $tag->id]) }}">#{{ $tag->tag_name }}</p></a>
+                            <p><a class="side-tag" href="{{ action('TagsController@index', ['id' => $tag->id]) }}">#{{ $tag->tag_name }}</p></a>
                         </section>
                     @endforeach
                     <hr>

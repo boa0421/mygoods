@@ -19,6 +19,11 @@
    object-fit: cover;
 }
 
+.top-image:hover {
+  opacity: 0.8;
+  filter: brightness(110%);
+}
+
 main {
   height: 700px;
 }

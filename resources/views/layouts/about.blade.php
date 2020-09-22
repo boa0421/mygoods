@@ -17,10 +17,11 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
-
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/posts.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/users.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/navbar.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/footer.css') }}" rel="stylesheet">
     </head>
     <body>
@@ -29,7 +30,7 @@
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Goods') }}
+                        Goods
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -60,7 +61,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -72,24 +72,24 @@
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}
-            
-            <div class="row top-image">
-                <a href="about">
-                    <img class="top-image col-lg-12" src="{{ asset('storage/image/Flowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
-                </a>
+            <div>
+            <div class="row top-image-post">
+                <img class="top-image-post col-lg-12" src="{{ asset('storage/image/SmallFlowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
             </div>
+
             <main class="py-4">
                 @yield('content')
             </main>
         </div>
+        </div>
+        <footer>
+            <ul class="footer-menu">
+                <li><a href="/">投稿一覧</a></li>
+                <li><a href="{{ action('UsersController@index' ) }}">ユーザー一覧</a></li>
+                <li><a href="{{ action('ItemsController@index' ) }}">アイテム一覧</a></li>
+            </ul>
+            <p>© All rights reserved by ai_sogabe.</p>
+        </footer>
     </body>
-    <footer>
-        <ul class="footer-menu">
-            <li><a href="/">投稿一覧</a></li>
-            <li><a href="{{ action('UsersController@index' ) }}">ユーザー一覧</a></li>
-            <li><a href="{{ action('ItemsController@index' ) }}">アイテム一覧</a></li>
-            <li><a href="about">はじめての方へ</a></li>
-        </ul>
-        <p>© All rights reserved by ai_sogabe.</p>
-    </footer>
+
 </html>

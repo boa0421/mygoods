@@ -18,6 +18,16 @@
      object-fit: cover;
 }
 
+.top-image:hover {
+  opacity: 0.8;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
+main {
+  height: 700px;
+}
+
 .container {
   max-width: 1000px !important;
   margin: 0 auto;
@@ -79,6 +89,7 @@ body {
 
 .side-navigation {
   width: 212px;
+  height: 664px;
   float: left;
   margin-right: 20px;
 }
@@ -119,6 +130,12 @@ body {
   width: 50px;
   height: 50px;
   color: #444444;
+}
+
+.side-user-image:hover {
+  opacity: 0.8;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
 }
 
 .side-user-name {

@@ -32,10 +32,15 @@ class PostsController extends Controller
     public function top(Request $request)
     {
         $posts = Post::paginate(6);
-        $users = User::all()->sortByDesc('created_at');
-        $tags = Tag::all()->sortByDesc('created_at');
+        $users = User::orderBy('created_at','Desc')->take(3)->get();
+        $tags = Tag::orderBy('created_at','Desc')->take(3)->get();
         
         return view('posts.top',['posts'=>$posts, 'users'=>$users, 'tags'=>$tags]);
+    }
+    
+    public function about()
+    {
+        return view('about');
     }
 
 }

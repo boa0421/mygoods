@@ -36,7 +36,7 @@
                                 </div>
                             @else
                                 <div class="profile-icon">
-                                    <a href="{{ action('PostsController@index', ['id' => $follower->pivot->user_id]) }}">{{ \Str::limit($follower->name, 100) }}
+                                    <a href="{{ action('PostsController@index', ['id' => $follower->pivot->user_id]) }}">
                                         <i class="fas fa-user-circle plofile-icon"></i>
                                     </a>
                                 </div>
