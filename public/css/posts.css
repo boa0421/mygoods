@@ -45,6 +45,12 @@
      object-fit: cover;
 }
 
+.top-image-post:hover {
+  opacity: 0.8;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
 .container {
   max-width: 1000px !important;
   margin: 0 auto;
@@ -289,6 +295,11 @@ a.btn-blue {
   color: #fff;
   background-color: #0bd;
   margin: 0 30px;
+  margin: 15px 0 0 15px;
+  font-weight: bold;
+  height: 30px;
+  line-height: 26px;
+  padding: 0 26px;
 }
 
 .btn-blue:hover,
@@ -301,6 +312,12 @@ a.btn-blue:hover {
 a.btn-delete {
   color: #fff;
   background-color: #FF0066;
+  margin: 0 30px;
+  margin: 15px 0 0 15px;
+  font-weight: bold;
+  height: 30px;
+  line-height: 26px;
+  padding: 0 26px;
 }
 
 .btn-delete:hover,
@@ -336,12 +353,30 @@ a.btn-delete:hover {
   margin-top: 10px;
 }
 
-.card-tags {
-  border: 1px solid;
-  background: #fff;
-  border-radius: 5px;
-  border-color: #ccc;
-  padding: 10px;
+.side-tag {
+  margin: 20px 10px 30px 0;
+  border: solid;
+  border-width: thin;
+  border-color: #666666;
+  color: #444444;
+  padding: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.card-content-tags {
+  text-decoration: none;
+  color: #444444;
+}
+
+.link-tags {
+  padding: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.tag-cercle-icon {
+  color: #0bd;
 }
 
 .btn-tag-delete,

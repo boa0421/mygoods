@@ -7,8 +7,8 @@
         <div class="row">
             <nav>
                 <ol class="breadcrumbs">
-                    <li><a href="#"><i class="fas fa-home"></i>top</a></li>
-                    <li><a href="#">{{ $user->name }}</a></li>
+                    <li><a href="/"><i class="fas fa-home"></i>top</a></li>
+                    <li><a href="{{ action('PostsController@index', ['id' => $user->id]) }}">{{ $user->name }}</a></li>
                     <li>{{ $post->created_at }}の投稿</li>
                 </ol>
             </nav>
@@ -76,10 +76,11 @@
                         @if (Auth::id() == $user->id)
                             <div class="card-link">
                                 <div>
-                                    <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">編集</a>
+                                    <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">投稿を編集する
+                                    </a>
                                 </div>
                                 <div>
-                                    <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">削除</a>
+                                    <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">投稿を削除する</a>
                                 </div>
                             </div>
                         @endif
@@ -105,7 +106,8 @@
                                     </div>
                                     <div class="card-link-bottun">
                                         <div class="card-shop-items">
-                                            <a target="_blank" href="{{ $item->shop }}" class="btn btn-blue"><i class="fas fa-shopping-basket fa-position-left"></i>ショップはこちら</a>
+                                            <!--<a target="_blank" href="{{ $item->shop }}" class="btn btn-blue"><i class="fas fa-shopping-basket fa-position-left"></i>ショップはこちら</a>-->
+                                            <a target="_blank" href="{{ $item->shop }}" class="btn btn-blue-user-index"><i class="fas fa-shopping-basket fa-position-left"></i>ショップはこちら</a>
                                         </div>
                                         @if (Auth::id() == $user->id)
                                             <div class="card-link-items">
@@ -130,14 +132,14 @@
                             @include('admin.tags.create', ['post_id' => $post->id])
                         @endif
                         @foreach($post->tags as $tag)
-                            <section class="card-tags">
+                            <section class="link-tags">
                                 <div class="card-content-tags">
-                                    #{{ $tag->tag_name }}
+                                    <p><a class="side-tag" href="{{ action('TagsController@index', ['id' => $tag->id]) }}">#{{ $tag->tag_name }}</p></a>
                                 </div>
                                 @if (Auth::id() == $user->id)
                                     <div class="card-link-tags">
                                         <div class="card-link-delete-tags">
-                                            <a href="{{ action('Admin\TagsController@delete', ['id' => $tag->id]) }}" class="tag-cercle-icon"><i class="far fa-times-circle"></i></a>
+                                            <a href="{{ action('Admin\TagsController@delete', ['id' => $tag->id]) }}" class="tag-cercle-icon"><i class="far fa-times-circle"></i>タグ削除</a>
                                         </div>
                                     </div>
                                 @endif
