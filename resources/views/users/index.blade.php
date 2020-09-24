@@ -48,7 +48,11 @@
                             
                             <div class="card-user-content">
                                 <div class="user-name">
-                                    {{ str_limit($user->name, 150) }}
+                                    @if (isset($user->nickname))
+                                        <h1>{{ $user->nickname }}</h1>
+                                    @else
+                                        <h1>{{ $user->name }}</h1>
+                                    @endif
                                 </div>
                                 <div class="user-profile">
                                     {{ str_limit($user->profile, 1500) }}

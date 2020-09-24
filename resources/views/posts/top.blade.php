@@ -47,7 +47,11 @@
                                 @endif
                             </div>
                             <div class="side-user-name">
-                                <p>{{ \Str::limit($user->name, 10) }}</p>
+                                @if (isset($user->nickname))
+                                    <p>{{ $user->nickname }}</p>
+                                @else
+                                    <p>{{ $user->name }}</p>
+                                @endif
                             </div>
                         </section>
                     @endforeach
