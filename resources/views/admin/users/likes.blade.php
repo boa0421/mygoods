@@ -15,6 +15,15 @@
             </nav>
         </div>
         <div class="row">
+            <nav>
+                <ol class="breadcrumbs">
+                    <li><a href="/"><i class="fas fa-home"></i>top</a></li>
+                    <li><a href="{{ action('PostsController@index', ['id' => $user->id]) }}">{{ $user->name }}</a></li>
+                    <li>{{ $user->name }}のお気に入り一覧</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
             <div class="main-index">
                 @if(isset($user))
                     @foreach($user->likes as $like)
@@ -29,13 +38,13 @@
                             @if(isset($like->pivot->post_id))
                             <div class="card-content">
                                 <div class="card-title-index">
-                                    {{ \Str::limit($like->title, 100) }}
+                                    {{ \Str::limit($like->title, 10) }}
                                 </div>
                             </div>
                             @endif
                             @if(isset($like->content))
                             <div class="card-content-index">
-                                <p class="card-text-index">{{ \Str::limit($like->content, 250) }}</p>
+                                <p class="card-text-index">{{ \Str::limit($like->content, 45) }}</p>
                             </div>
                             @endif
                         </section>

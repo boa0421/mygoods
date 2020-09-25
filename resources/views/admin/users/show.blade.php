@@ -23,7 +23,7 @@
                     {{ $user->profile }}
                 </p>
                 <p>
-                    {{ $user->hobby }}
+                    {{ $user->interest }}
                 </p>
             </div>
         </div>

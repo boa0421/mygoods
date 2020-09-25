@@ -15,9 +15,18 @@
             </nav>
         </div>
         <div class="row">
+            <nav>
+                <ol class="breadcrumbs">
+                    <li><a href="/"><i class="fas fa-home"></i>top</a></li>
+                    <li><a href="{{ action('PostsController@index', ['id' => $user->id]) }}">{{ $user->name }}</a></li>
+                    <li>{{ $user->name }}の投稿一覧</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
             @if (Auth::id() == $user->id)
-                <div class="col-md-4 offset-md-4">
-                    <a href="{{ action('Admin\PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+                <div class="post-new-create col-md-4 offset-md-4">
+                    <a href="{{ action('Admin\PostsController@add') }}" role="button" class="post-new-create-btn btn btn-primary">新規作成</a>
                 </div>
             @endif
             @if (isset($posts))
@@ -31,22 +40,22 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-title-index">
-                                    {{ \Str::limit($post->title, 100) }}
+                                    {{ \Str::limit($post->title, 10) }}
                                 </div>
                             </div>
                             <div class="card-content-index">
-                                <p class="card-text-index">{{ \Str::limit($post->content, 250) }}</p>
+                                <p class="card-text-index">{{ \Str::limit($post->content, 45) }}</p>
                             </div>
-                            @if (Auth::id() == $user->id)
-                                <div class="card-link-index">
-                                    <div class="card-link-edit-index">
-                                        <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">編集</a>
-                                    </div>
-                                    <div class="card-link-delete-index">
-                                        <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">削除</a>
-                                    </div>
-                                </div>
-                            @endif
+                            <!--@if (Auth::id() == $user->id)-->
+                            <!--    <div class="card-link-index">-->
+                            <!--        <div class="card-link-edit-index">-->
+                            <!--            <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">編集</a>-->
+                            <!--        </div>-->
+                            <!--        <div class="card-link-delete-index">-->
+                            <!--            <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">削除</a>-->
+                            <!--        </div>-->
+                            <!--    </div>-->
+                            <!--@endif-->
                         </section>
                     @endforeach
                 </div>
