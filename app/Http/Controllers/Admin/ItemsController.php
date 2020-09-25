@@ -21,7 +21,7 @@ class ItemsController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, Item::$rules);
-        // $post = Post::find($request->id);
+        $post = Post::find($request->post_id);
         $item = new Item;
         $form = $request->all();
         $item->post_id = $request->post_id;
@@ -34,30 +34,30 @@ class ItemsController extends Controller
         $item->fill($form);
         $item->save();
         
-        return redirect('posts/'.$post->id.'/show');
+        return back();
     }
     
-    public function edit($id)
-    {
-        $item = Item::findOrFail($id);
+    // public function edit($id)
+    // {
+    //     $item = Item::findOrFail($id);
         
-        return view('admin.items.edit', ['item_form' => $item]);
-    }
+    //     return view('admin.items.edit', ['item_form' => $item]);
+    // }
     
-    public function update(Request $request)
-    {
-        $this->validate($request, Item::$rules);
-        $item = Item::find($request->id);
-        $item_form = $request->all();
+    // public function update(Request $request)
+    // {
+    //     $this->validate($request, Item::$rules);
+    //     $item = Item::find($request->id);
+    //     $item_form = $request->all();
         
-        $path = $request->file('image')->store('public/image');
-        $item->item_image = basename($path);
-        unset($item_form['image']);
-        unset($item_form['_token']);
-        $item->fill($item_form)->save();
+    //     $path = $request->file('image')->store('public/image');
+    //     $item->item_image = basename($path);
+    //     unset($item_form['image']);
+    //     unset($item_form['_token']);
+    //     $item->fill($item_form)->save();
 
-        return redirect('posts/'.$post->id);
-    }
+    //     return redirect('posts/'.$post->id);
+    // }
     
     public function delete(Request $request)
     {
@@ -67,10 +67,10 @@ class ItemsController extends Controller
         return redirect('posts');
     }
 
-    public function show($id)
-    {
-        $item = Item::findOrFail($id);
+    // public function show($id)
+    // {
+    //     $item = Item::findOrFail($id);
         
-        return view('admin.items.show', ['item' => $item]);
-    }
+    //     return view('admin.items.show', ['item' => $item]);
+    // }
 }

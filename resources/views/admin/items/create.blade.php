@@ -33,7 +33,7 @@
                             <input type="file" class="form-control-file" name="item_image">
                         </div>
                     </div>
-                    <input type="hidden" name="post_id" value="{{ $post_id }}">
+                    <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
                     {{ csrf_field() }}
                     <input type="submit" id='item-submit-btn' value="更新">
                     

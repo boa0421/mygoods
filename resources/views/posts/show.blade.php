@@ -93,7 +93,7 @@
                             <div class="items">
                                 <div class="btn btn-outline-dark " id='create-items'>アイテムを追加する+</div>
                             </div>
-                            @include('admin.items.create')
+                            @include('admin.items.create', ['post_id' => $post->id])
                         @endif
                         @foreach($post->items as $item)
                             <section class="card-items">
