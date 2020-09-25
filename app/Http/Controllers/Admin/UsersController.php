@@ -77,18 +77,18 @@ class UsersController extends Controller
     {
         $user = Auth::user();
         
-        $interest_user = new Interest;
-        if ( Interest::where("interest", $request->interest)->exists() ){
-            $interest = Interest::where("interest", $request->interest)->first();
-        }else{
-            $interest = new Interest();
-            $interest->interest = $request->interest;
-            $interest->save();
-        }
-        $user->interests()->attach(
-                    ['user_id' => $user->id],
-                    ['interest_id' => $interest->id]
-            );
+        // $interest_user = new Interest;
+        // if ( Interest::where("interest", $request->interest)->exists() ){
+        //     $interest = Interest::where("interest", $request->interest)->first();
+        // }else{
+        //     $interest = new Interest();
+        //     $interest->interest = $request->interest;
+        //     $interest->save();
+        // }
+        // $user->interests()->attach(
+        //             ['user_id' => $user->id],
+        //             ['interest_id' => $interest->id]
+        //     );
         
         $form = $request->all();
         if (isset($form['profile_image'])) {
