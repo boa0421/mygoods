@@ -23,6 +23,7 @@ class PostsController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, Post::$rules);
+        $user = Auth::user();
         $post = new Post;
         $form = $request->all();
         $post->user_id = Auth::user()->id;
@@ -58,12 +59,12 @@ class PostsController extends Controller
         unset($post_form['_token']);
         $post->fill($post_form)->save();
         
-        return redirect('posts/'.$user->id);
+        return redirect('posts/'.$user);
     }
     
     public function delete(Request $request)
     {
-        // dd($request);
+        $user = Auth::user();
         $post = Post::find($request->id);
         $post->delete();
         
