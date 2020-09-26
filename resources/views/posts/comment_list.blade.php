@@ -1,15 +1,23 @@
 @foreach ($post->comments as $comment) 
-    <div class="mb-2">
-        @if ( Auth::check() )
-            @if ($comment->user->id == Auth::user()->id)
-                <a class="delete-comment" data-remote="true" rel="nofollow" data-method="delete" href="admin/comments/{{ $comment->id }}"></a>
+    <div class="comments">
+        <span class="comment-icon">
+            @if (isset($comment->user->profile_image))
+                <a href="{{ action('PostsController@index', ['id' => $comment->user->id]) }}">
+                    <img class="round-img-comment" src="{{ asset('storage/image/' . $comment->user->profile_image) }}"/>
+                </a>
+            @else
+                <a href="{{ action('PostsController@index', ['id' => $comment->user->id ]) }}">
+                    <i class="fas fa-user-circle fa-2x plofile-icon-comment"></i>
+                </a>
             @endif
-        @endif
-        <span>
-            <strong>
-                <a class="no-text-decoration black-color" href="# {{ $comment->user->id }}">{{ $comment->user->name }}</a>
-            </strong>
         </span>
-        <span>{{ $comment->comment }}</span>
+        <span class="comment-contents">{{ $comment->comment }}</span>
+        <div class="comment-delete">
+            @if ( Auth::check() )
+                @if ($comment->user->id == Auth::user()->id)
+                    <a class="delete-comment" href="{{ action('Admin\CommentsController@delete', ['id' => $comment->id]) }}"><i class="far fa-times-circle icon-delete-comment"></i></a>
+                @endif
+            @endif
+        </div>
     </div>
 @endforeach

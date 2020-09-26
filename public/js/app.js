@@ -49695,6 +49695,17 @@ $(function () {
 
 /***/ }),
 
+/***/ "./resources/sass/about.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/about.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/admin.scss":
 /*!***********************************!*\
   !*** ./resources/sass/admin.scss ***!
@@ -49795,9 +49806,9 @@ $(function () {
 /***/ }),
 
 /***/ 0:
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/js/modal.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/posts.scss ./resources/sass/users.scss ./resources/sass/navbar.scss ./resources/sass/footer.scss ./resources/sass/top.scss ./resources/sass/index.scss ./resources/sass/front.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/modal.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/posts.scss ./resources/sass/users.scss ./resources/sass/navbar.scss ./resources/sass/footer.scss ./resources/sass/top.scss ./resources/sass/index.scss ./resources/sass/about.scss ./resources/sass/front.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49811,6 +49822,7 @@ __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/navbar
 __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/footer.scss */"./resources/sass/footer.scss");
 __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/top.scss */"./resources/sass/top.scss");
 __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/index.scss */"./resources/sass/index.scss");
+__webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/about.scss */"./resources/sass/about.scss");
 module.exports = __webpack_require__(/*! /home/ec2-user/environment/mygoods/resources/sass/front.scss */"./resources/sass/front.scss");
 
 

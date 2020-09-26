@@ -26,14 +26,14 @@
                                     @if ( Auth::check() )
                                         @if (Auth::id() != $post->user_id)
                                             @if (Auth::user()->is_like($post->id))
-                                                <a class="btn btn-delete" href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}"><i class="fas fa-heart"></i></a>
+                                                <a class="btn" href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}"><i class="fas fa-heart fa-lg icon-pink"></i></a>
                                             @else
-                                                <a class="btn btn-blue" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}"><i class="fas fa-heart"></i></a>
+                                                <a class="btn" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}"><i class="far fa-heart fa-lg icon-like"></i></a>
                                             @endif
                                         @endif
                                     @else
                                         @if (Auth::id() != $post->user_id)
-                                            <a class="btn btn-blue" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}"><i class="fas fa-heart"></i></a>
+                                            <a class="btn" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}"><i class="far fa-heart fa-lg icon-like"></i></a>
                                         @endif
                                     @endif
                                 </div>
@@ -52,6 +52,13 @@
                             @if ( Auth::check() )
                                 <div class="row actions" id="comment-form-post-{{ $post->id }}">
                                     <form action="{{ action('Admin\CommentsController@create', ['id' => $post->id]) }}" method="post" enctype="multipart/form-data">
+                                        @if (count($errors) > 0)
+                                            <ul>
+                                                @foreach($errors->all() as $e)
+                                                    <li>{{ $e }}</li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
                                         <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" >
                                         <input value="{{ $post->id }}" type="hidden" name="post_id" >
                                         <input class="form-control comment-input border-0" placeholder="コメントを書く" autocomplete="off" type="text" name="comment" >
@@ -90,7 +97,7 @@
                             <h3>アイテムリスト</h3>
                         @endif
                         @if (Auth::id() == $user->id)
-                            <div class="items">
+                            <div class="item-create">
                                 <div class="btn btn-outline-dark " id='create-items'>アイテムを追加する+</div>
                             </div>
                             @include('admin.items.create', ['post_id' => $post->id])
@@ -134,7 +141,7 @@
                         @foreach($post->tags as $tag)
                             <section class="link-tags">
                                 <div class="card-content-tags">
-                                    <p><a class="side-tag" href="{{ action('TagsController@index', ['id' => $tag->id]) }}">#{{ $tag->tag_name }}</p></a>
+                                    <p><a class="side-tag" href="{{ action('TagsController@index', ['id' => $tag->id]) }}">#{{ $tag->tag_name }}</a></p>
                                 </div>
                                 @if (Auth::id() == $user->id)
                                     <div class="card-link-tags">

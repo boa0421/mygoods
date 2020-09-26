@@ -26,7 +26,7 @@ class CommentsController extends Controller
     
     public function delete(Request $request, $id)
     {
-        $comment = Comment::find($request->comment_id);
+        $comment = Comment::find($request->id);
         $comment->delete();
         
         return back();

@@ -13,7 +13,7 @@ class Comment extends Model
     public static $rules = array(
         'post_id' => 'required',
         'user_id' => 'required',
-        'comment' => 'required',
+        'comment' => 'required|max:31',
     );
 
     public function post()
