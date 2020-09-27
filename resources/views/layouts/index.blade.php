@@ -73,7 +73,9 @@
             </nav>
             {{-- ここまでナビゲーションバー --}}
             <div class="row top-image">
-                <img class="top-image col-lg-12" src="{{ asset('storage/image/SmallFlowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
+                <a href="{{ action('PostsController@about') }}">
+                    <img class="top-image col-lg-12" src="{{ asset('storage/image/SmallFlowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
+                </a>
             </div>
 
             <main class="py-4">
@@ -85,6 +87,7 @@
                 <li><a href="/">投稿一覧</a></li>
                 <li><a href="{{ action('UsersController@index' ) }}">ユーザー一覧</a></li>
                 <li><a href="{{ action('ItemsController@index' ) }}">アイテム一覧</a></li>
+                <li><a href="">はじめての方へ</a></li>
             </ul>
             <p>© All rights reserved by ai_sogabe.</p>
         </footer>

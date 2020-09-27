@@ -1,0 +1,75 @@
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  color: #000 !important;
+}
+
+.nav-link {
+  color: #000 !important;
+}
+
+.breadcrumbs li::after {
+  content: ">";
+  padding: 0 5px;
+  color: #C0C0C0;
+}
+
+.breadcrumbs li {
+  content: ">";
+  padding: 0 5px;
+  display: inline-block;
+}
+
+.breadcrumbs {
+  list-style: none;
+  margin-bottom: 100px;
+}
+
+.breadcrumbs li:last-child::after {
+  display: none;
+}
+
+.plofile-icon {
+  color: #000;
+  font-weight: 900;
+}
+
+.top-image-post {
+  height: 70px;
+  margin-top: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.top-image-post:hover {
+  opacity: 0.8;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
+.container {
+  max-width: 1000px !important;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #F6F7F8 !important;
+}
+
+main {
+  background-color: #F6F7F8;
+}
+
+.about-contents {
+  display: flex;
+}
+
+.side-image {
+  margin-right: 20px;
+  margin-bottom: 150px;
+  box-shadow: 0 2px 5px #ccc;
+}
+

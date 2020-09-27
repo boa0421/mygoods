@@ -144,8 +144,44 @@ main {
   margin-right: 30px;
 }
 
+.icon-pink {
+  color: #FF0066;
+}
+
+.icon-like {
+  color: #0bd;
+}
+
 .comment-post p {
   color: #aaa;
+}
+
+.round-img-comment {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.plofile-icon-comment {
+  color: #444444;
+}
+
+.icon-delete-comment {
+  color: #888888;
+}
+
+.comment-contents {
+  width: 450px;
+}
+
+.delete-comment {
+  width: 20px;
+  height: 20px;
+  margin: 5px 0 0 10px;
+}
+
+.comments {
+  display: flex;
 }
 
 #sidebar {
@@ -285,7 +321,7 @@ main {
   display: flex;
 }
 
-.item_create {
+.item-create {
   text-align: center;
   margin-top: 10px;
 }
@@ -390,10 +426,6 @@ a.btn-tag-delete {
 a.btn-tag-delete:hover {
   color: #fff;
   background: #CC0066;
-}
-
-.card-content-tags {
-  float: left;
 }
 
 .post-new-create {

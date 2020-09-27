@@ -23,4 +23,5 @@ mix.js([
     .sass('resources/sass/footer.scss', 'public/css')
     .sass('resources/sass/top.scss', 'public/css')
     .sass('resources/sass/index.scss', 'public/css')
+    .sass('resources/sass/about.scss', 'public/css')
     .sass('resources/sass/front.scss', 'public/css');
