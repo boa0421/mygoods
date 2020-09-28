@@ -110,7 +110,7 @@
                         @endif
                         <div class="row">
                             <ul class="profile-contents">
-                                <p>{{ $user->profile }}</p>
+                                <p>{!! nl2br(e($user->profile)) !!}</p>
                                 <!--@foreach($user->interests as $interest)-->
                                 <!--    <p>{{ $interest->interest }}</p>-->
                                 <!--@endforeach-->
