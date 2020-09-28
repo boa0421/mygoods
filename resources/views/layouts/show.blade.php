@@ -111,9 +111,9 @@
                         <div class="row">
                             <ul class="profile-contents">
                                 <p>{{ $user->profile }}</p>
-                                @foreach($user->interests as $interest)
-                                    <p>{{ $interest->interest }}</p>
-                                @endforeach
+                                <!--@foreach($user->interests as $interest)-->
+                                <!--    <p>{{ $interest->interest }}</p>-->
+                                <!--@endforeach-->
                             </ul>
                         </div>
                         <div>

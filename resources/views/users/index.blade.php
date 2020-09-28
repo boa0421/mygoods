@@ -11,22 +11,22 @@
                 </ol>
             </nav>
         </div>
-        <div class="row side-navigation">
-            <div class="side-user">
-                <div class="search-link">
-                    <p class="link-title">カテゴリー検索</p>
-                    <p><a href="#">Books</a></p>
-                    <p><a href="#">Sports</a></p>
-                    <p><a href="#">Beauty</a></p>
-                    <p><a href="#">Home</a></p>
-                    <p><a href="#">Fashion</a></p>
-                    <p><a href="#">Cooking</a></p>
-                    <p><a href="#">Pets</a></p>
-                    <p><a href="#">Business</a></p>
-                </div>
-            </div>
-            <hr>
-        </div>
+        <!--<div class="row side-navigation">-->
+        <!--    <div class="side-user">-->
+        <!--        <div class="search-link">-->
+        <!--            <p class="link-title">カテゴリー検索</p>-->
+        <!--            <p><a href="#">Books</a></p>-->
+        <!--            <p><a href="#">Sports</a></p>-->
+        <!--            <p><a href="#">Beauty</a></p>-->
+        <!--            <p><a href="#">Home</a></p>-->
+        <!--            <p><a href="#">Fashion</a></p>-->
+        <!--            <p><a href="#">Cooking</a></p>-->
+        <!--            <p><a href="#">Pets</a></p>-->
+        <!--            <p><a href="#">Business</a></p>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--    <hr>-->
+        <!--</div>-->
         <div class="row">
             <div class="users-list-index">
                 @foreach($users as $user)
