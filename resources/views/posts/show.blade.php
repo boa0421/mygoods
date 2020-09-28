@@ -28,7 +28,7 @@
                                             @if (Auth::user()->is_like($post->id))
                                                 <a class="btn" href="{{ action('Admin\LikesController@delete', ['id' => $post->id]) }}"><i class="fas fa-heart fa-lg icon-pink"></i></a>
                                             @else
-                                                <a class="btn" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}"><i class="far fa-heart fa-lg icon-like"></i></a>
+                                                <a class="btn" data-remote="true" method="post" href="{{ action('Admin\LikesController@create', ['id' => $post->id]) }}"><i class="far fa-heart fa-lg icon-like"></i></a>
                                             @endif
                                         @endif
                                     @else
@@ -42,7 +42,7 @@
                         <hr>
                         <div>
                             <div class="comment-post">
-                                @if(isset($post->comments))
+                                @if($post->comments()->exists())
                                     @include('posts.comment_list')
                                 @else
                                     <p>コメントはまだありません</p>
@@ -93,7 +93,7 @@
                         @endif
                     </section>
                     <div class="item_list">
-                        @if(isset($post->items))
+                        @if($post->items()->exists())
                             <h3>アイテムリスト</h3>
                         @endif
                         @if (Auth::id() == $user->id)
@@ -129,7 +129,7 @@
                         @endforeach
                     </div>
                     <div class="tag_list">
-                        @if(isset($post->tags))
+                        @if($post->tags()->exists())
                             <h3>タグ一覧</h3>
                         @endif
                         @if (Auth::id() == $user->id)

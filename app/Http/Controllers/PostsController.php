@@ -24,9 +24,10 @@ class PostsController extends Controller
     public function show(Request $request, $id)
     {
         $post = Post::findOrFail($id);
+        // dd($post->comments);
         $user = User::find($post->user_id);
         
-        return view('posts.show', ['post'=>$post, 'user'=>$user, 'post_id' => $request->post_id]);
+        return view('posts.show', ['post'=>$post, 'user'=>$user, 'post_id' => $post->id]);
     }
     
     public function top(Request $request)

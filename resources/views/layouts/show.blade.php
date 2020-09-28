@@ -146,6 +146,7 @@
             <p>© All rights reserved by ai_sogabe.</p>
         </footer>
         <script src="{{ secure_asset('js/modal.js') }}"></script>
+        <script src="{{ secure_asset('js/ajax.js') }}"></script>
     </body>
 
 </html>
