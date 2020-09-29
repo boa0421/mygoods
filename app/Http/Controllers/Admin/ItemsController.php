@@ -64,7 +64,7 @@ class ItemsController extends Controller
         $item = Item::find($request->id);
         $item->delete();
         
-        return redirect('posts');
+        return back();
     }
 
     // public function show($id)
