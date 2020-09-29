@@ -38,13 +38,13 @@
                         <section class="card-main-user-index">
                             <div class="item_user-image image">
                                 @if (isset($item->item_image))
-                                        <img class="card-img-user-index" src="{{ asset('storage/image/' . $item->item_image) }}" alt="アイテム画像">
+                                        <img class="card-img-item-index" src="{{ asset('storage/image/' . $item->item_image) }}" alt="アイテム画像">
                                 @endif
                             </div>
                             <div class="card-item-content">
                                 <div class="item-name">
                                     <div>
-                                        {{ str_limit($item->item_name, 150) }}
+                                        {{ str_limit($item->item_name, 11) }}
                                     </div>
                                 </div>
                                 <div class="item-shop-name">

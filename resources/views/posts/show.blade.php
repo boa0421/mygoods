@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="card-content-items">
                                     <div class="card-title-items">
-                                        {{ \Str::limit($item->item_name, 100) }}
+                                        {{ \Str::limit($item->item_name, 14) }}
                                     </div>
                                     <div class="card-link-bottun">
                                         <div class="card-shop-items">

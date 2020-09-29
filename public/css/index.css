@@ -164,6 +164,15 @@ a.btn-delete-user-index:hover {
   font-size: 30px;
 }
 
+.card-img-item-index {
+  border-radius: 5%;
+  width: 146px;
+  height: 146px;
+  margin: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .card-main-index {
   width: 223px;
   background: #fff;
