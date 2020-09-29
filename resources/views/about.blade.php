@@ -24,7 +24,7 @@
                 </div>
             </section>
             <section class="about-contents">
-                <img class="side-image col-lg-6" src="{{ asset('storage/image/top.jpg') }}" alt="トップページの画像" title="トップページの画像">
+                <img class="side-image col-lg-6" src="{{ asset('storage/image/show.jpg') }}" alt="投稿詳細ページの画像" title="投稿詳細ページの画像">
                 <div class="main-side">
                     <h2>アカウントを作ってログインしよう</h2>
                     <p>ログインすると、あなたのお気に入りを投稿したり、いいねしたり、コメントをしたり、気になるユーザーをフォローしたりすることができます。</p>
@@ -42,7 +42,7 @@
                 </div>
             </section>
             <section class="about-contents">
-                <img class="side-image col-lg-6" src="{{ asset('storage/image/top.jpg') }}" alt="トップページの画像" title="トップページの画像">
+                <img class="side-image col-lg-6" src="{{ asset('storage/image/item.jpg') }}" alt="アイテム一覧ページの画像" title="アイテム一覧ページの画像">
                 <div class="main-side">
                     <h2>気になるアイテムを見つける</h2>
                     <p>投稿に関連したアイテムは店舗URLやECサイトに直接アクセスできます。</p>
