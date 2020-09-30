@@ -23,6 +23,7 @@
   content: ">";
   padding: 0 5px;
   display: inline-block;
+  color: #666666;
 }
 
 .breadcrumbs {
@@ -164,6 +165,13 @@ main {
 
 .plofile-icon-comment {
   color: #444444;
+}
+
+.round-img-comment:hover,
+.plofile-icon-comment:hover {
+  opacity: 0.8;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
 }
 
 .icon-delete-comment {

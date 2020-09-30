@@ -67,14 +67,22 @@ main {
 .profile-wrap{
   margin:0px 0px;
   border-bottom: solid 2px #C0C0C0;
-  padding-left: 250px;
+  padding-left: 150px;
   padding-top: 50px;
 }
 
+.user-name h1 {
+  font-size: 30px;
+}
 .round-img{
   border-radius:50%;
   width: 120px;
   height: 120px;
+}
+
+.round-img:hover {
+  opacity: 0.8;
+  filter: brightness(110%);
 }
 
 .plofile-icon {
@@ -93,14 +101,23 @@ main {
 
 .profile-contents {
   list-style: none;
+  color: #555555;
+  font-size: 15px;
 }
 
+.user-follow p {
+  width: 400px;
+}
+.user-follow-btn {
+  float: right;
+}
 
 // ユーザー index
 // パンくずリスト
 
 .breadcrumbs-user-index {
   margin-bottom: 20px;
+  color: #666666;
 }
 
 // メイン
@@ -145,15 +162,19 @@ main {
   padding: 30px;
 }
 
+// フォロー　フォロワー　一覧
+
 .user-follow {
   margin: 20px;
 }
-.card-title-follow {
-  font-size: 30px;
+.card-title-follow h2 {
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .card-content-follow {
-  font-size: 20px;
+  font-size: 15px;
+  color: #555555;
 }
 
 .follow-btn {

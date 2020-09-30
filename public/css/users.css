@@ -68,10 +68,20 @@ main {
   padding-top: 50px;
 }
 
+.user-name h1 {
+  font-size: 30px;
+}
+
 .round-img {
   border-radius: 50%;
   width: 120px;
   height: 120px;
+}
+
+.round-img:hover {
+  opacity: 0.8;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
 }
 
 .plofile-icon {
@@ -90,6 +100,8 @@ main {
 
 .profile-contents {
   list-style: none;
+  color: #555555;
+  font-size: 15px;
 }
 
 .user-follow p {
@@ -102,6 +114,7 @@ main {
 
 .breadcrumbs-user-index {
   margin-bottom: 20px;
+  color: #666666;
 }
 
 .card-main-user-index {
@@ -150,12 +163,14 @@ main {
   margin: 20px;
 }
 
-.card-title-follow {
-  font-size: 30px;
+.card-title-follow h2 {
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .card-content-follow {
-  font-size: 20px;
+  font-size: 15px;
+  color: #555555;
 }
 
 .follow-btn {

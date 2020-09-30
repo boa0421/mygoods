@@ -45,9 +45,9 @@
                                 @if(isset($following->pivot->user_id))
                                     <div class="card-title-follow">
                                         @if (isset($following->nickname))
-                                            <h1>{{ \Str::limit($following->nickname, 100) }}</h1>
+                                            <h2>{{ \Str::limit($following->nickname, 100) }}</h2>
                                         @else
-                                            <h1>{{ \Str::limit($following->name, 100) }}</h1>
+                                            <h2>{{ \Str::limit($following->name, 100) }}</h2>
                                         @endif
                                     </div>
                                 @endif

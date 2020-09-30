@@ -45,15 +45,15 @@
                                 @if(isset($follower->pivot->user_id))
                                     <div class="card-title-follow">
                                         @if (isset($user->nickname))
-                                            <h1>{{ \Str::limit($follower->nickname, 100) }}</h1>
+                                            <h2>{{ \Str::limit($follower->nickname, 100) }}</h2>
                                         @else
-                                            <h1>{{ \Str::limit($follower->name, 100) }}</h1>
+                                            <h2>{{ \Str::limit($follower->name, 100) }}</h2>
                                         @endif
                                     </div>
                                 @endif
                                 @if(isset($follower->profile))
                                     <div class="card-content-follow">
-                                        {{ \Str::limit($follower->profile, 45) }}
+                                        {{ \Str::limit($follower->profile, 65) }}
                                     </div>
                                 @endif
                             </div>
@@ -62,6 +62,6 @@
                 @endif
             </div>
         </div>
-        {{ $followers->links() }}
+        <!--{{ $followers->links() }}-->
     </div>
 @endsection

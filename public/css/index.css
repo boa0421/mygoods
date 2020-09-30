@@ -60,6 +60,11 @@ main {
 
 .breadcrumbs-user-index {
   margin-bottom: 20px;
+  color: #666666;
+}
+
+.breadcrumbs {
+  color: #666666;
 }
 
 .card-main-user-index {
