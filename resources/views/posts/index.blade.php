@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="card-content-index">
-                                <p class="card-text-index">{{ \Str::limit($post->content, 45) }}</p>
+                                <p class="card-text-index">{{ \Str::limit($post->content, 37) }}</p>
                             </div>
                             <!--@if (Auth::id() == $user->id)-->
                             <!--    <div class="card-link-index">-->
@@ -61,7 +61,7 @@
                 </div>
             @endif
         </div>
-        {{ $posts->links() }}
+        <!--{{ $posts->links() }}-->
     </div>
 @endsection
 

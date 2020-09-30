@@ -44,7 +44,7 @@
                             @endif
                             @if(isset($like->content))
                             <div class="card-content-index">
-                                <p class="card-text-index">{{ \Str::limit($like->content, 45) }}</p>
+                                <p class="card-text-index">{{ \Str::limit($like->content, 37) }}</p>
                             </div>
                             @endif
                         </section>
