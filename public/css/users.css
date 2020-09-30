@@ -64,7 +64,7 @@ main {
 .profile-wrap {
   margin: 0px 0px;
   border-bottom: solid 2px #C0C0C0;
-  padding-left: 250px;
+  padding-left: 150px;
   padding-top: 50px;
 }
 
@@ -90,6 +90,14 @@ main {
 
 .profile-contents {
   list-style: none;
+}
+
+.user-follow p {
+  width: 400px;
+}
+
+.user-follow-btn {
+  float: right;
 }
 
 .breadcrumbs-user-index {
