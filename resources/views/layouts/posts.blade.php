@@ -111,9 +111,16 @@
                         <div class="row user-follow">
                             <ul class="profile-contents">
                                 <p>{!! nl2br(e($user->profile)) !!}</p>
+                                
+                                <!--趣味-->
                                 <!--@foreach($user->interests as $interest)-->
                                 <!--    <p>{{ $interest->interest }}</p>-->
                                 <!--@endforeach-->
+                                
+                                <!--アコーディオンボタン-->
+                                <!--<div class="more-button">-->
+                                <!--    <p>プロフィールをみる</p>-->
+                                <!--</div>-->
                             </ul>
                             <div class="user-follow-btn">
                                 @if ( Auth::check() )

@@ -70,4 +70,9 @@ class PostsController extends Controller
         
         return redirect('posts/'.$user->id);
     }
+    
+    public function flashComment()
+    {
+        return view('flash.comments');
+    }
 }

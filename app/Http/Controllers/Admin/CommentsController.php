@@ -13,7 +13,12 @@ class CommentsController extends Controller
 {
     public function create(Request $request, $id)
     {
-        $this->validate($request, Comment::$rules);
+        // $this->validate($request, Comment::$rules);
+        $this->validate($request, [
+            'post_id' => 'required',
+            'user_id' => 'required',
+            'comment' => 'required|max:30',
+        ]);
         $post = $request->post($id);
         $comment = new Comment;
         $comment->comment = $request->comment;

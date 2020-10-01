@@ -6,13 +6,21 @@
         <div id="tags-form">
             <h2>Tag新規作成</h2>
             <form action="{{ action('Admin\TagsController@create') }}" method="post" enctype="multipart/form-data">
-                @if (count($errors) > 0)
-                    <ul>
-                        @foreach($errors->all() as $e)
-                            <li>{{ $e }}</li>
-                        @endforeach
-                    </ul>
-                @endif
+                <div class="error-message" onload="">
+                    {{--@if (count($errors) > 0)
+                        <ul>
+                            @foreach($errors->all() as $e)
+                                <li>{{ $e }}</li>
+                            @endforeach
+                        </ul>
+                    @endif--}}
+                    
+                    @if($errors->has('tag_name'))
+                        <div class="error">
+                            <p>{{ $errors->first('tag_name') }}</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="form-group row">
                     <!--<label class="col-md-2">タグ</label>-->
                     <div class="col-md-10">
@@ -26,3 +34,18 @@
         </div>
     </div>
 </div>
+
+<!--エラーメッセージ-->
+@if($errors->has('tag_name'))
+    <script>
+        window.onload = function() {
+            $('#create-tags-show').fadeIn();
+        }
+    </script>
+@elseif($errors->has('item_name'))
+    <script>
+        window.onload = function() {
+            $('#create-items-show').fadeIn();
+        }
+    </script>
+@endif

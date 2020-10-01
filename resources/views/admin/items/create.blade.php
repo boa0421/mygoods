@@ -7,12 +7,17 @@
             <div id="items-form">
                 <h2>アイテム作成</h2>
                 <form action="{{ action('Admin\ItemsController@create') }}" method="post" enctype="multipart/form-data">
-                    @if (count($errors) > 0)
+                    {{--@if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
                                 <li>{{ $e }}</li>
                             @endforeach
                         </ul>
+                    @endif--}}
+                    @if($errors->has('item_name'))
+                        <div class="error">
+                            <p>{{ $errors->first('item_name') }}</p>
+                        </div>
                     @endif
                     <div class="form-group row">
                         <!--<label class="col-md-2">名前</label>-->

@@ -52,18 +52,25 @@
                             @if ( Auth::check() )
                                 <div class="row actions" id="comment-form-post-{{ $post->id }}">
                                     <form action="{{ action('Admin\CommentsController@create', ['id' => $post->id]) }}" method="post" enctype="multipart/form-data">
-                                        @if (count($errors) > 0)
+                                        {{--@if (count($errors) > 0)
                                             <ul>
-                                                @foreach($errors->all() as $e)
-                                                    <li>{{ $e }}</li>
-                                                @endforeach
+                                                <div class="alert alert-danger">
+                                                    @foreach($errors->all() as $e)
+                                                        <li>{{ $e }}</li>
+                                                    @endforeach
+                                                </div>
                                             </ul>
+                                        @endif--}}
+                                        @if($errors->has('comment'))
+                                            <div class="error">
+                                                <p>{{ $errors->first('comment') }}</p>
+                                            </div>
                                         @endif
                                         <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" >
                                         <input value="{{ $post->id }}" type="hidden" name="post_id" >
-                                        <input class="form-control comment-input border-0" placeholder="コメントを書く" autocomplete="off" type="text" name="comment" >
+                                        <input class="form-control comment-input border-0" placeholder="コメント ※30字以内で入力してください" autocomplete="off" type="text" name="comment" style="width:500px;">
                                         {{csrf_field()}} 
-                                        <input type="submit" class="btn btn-blue" value="更新">
+                                        <input type="submit" class="btn btn-blue" id="create-comment" value="更新">
                                     </form>
                                 </div>
                             @endif
@@ -88,6 +95,13 @@
                                 </div>
                                 <div>
                                     <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">投稿を削除する</a>
+                                    {{--<script>
+                                        function load() {
+                                          alert("load イベントが発生しました。");
+                                        }
+                                        
+                                        window.onload = load;
+                                    </script>--}}
                                 </div>
                             </div>
                         @endif

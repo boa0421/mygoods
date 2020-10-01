@@ -65,6 +65,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('profiles/create', 'Admin\UsersController@profile_add');
      Route::post('profiles/create', 'Admin\UsersController@profile_create');
      Route::get('psrofiles/delete', 'Admin\UsersController@profile_delete');
+     
 });
 
 Auth::routes();
