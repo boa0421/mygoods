@@ -35,7 +35,7 @@
                             <div class="profile_user-image image">
                                 @if (isset($user->profile_image))
                                     <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
-                                        <img class="card-img-user-index" src="{{ asset('storage/image/' . $user->profile_image) }}" alt="プロフィール画像">
+                                        <img class="card-img-user-index" src="{{ $user->profile_image }}" alt="プロフィール画像">
                                     </a>
                                 @else
                                     <div class="profile-icon">

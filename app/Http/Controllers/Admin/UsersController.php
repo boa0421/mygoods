@@ -9,6 +9,7 @@ use App\User;
 use App\Post;
 use App\Like;
 use App\Interest;
+use Storage;
 
 class UsersController extends Controller
 {
@@ -28,8 +29,10 @@ class UsersController extends Controller
         $form = $request->all();
         
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $user->profile_image = basename($path);
+            // $path = $request->file('image')->store('public/image');
+            $path = Storage::disk('s3')->putFile('/',$form['profile_image'],'public');
+            // $user->profile_image = basename($path);
+            $user->profile_image = Storage::disk('s3')->url($path);
         } else {
             $user->profile_image = null;
         }
@@ -92,8 +95,10 @@ class UsersController extends Controller
         
         $form = $request->all();
         if (isset($form['profile_image'])) {
-            $path = $request->file('profile_image')->store('public/image');
-            $user->profile_image = basename($path);
+            // $path = $request->file('profile_image')->store('public/image');
+            $path = Storage::disk('s3')->putFile('/',$form['profile_image'],'public');
+            // $user->profile_image = basename($path);
+            $user->profile_image = Storage::disk('s3')->url($path);
         } else {
             $user->profile_image = null;
         }

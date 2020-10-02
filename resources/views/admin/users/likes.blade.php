@@ -31,7 +31,7 @@
                             @if (isset($like->image))
                                 <div class="image">
                                     <a href="{{ action('PostsController@show', ['id' => $like->pivot->post_id]) }}">
-                                        <img class="card-img-index" src="{{ asset('storage/image/' . $like->image) }}" alt="画像">
+                                        <img class="card-img-index" src="{{ $like->image }}" alt="画像">
                                     </a>
                                 </div>
                             @endif

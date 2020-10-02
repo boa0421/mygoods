@@ -35,7 +35,7 @@
                                 @if(isset($user->profile_image))
                                     <div class="side-user-image">
                                         <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
-                                            <img class="side-user-image" src="{{ asset('storage/image/' . $user->profile_image) }}" alt="user 画像">
+                                            <img class="side-user-image" src="{{ $user->profile_image }}" alt="user 画像">
                                         </a>
                                     </div>
                                 @else
@@ -76,7 +76,7 @@
                     <section class="card-main-index">
                         <div class="image">
                             <a href="{{ action('PostsController@show', ['id' => $post->id]) }}">
-                                <img class="card-img-index" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
+                                <img class="card-img-index" src="{{ $post->image }}" alt="post 画像">
                             </a>
                         </div>
                         <div class="card-content">

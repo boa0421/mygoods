@@ -11,6 +11,7 @@ use Validator;
 use App\User;
 use App\Tag;
 use App\PostTag;
+use Storage;
 
 class PostsController extends Controller
 {
@@ -27,8 +28,10 @@ class PostsController extends Controller
         $post = new Post;
         $form = $request->all();
         $post->user_id = Auth::user()->id;
-        $path = $request->file('image')->store('public/image');
-        $post->image = basename($path);
+        // $path = $request->file('image')->store('public/image');
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        // $post->image = basename($path);
+        $post->image = Storage::disk('s3')->url($path);
         
         unset($form['_token']);
         unset($form['image']);
@@ -52,8 +55,10 @@ class PostsController extends Controller
         $this->validate($request, Post::$rules);
         $post = Post::find($request->id);
         $post_form = $request->all();
-        $path = $request->file('image')->store('public/image');
-        $post->image = basename($path);
+        // $path = $request->file('image')->store('public/image');
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        // $post->image = basename($path);
+        $post->image = Storage::disk('s3')->url($path);
         unset($post_form['image']);
         
         unset($post_form['_token']);

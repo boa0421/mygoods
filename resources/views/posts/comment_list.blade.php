@@ -3,7 +3,7 @@
         <span class="comment-icon">
             @if (isset($comment->user->profile_image))
                 <a href="{{ action('PostsController@index', ['id' => $comment->user->id]) }}">
-                    <img class="round-img-comment" src="{{ asset('storage/image/' . $comment->user->profile_image) }}"/>
+                    <img class="round-img-comment" src="{{ $comment->user->profile_image }}"/>
                 </a>
             @else
                 <a href="{{ action('PostsController@index', ['id' => $comment->user->id ]) }}">

@@ -17,7 +17,7 @@
             <div class="main">
                 <section class="card-main">
                     <div class="image">
-                        <img class="card-img original-img" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
+                        <img class="card-img original-img" src="{{ $post->image }}" alt="post 画像">
                     </div>
                     <div class="card-link">
                         <div>
@@ -119,7 +119,7 @@
                         @foreach($post->items as $item)
                             <section class="card-items">
                                 <div class="image-items">
-                                    <img class="card-img-items" src="{{ asset('storage/image/' . $item->item_image) }}" alt="アイテム画像">
+                                    <img class="card-img-items" src="{{ $item->item_image }}" alt="アイテム画像">
                                 </div>
                                 <div class="card-content-items">
                                     <div class="card-title-items">

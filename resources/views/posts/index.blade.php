@@ -35,7 +35,7 @@
                         <section class="card-main-index">
                             <div class="image">
                                 <a href="{{ action('PostsController@show', ['id' => $post->id]) }}">
-                                    <img class="card-img-index" src="{{ asset('storage/image/' . $post->image) }}" alt="post 画像">
+                                    <img class="card-img-index" src="{{ $post->image }}" alt="post 画像">
                                 </a>
                             </div>
                             <div class="card-content">

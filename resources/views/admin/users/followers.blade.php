@@ -31,7 +31,7 @@
                             @if (isset($follower->profile_image))
                                 <div class="image">
                                     <a href="{{ action('PostsController@index', ['id' => $follower->pivot->user_id]) }}">
-                                        <img class="card-img-user-index" src="{{ asset('storage/image/' . $follower->profile_image) }}" alt="プロフィール 画像">
+                                        <img class="card-img-user-index" src="{{ $follower->profile_image }}" alt="プロフィール 画像">
                                     </a>
                                 </div>
                             @else

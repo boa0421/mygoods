@@ -84,7 +84,7 @@
                         <div class="col-md-4 text-center">
                             @if (isset($user->profile_image))
                                 <a href="{{ action('PostsController@index', ['id' => $user->id]) }}">
-                                    <img class="round-img" src="{{ asset('storage/image/' . $user->profile_image) }}"/>
+                                    <img class="round-img" src="{{ $user->profile_image }}"/>
                                 </a>
                             @else
                                 <div class="profile-icon">
@@ -146,7 +146,6 @@
             <p>© All rights reserved by ai_sogabe.</p>
         </footer>
         <script src="{{ secure_asset('js/modal.js') }}"></script>
-        <script src="{{ secure_asset('js/ajax.js') }}"></script>
     </body>
 
 </html>
