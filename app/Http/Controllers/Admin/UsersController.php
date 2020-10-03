@@ -10,6 +10,7 @@ use App\Post;
 use App\Like;
 use App\Interest;
 use Storage;
+use Validator;
 
 class UsersController extends Controller
 {
@@ -110,5 +111,6 @@ class UsersController extends Controller
         $user->save();
         
         return redirect('posts/'.$user->id);
+        
     }
 }
