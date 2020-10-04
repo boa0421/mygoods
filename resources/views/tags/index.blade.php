@@ -4,6 +4,7 @@
 @section('content')
 
     <div class="container">
+        {{-- パンくずリスト --}}
         <div class="row">
             <nav>
                 <ol class="breadcrumbs">
@@ -12,6 +13,7 @@
                 </ol>
             </nav>
         </div>
+        {{-- タグに紐付けられたポストの一覧表示 --}}
         <div class="row">
             @if (isset($posts))
                 <div class="main-index">
