@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Users コントローラーのファイル
+ * 
+ * このファイルではユーザーの
+ * 一覧表示の
+ * 処理に関するコントローラーを書いています。
+ * 
+ */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,19 +23,4 @@ class UsersController extends Controller
         return view('users.index', ['users' => $users]);
     }
     
-    // public function followings($id)
-    // {
-    //     $user = User::findOrFail($id);
-    //     $followings = $user->followings();
-        
-    //     return view('users.followings', ['user' => $user,'users' => $followings,]);
-    // }
-
-    // public function followers($id)
-    // {
-    //     $user = $request->user();
-    //     $followers = $user->followers();
-        
-    //     return view('users.followers', ['user' => $user, 'users' => $followers,]);
-    // }
 }

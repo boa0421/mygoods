@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="container">
+        {{-- パンくずリスト --}}
         <div class="row">
             <nav>
                 <ol class="breadcrumbs breadcrumbs-user-in">
@@ -11,6 +12,7 @@
                 </ol>
             </nav>
         </div>
+        {{-- ユーザーカテゴリー検索機能を付けたい --}}
         <!--<div class="row side-navigation">-->
         <!--    <div class="side-user">-->
         <!--        <div class="search-link">-->
@@ -27,6 +29,7 @@
         <!--    </div>-->
         <!--    <hr>-->
         <!--</div>-->
+        {{-- ユーザー一覧表示 --}}
         <div class="row">
             <div class="users-list-index">
                 @foreach($users as $user)
@@ -58,7 +61,7 @@
                                     {{ str_limit($user->profile, 1500) }}
                                 </div>
                             </div>
-                            
+                            {{-- フォローボタン --}}
                             <div class="follow-btn">
                                 @if ( Auth::check() )
                                     @if (Auth::id() != $user->id)
