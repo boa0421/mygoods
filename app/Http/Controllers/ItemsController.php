@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Items コントローラーのファイル
+ * 
+ * このファイルではアイテムの
+ * 一覧表示
+ * 処理に関するコントローラーを書いています。
+ * 
+ */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -11,10 +20,8 @@ class ItemsController extends Controller
     public function index(Request $request)
     {
         $items = Item::paginate(4);
-        // $item_post = Item::where('post_id', $request->post_id);
-        // dd($item_post);
-        // $post = Post::find($item_post->post_id);
         
+        // アイテム検索機能
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             $items = Item::where('item_name', $cond_title)->paginate(4);

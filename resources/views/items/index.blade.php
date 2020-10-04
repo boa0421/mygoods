@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="container">
+        {{-- パンくずリスト --}}
         <div class="row">
             <nav>
                 <ol class="breadcrumbs breadcrumbs-user-in">
@@ -11,6 +12,7 @@
                 </ol>
             </nav>
         </div>
+        {{-- サイドバー 検索フォーム --}}
         <div class="row side-navigation">
             <div class="side-user">
                 <div class="search-link">
@@ -31,6 +33,7 @@
             </div>
             <hr>
         </div>
+        {{-- アイテム一覧表示 --}}
         <div class="row">
             <div class="items-main-user-index">
                 @foreach($items as $item)
