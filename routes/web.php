@@ -11,9 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/', 'PostsController@top');
 Route::get('about', 'PostsController@about');
@@ -23,14 +20,11 @@ Route::group(['prefix' => 'posts'], function () {
      Route::get('{id}/show', 'PostsController@show')->name('posts.show');
 });
 
-Route::get('users/{id}/show', 'UsersController@show');
 Route::get('users/index', 'UsersController@index');
-Route::get('items/index', 'ItemsController@index');
-Route::get('admin/users/{id}/followings', 'Admin\UsersController@followings')->name('admin.users.followings');
-Route::get('admin/users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
-Route::get('admin/users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
-Route::get('tags/{id}', 'TagsController@index');
 
+Route::get('items/index', 'ItemsController@index');
+
+Route::get('tags/{id}', 'TagsController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      
@@ -84,11 +78,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
           Route::match(['get', 'post'],'like','Admin\LikesController@create')->name('likes.like');
           Route::match(['get', 'post'],'unlike','Admin\LikesController@delete')->name('likes.unlike');
     });
+    Route::get('users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
     
      // フォロー機能
      Route::group(['prefix' => 'users/{id}'], function () {
           Route::match(['get', 'post'],'follow', 'Admin\UserFollowController@create');
           Route::match(['get', 'post'],'unfollow', 'Admin\UserFollowController@delete');
+          Route::get('followings', 'Admin\UsersController@followings')->name('admin.users.followings');
+          Route::get('followers', 'Admin\UsersController@followers')->name('admin.users.followers');
     });
     
 });
