@@ -1,3 +1,5 @@
+{{-- タグ投稿フォーム --}}
+
 <div class="container create-tags-wrapper" id="create-tags-show">
     <div class="row" id="modal-tags">
         <div class="close-modal">
@@ -22,7 +24,6 @@
                     @endif
                 </div>
                 <div class="form-group row">
-                    <!--<label class="col-md-2">タグ</label>-->
                     <div class="col-md-10">
                         <input type="text" placeholder="タグ" class="form-control" name="tag_name" value="{{ old('tag_name') }}">
                     </div>
@@ -35,7 +36,8 @@
     </div>
 </div>
 
-<!--エラーメッセージ-->
+{{-- エラーメッセージ アイテムのエラーメッセージも含む--}}
+
 @if($errors->has('tag_name'))
     <script>
         window.onload = function() {

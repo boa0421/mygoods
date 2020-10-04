@@ -61,9 +61,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      });
      
      // タグ
-     Route::get('tags/create', 'Admin\TagsController@add');
-     Route::post('tags/create', 'Admin\TagsController@create');
-     Route::get('tags/delete', 'Admin\TagsController@delete');
+     Route::group(['prefix' => 'tags'], function () {
+          Route::get('create', 'Admin\TagsController@add');
+          Route::post('create', 'Admin\TagsController@create');
+          Route::get('delete', 'Admin\TagsController@delete');
+     });
      
      // プロフィール
      Route::get('profiles/create', 'Admin\UsersController@profile_add');

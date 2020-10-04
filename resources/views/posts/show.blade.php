@@ -141,16 +141,19 @@
                         @endforeach
                     </div>
                     {{-- アイテムここまで --}}
+                    {{-- ここからタグ --}}
                     <div class="tag_list">
                         @if($post->tags()->exists())
                             <h3>タグ一覧</h3>
                         @endif
+                        {{-- ログインuserなら タグ新規投稿フォーム モーダルで表示 --}}
                         @if (Auth::id() == $user->id)
                             <div class="tag-create">
                                 <div class="btn btn-outline-dark" id='create-tags'>タグを追加する+</div>
                             </div>
                             @include('admin.tags.create', ['post_id' => $post->id])
                         @endif
+                        {{-- タグ表示 --}}
                         @foreach($post->tags as $tag)
                             <section class="link-tags">
                                 <div class="card-content-tags">
@@ -166,6 +169,7 @@
                             </section>
                         @endforeach
                     </div>
+                    {{-- タグここまで --}}
                 </div>
             </div>
         </div>
