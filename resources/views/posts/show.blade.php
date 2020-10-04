@@ -4,6 +4,7 @@
 @section('content')
 
     <div class="container">
+        {{-- パンくずリスト --}}
         <div class="row">
             <nav>
                 <ol class="breadcrumbs">

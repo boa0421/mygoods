@@ -4,6 +4,7 @@
 @section('content')
 
     <div class="container">
+        {{-- ナビバー --}}
         <div class="row">
             <nav class= "nav-user">
                 <ul>
@@ -14,6 +15,7 @@
                 </ul>
             </nav>
         </div>
+        {{-- パンくずリスト --}}
         <div class="row">
             <nav>
                 <ol class="breadcrumbs">
@@ -23,12 +25,14 @@
                 </ol>
             </nav>
         </div>
+        {{-- 投稿新規作成ボタン --}}
         <div class="row">
             @if (Auth::id() == $user->id)
                 <div class="post-new-create col-md-4 offset-md-4">
                     <a href="{{ action('Admin\PostsController@add') }}" role="button" class="post-new-create-btn btn btn-primary">新規作成</a>
                 </div>
             @endif
+            {{-- 投稿一覧表示 --}}
             @if (isset($posts))
                 <div class="main-index">
                     @foreach($posts as $post)
@@ -46,22 +50,11 @@
                             <div class="card-content-index">
                                 <p class="card-text-index">{{ \Str::limit($post->content, 37) }}</p>
                             </div>
-                            <!--@if (Auth::id() == $user->id)-->
-                            <!--    <div class="card-link-index">-->
-                            <!--        <div class="card-link-edit-index">-->
-                            <!--            <a href="{{ action('Admin\PostsController@edit', ['id' => $post->id]) }}">編集</a>-->
-                            <!--        </div>-->
-                            <!--        <div class="card-link-delete-index">-->
-                            <!--            <a href="{{ action('Admin\PostsController@delete', ['id' => $post->id]) }}">削除</a>-->
-                            <!--        </div>-->
-                            <!--    </div>-->
-                            <!--@endif-->
                         </section>
                     @endforeach
                 </div>
             @endif
         </div>
-        <!--{{ $posts->links() }}-->
     </div>
 @endsection
 

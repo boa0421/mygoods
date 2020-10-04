@@ -4,6 +4,7 @@
 @section('content')
 
     <div class="container">
+        {{-- パンくずリスト --}}
         <div class="row">
             <nav>
                 <ol class="breadcrumbs">
@@ -12,6 +13,7 @@
                 </ol>
             </nav>
         </div>
+        {{-- このサービスの説明 --}}
         <div class="row">
             <section class="about-contents">
                 <img class="side-image col-lg-6" src="{{ asset('storage/image/top.jpg') }}" alt="トップページの画像" title="トップページの画像">

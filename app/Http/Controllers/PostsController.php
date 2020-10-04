@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Postsコントローラーのファイル
+ * 
+ * このファイルではpostsの
+ * 一覧表示、詳細表示
+ * トップページ表示、aboutページ表示の
+ * 処理に関するコントローラーを書いています。
+ * 
+ */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,19 +22,29 @@ use Validator;
 
 class PostsController extends Controller
 {
+    /**
+     * ポスト一覧表示
+     *  
+     * @param int $id ユーザーid
+     * 
+     */
     public function index(Request $request, $id)
     {
         $user = User::find($id);
-
         $posts = Post::where('user_id',$id)->paginate(12);
         
         return view('posts.index',['posts'=>$posts, 'user'=>$user]);
     }
-
+    
+    /**
+     * ポスト詳細表示
+     *  
+     * @param int $id ユーザーid
+     * 
+     */
     public function show(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        // dd($post->comments);
         $user = User::find($post->user_id);
         
         return view('posts.show', ['post'=>$post, 'user'=>$user, 'post_id' => $post->id]);

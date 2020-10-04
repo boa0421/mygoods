@@ -16,8 +16,13 @@
 // });
 
 Route::get('/', 'PostsController@top');
-Route::get('posts/{id}', 'PostsController@index');
-Route::get('posts/{id}/show', 'PostsController@show')->name('posts.show');
+Route::get('about', 'PostsController@about');
+
+Route::group(['prefix' => 'posts'], function () {
+     Route::get('{id}', 'PostsController@index');
+     Route::get('{id}/show', 'PostsController@show')->name('posts.show');
+});
+
 Route::get('users/{id}/show', 'UsersController@show');
 Route::get('users/index', 'UsersController@index');
 Route::get('items/index', 'ItemsController@index');
@@ -25,7 +30,7 @@ Route::get('admin/users/{id}/followings', 'Admin\UsersController@followings')->n
 Route::get('admin/users/{id}/followers', 'Admin\UsersController@followers')->name('admin.users.followers');
 Route::get('admin/users/{id}/likes', 'Admin\UsersController@likes')->name('admin.users.likes');
 Route::get('tags/{id}', 'TagsController@index');
-Route::get('about', 'PostsController@about');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      

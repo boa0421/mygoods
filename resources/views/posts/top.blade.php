@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="container">
-
+        {{-- ナビバーをもう一つ作るか検討 --}}
         <!--<div class="row user-category">-->
         <!--    <p>同じ趣味の-->
         <!--    ユーザーを探す</p>-->
@@ -20,15 +20,16 @@
         <!--</div>-->
         <div class="row side-navigation">
             <div class="side-top">
+                {{-- サイドバー 検索リンク --}}
                 <div class="search-link">
                     <p class="link-title">探す</p>
                     <p><a href="{{ action('UsersController@index' ) }}"><i class="fas fa-user fa-lg icon-gray"></i>ユーザーを探す</a></p>
                     <p><a href="{{ action('ItemsController@index' ) }}"><i class="fas fa-shopping-bag fa-lg icon-gray"></i>アイテムを探す</a></p>
                 </div>
                 <hr>
+                {{-- サイドバー 新しいユーザー一覧 --}}
                 <div class="link-user">
                     <p class="link-title">NEW ユーザー</p>
-                    
                     @foreach($users as $user)
                         <section class="side-top-user">
                             <div class="side-user">
@@ -58,7 +59,7 @@
                     <p><a class="more-look" href="{{ action('UsersController@index' ) }}">もっと見る</a></p>
                 </div>
                 <hr>
-            
+                {{-- サイドバー 最近のタグ一覧 --}}
                 <div class="link-tags">
                     <p class="link-title">最近のタグ</p>
                     @foreach($tags as $tag)
@@ -70,6 +71,7 @@
                 </div>
             </div>
         </div>
+        {{-- 最近のポスト一覧 --}}
         <div class="row">
             <div class="main-index">
                 @foreach($posts as $post)
