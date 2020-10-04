@@ -40,6 +40,7 @@
                             </div>
                         </div>
                         <hr>
+                        {{-- ここからコメント表示 --}}
                         <div>
                             <div class="comment-post">
                                 @if($post->comments()->exists())
@@ -49,18 +50,10 @@
                                 @endif
                             <hr>
                             </div>
+                            {{-- コメント投稿フォーム --}}
                             @if ( Auth::check() )
                                 <div class="row actions" id="comment-form-post-{{ $post->id }}">
                                     <form action="{{ action('Admin\CommentsController@create', ['id' => $post->id]) }}" method="post" enctype="multipart/form-data">
-                                        {{--@if (count($errors) > 0)
-                                            <ul>
-                                                <div class="alert alert-danger">
-                                                    @foreach($errors->all() as $e)
-                                                        <li>{{ $e }}</li>
-                                                    @endforeach
-                                                </div>
-                                            </ul>
-                                        @endif--}}
                                         @if($errors->has('comment'))
                                             <div class="error">
                                                 <p>{{ $errors->first('comment') }}</p>
@@ -75,6 +68,7 @@
                                 </div>
                             @endif
                         </div>
+                        {{-- コメントここまで --}}
                     </div>
                 </section>
             </div>

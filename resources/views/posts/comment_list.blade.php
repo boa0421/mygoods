@@ -1,3 +1,5 @@
+{{-- コメント表示部分のbladeファイル --}}
+
 @foreach ($post->comments as $comment) 
     <div class="comments">
         <span class="comment-icon">

@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * admin/comments コントローラーのファイル
+ * 
+ * このファイルではcommentsの
+ * 新規作成、削除の
+ * 処理に関するコントローラーを書いています。
+ * 'middleware' => 'auth'
+ * 
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
@@ -13,12 +23,9 @@ class CommentsController extends Controller
 {
     public function create(Request $request, $id)
     {
-        // $this->validate($request, Comment::$rules);
-        $this->validate($request, [
-            'post_id' => 'required',
-            'user_id' => 'required',
-            'comment' => 'required|max:30',
-        ]);
+        // バリデーション 必須項目:id,user_id,post_id,comment,timestamps
+        $this->validate($request, Comment::$rules);
+        
         $post = $request->post($id);
         $comment = new Comment;
         $comment->comment = $request->comment;
