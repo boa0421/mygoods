@@ -40,13 +40,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      });
      
      // ユーザー
-     Route::get('users/create', 'Admin\UsersController@add');
-     Route::post('users/{id}/create', 'Admin\UsersController@create');
-     Route::get('users', 'Admin\UsersController@index');
-     Route::get('users/{id}/show', 'Admin\UsersController@show')->name('admin.user.show');
-     Route::get('users/edit', 'Admin\UsersController@edit');
-     Route::post('users/edit', 'Admin\UsersController@update');
-     Route::get('users/delete', 'Admin\UsersController@delete');
+     Route::group(['prefix' => 'users'], function () {
+          Route::get('create', 'Admin\UsersController@add');
+          Route::post('{id}/create', 'Admin\UsersController@create');
+          Route::get('edit', 'Admin\UsersController@edit');
+          Route::post('edit', 'Admin\UsersController@update');
+          Route::get('delete', 'Admin\UsersController@delete');
+     });
      
      // コメント
      Route::post('comments/{id}','Admin\CommentsController@create');
@@ -68,9 +68,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      });
      
      // プロフィール
-     Route::get('profiles/create', 'Admin\UsersController@profile_add');
-     Route::post('profiles/create', 'Admin\UsersController@profile_create');
-     Route::get('psrofiles/delete', 'Admin\UsersController@profile_delete');
+     Route::group(['prefix' => 'profiles'], function () {
+          Route::get('create', 'Admin\UsersController@profile_add');
+          Route::post('create', 'Admin\UsersController@profile_create');
+          Route::get('delete', 'Admin\UsersController@profile_delete');
+     });
      
      // いいね機能
      Route::group(['prefix'=>'posts/{id}'],function(){

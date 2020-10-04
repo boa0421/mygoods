@@ -96,14 +96,13 @@ class User extends Authenticatable
         return $this->likes()->where('post_id',$postId)->exists();
     }
     
+    /**
+     * like内の変数の説明
+     *
+     * @var int  $exist  すでにいいねしているpostId
+     */
     public function like($postId)
     {
-        /**
-         * like内の変数の説明
-         *
-         * @var int  $exist  すでにいいねしているpostId
-         */
-         
         $exist = $this->is_like($postId);
         
         // いいねしていればfalseを返し、していなければ中間テーブルにpostIdを保存してtrueを返す
@@ -114,15 +113,14 @@ class User extends Authenticatable
             return true;
         }
     }
-
+    
+    /**
+     * unlike内の変数の説明
+     *
+     * @var int  $exist  すでにいいねしているpostId
+     */
     public function unlike($postId)
     {
-        /**
-         * unlike内の変数の説明
-         *
-         * @var int  $exist  すでにいいねしているpostId
-         */
-         
         $exist = $this->is_like($postId);
         
         // いいねしていれば中間テーブルのpostIdを削除してtrueを返し、していなければfalseを返す

@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Admin/Users コントローラーのファイル
+ * 
+ * このファイルではユーザーの
+ * 編集フォーム表示、編集、削除の
+ * 処理に関するコントローラーを書いています。
+ * 'middleware' => 'auth'
+ * 
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
@@ -23,17 +33,25 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
+        // 変数定義
         $user = User::find($request->id);
         $user->name = $request->user_name;
         $user->password = bcrypt($request->user_password);
         
         $form = $request->all();
         
+        // profile_imageを上書きするとき
+        // profile_imageの投稿があれば保存、なければnull
         if (isset($form['image'])) {
+            
+            // imageをpublic/imageに保存するとき
             // $path = $request->file('image')->store('public/image');
-            $path = Storage::disk('s3')->putFile('/',$form['profile_image'],'public');
             // $user->profile_image = basename($path);
+            
+            // imageをs3に保存
+            $path = Storage::disk('s3')->putFile('/',$form['profile_image'],'public');
             $user->profile_image = Storage::disk('s3')->url($path);
+            
         } else {
             $user->profile_image = null;
         }
@@ -46,41 +64,66 @@ class UsersController extends Controller
         return redirect('posts/'.$user->id);
     }
     
+    /**
+     * フォローしているユーザーの一覧表示
+     *  
+     * @param int $id ユーザーid
+     */
     public function followings($id)
     {
         $user = User::find($id);
-        $followings = $user->followings()->paginate(1);
+        $followings = $user->followings();
         
         return view('admin.users.followings', ['user' => $user, 'followings' => $followings]);
     }
-
+    
+    /**
+     * フォローされているユーザーの一覧表示
+     *  
+     * @param int $id ユーザーid
+     */
     public function followers($id)
     {
         $user = User::find($id);
-        $followers = $user->followers()->paginate(1);
+        $followers = $user->followers();
         
         return view('admin.users.followers', ['user' => $user, 'followers' => $followers]);
     }
     
+    /**
+     * いいねした投稿の一覧表示
+     *  
+     * @param int $id ユーザーid
+     */
     public function likes(Request $request, $id)
     {
         $user = User::find($id);
         $post = $request->post();
-        $likes = $user->likes()->paginate(1);
+        $likes = $user->likes();
         
         return view('admin.users.likes', ['user' => $user, 'post' => $post, 'likes' => $likes]);
     }
     
+    /**
+     * プロフィール編集フォーム表示※アカウントではない
+     *  
+     */
     public function profile_add()
     {
         $user = Auth::user();
+        
         return view('admin.profiles.create', ['user'=>$user]);
     }
-
+    
+    /**
+     * プロフィール保存
+     *  
+     */
     public function profile_create(Request $request)
     {
         $user = Auth::user();
         
+        // 趣味投稿
         // $interest_user = new Interest;
         // if ( Interest::where("interest", $request->interest)->exists() ){
         //     $interest = Interest::where("interest", $request->interest)->first();
@@ -95,10 +138,16 @@ class UsersController extends Controller
         //     );
         
         $form = $request->all();
+        
+        // profile_imageを上書きするとき
+        // profile_imageの投稿があれば保存、なければnull
         if (isset($form['profile_image'])) {
+            // imageをpublic/imageに保存するとき
             // $path = $request->file('profile_image')->store('public/image');
-            $path = Storage::disk('s3')->putFile('/',$form['profile_image'],'public');
             // $user->profile_image = basename($path);
+            
+            // imageをs3に保存
+            $path = Storage::disk('s3')->putFile('/',$form['profile_image'],'public');
             $user->profile_image = Storage::disk('s3')->url($path);
         } else {
             $user->profile_image = null;

@@ -52,6 +52,5 @@
                 @endif
             </div>
         </div>
-        {{ $likes->links() }}
     </div>
 @endsection

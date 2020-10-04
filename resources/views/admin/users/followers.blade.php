@@ -62,6 +62,5 @@
                 @endif
             </div>
         </div>
-        <!--{{ $followers->links() }}-->
     </div>
 @endsection
