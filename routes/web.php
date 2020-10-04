@@ -53,10 +53,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('comments/{id}', 'Admin\CommentsController@delete');
      
      // アイテム
-     Route::get('items/create', 'Admin\ItemsController@add');
-     Route::post('items/create', 'Admin\ItemsController@create');
-     Route::get('items/{id}/show', 'Admin\ItemsController@show');
-     Route::get('items/{id}/delete', 'Admin\ItemsController@delete');
+     Route::group(['prefix' => 'items'], function () {
+          Route::get('create', 'Admin\ItemsController@add');
+          Route::post('create', 'Admin\ItemsController@create');
+          Route::get('{id}/show', 'Admin\ItemsController@show');
+          Route::get('{id}/delete', 'Admin\ItemsController@delete');
+     });
      
      // タグ
      Route::get('tags/create', 'Admin\TagsController@add');

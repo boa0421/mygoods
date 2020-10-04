@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <hr>
-                        {{-- ここからコメント表示 --}}
+                        {{-- ここからコメント --}}
                         <div>
                             <div class="comment-post">
                                 @if($post->comments()->exists())
@@ -100,16 +100,19 @@
                             </div>
                         @endif
                     </section>
+                    {{-- ここからアイテム --}}
                     <div class="item_list">
                         @if($post->items()->exists())
                             <h3>アイテムリスト</h3>
                         @endif
+                        {{-- ログインuserなら アイテム新規投稿フォーム モーダルで表示 --}}
                         @if (Auth::id() == $user->id)
                             <div class="item-create">
                                 <div class="btn btn-outline-dark " id='create-items'>アイテムを追加する+</div>
                             </div>
                             @include('admin.items.create', ['post_id' => $post->id])
                         @endif
+                        {{-- アイテム表示 --}}
                         @foreach($post->items as $item)
                             <section class="card-items">
                                 <div class="image-items">
@@ -120,10 +123,11 @@
                                         {{ \Str::limit($item->item_name, 14) }}
                                     </div>
                                     <div class="card-link-bottun">
-                                        <div class="card-shop-items">
-                                            <!--<a target="_blank" href="{{ $item->shop }}" class="btn btn-blue"><i class="fas fa-shopping-basket fa-position-left"></i>ショップはこちら</a>-->
-                                            <a target="_blank" href="{{ $item->shop }}" class="btn btn-blue-user-index"><i class="fas fa-shopping-basket fa-position-left"></i>ショップはこちら</a>
-                                        </div>
+                                        @if(isset($item->shop))
+                                            <div class="card-shop-items">
+                                                <a target="_blank" href="{{ $item->shop }}" class="btn btn-blue-user-index"><i class="fas fa-shopping-basket fa-position-left"></i>ショップはこちら</a>
+                                            </div>
+                                        @endif
                                         @if (Auth::id() == $user->id)
                                             <div class="card-link-items">
                                                 <div class="card-link-delete-items">
@@ -136,6 +140,7 @@
                             </section>
                         @endforeach
                     </div>
+                    {{-- アイテムここまで --}}
                     <div class="tag_list">
                         @if($post->tags()->exists())
                             <h3>タグ一覧</h3>
