@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Item;
-use Auth;
-use Validator;
 use App\User;
 use App\Tag;
 use App\PostTag;
+use Auth;
+use Validator;
 use Storage;
 
 class PostsController extends Controller
@@ -76,8 +76,4 @@ class PostsController extends Controller
         return redirect('posts/'.$user->id);
     }
     
-    public function flashComment()
-    {
-        return view('flash.comments');
-    }
 }

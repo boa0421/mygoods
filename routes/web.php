@@ -30,12 +30,14 @@ Route::get('about', 'PostsController@about');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      
      // ポスト
-     Route::get('posts/create', 'Admin\PostsController@add');
-     Route::post('posts/create', 'Admin\PostsController@create');
-     Route::get('posts/{id}/show', 'Admin\PostsController@show')->name('admin.posts.show');
-     Route::get('posts/{id}/edit', 'Admin\PostsController@edit');
-     Route::post('posts/edit', 'Admin\PostsController@update');
-     Route::get('posts/delete', 'Admin\PostsController@delete');
+     Route::group(['prefix' => 'posts'], function () {
+          Route::get('create', 'Admin\PostsController@add');
+          Route::post('create', 'Admin\PostsController@create');
+          Route::get('{id}/show', 'Admin\PostsController@show')->name('admin.posts.show');
+          Route::get('{id}/edit', 'Admin\PostsController@edit');
+          Route::post('edit', 'Admin\PostsController@update');
+          Route::get('delete', 'Admin\PostsController@delete');
+     });
      
      // ユーザー
      Route::get('users/create', 'Admin\UsersController@add');
