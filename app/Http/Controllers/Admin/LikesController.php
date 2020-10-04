@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * admin/likes コントローラーのファイル
+ * 
+ * このファイルではいいね機能の
+ * いいねの保存、削除の
+ * 処理に関するコントローラーを書いています。
+ * 'middleware' => 'auth'
+ * 
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
@@ -15,12 +25,14 @@ class LikesController extends Controller
     public function create(Request $request, $id)
     {
         \Auth::user()->like($id);
+        
         return back();
     }
 
     public function delete($id)
     {
         \Auth::user()->unlike($id);
+        
         return back();
     }
 

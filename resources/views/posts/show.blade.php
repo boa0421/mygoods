@@ -20,6 +20,7 @@
                         <img class="card-img original-img" src="{{ $post->image }}" alt="post 画像">
                     </div>
                     <div class="card-link">
+                        {{-- いいねボタン --}}
                         <div>
                             <div class="like-show">
                                 <div class="row parts">

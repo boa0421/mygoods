@@ -55,10 +55,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'user_follow', 'following_user_id', 'user_id')->withTimestamps();
     }
     
-    public function likes()
-    {
-        return $this->belongsToMany('App\Post', 'likes', 'user_id', 'post_id')->withTimestamps();
-    }
+
 
     
      public function follow($userId)
@@ -92,11 +89,27 @@ class User extends Authenticatable
         return $this->followings()->where('following_user_id', $userId)->exists();
     }
     
+    public function likes()
+    {
+        return $this->belongsToMany('App\Post', 'likes', 'user_id', 'post_id')->withTimestamps();
+    }
+    
+    public function is_like($postId)
+    {
+        return $this->likes()->where('post_id',$postId)->exists();
+    }
     
     public function like($postId)
     {
+        /**
+         * like内の変数の説明
+         *
+         * @var int  $exist  すでにいいねしているpostId
+         */
+         
         $exist = $this->is_like($postId);
         
+        // いいねしていればfalseを返し、していなければ中間テーブルにpostIdを保存してtrueを返す
         if($exist){
             return false;
         }else{
@@ -107,8 +120,15 @@ class User extends Authenticatable
 
     public function unlike($postId)
     {
+        /**
+         * unlike内の変数の説明
+         *
+         * @var int  $exist  すでにいいねしているpostId
+         */
+         
         $exist = $this->is_like($postId);
         
+        // いいねしていれば中間テーブルのpostIdを削除してtrueを返し、していなければfalseを返す
         if($exist){
             $this->likes()->detach($postId);
             return true;
@@ -117,10 +137,7 @@ class User extends Authenticatable
         }
     }
 
-    public function is_like($postId)
-    {
-        return $this->likes()->where('post_id',$postId)->exists();
-    }
+
     
     public function comments()
     {

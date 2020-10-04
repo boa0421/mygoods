@@ -72,6 +72,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::post('profiles/create', 'Admin\UsersController@profile_create');
      Route::get('psrofiles/delete', 'Admin\UsersController@profile_delete');
      
+     // いいね機能
+     Route::group(['prefix'=>'posts/{id}'],function(){
+          Route::match(['get', 'post'],'like','Admin\LikesController@create')->name('likes.like');
+          Route::match(['get', 'post'],'unlike','Admin\LikesController@delete')->name('likes.unlike');
+    });
 });
 
 Auth::routes();
@@ -83,11 +88,5 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
-Route::group(['middleware'=>'auth'],function(){
-    Route::group(['prefix'=>'posts/{id}'],function(){
-       Route::match(['get', 'post'],'like','Admin\LikesController@create')->name('likes.like');
-       Route::match(['get', 'post'],'unlike','Admin\LikesController@delete')->name('likes.unlike');
-    });
-});
 
 Route::get('/home', 'HomeController@index')->name('home');
