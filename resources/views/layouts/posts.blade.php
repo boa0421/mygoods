@@ -122,6 +122,7 @@
                                 <!--    <p>プロフィールをみる</p>-->
                                 <!--</div>-->
                             </ul>
+                            {{-- フォローボタン --}}
                             <div class="user-follow-btn">
                                 @if ( Auth::check() )
                                     @if (Auth::id() != $user->id)
@@ -135,6 +136,7 @@
                                     <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
                                 @endif
                             </div>
+                            {{-- フローボタンここまで --}}
                         </div>
                     </div>
                 </div>

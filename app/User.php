@@ -55,9 +55,6 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'user_follow', 'following_user_id', 'user_id')->withTimestamps();
     }
     
-
-
-    
      public function follow($userId)
     {
         $exist = $this->is_following($userId);

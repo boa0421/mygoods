@@ -77,16 +77,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
           Route::match(['get', 'post'],'like','Admin\LikesController@create')->name('likes.like');
           Route::match(['get', 'post'],'unlike','Admin\LikesController@delete')->name('likes.unlike');
     });
+    
+     // フォロー機能
+     Route::group(['prefix' => 'users/{id}'], function () {
+          Route::match(['get', 'post'],'follow', 'Admin\UserFollowController@create');
+          Route::match(['get', 'post'],'unfollow', 'Admin\UserFollowController@delete');
+    });
+    
 });
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function () {
-     Route::group(['prefix' => 'users/{id}'], function () {
-        Route::match(['get', 'post'],'follow', 'Admin\UserFollowController@create');
-        Route::match(['get', 'post'],'unfollow', 'Admin\UserFollowController@delete');
-    });
-});
 
 
 Route::get('/home', 'HomeController@index')->name('home');

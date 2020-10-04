@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * admin/UserFollow コントローラーのファイル
+ * 
+ * このファイルではユーザーフォロー機能の
+ * 保存、削除の
+ * 処理に関するコントローラーを書いています。
+ * 'middleware' => 'auth'
+ * 
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;

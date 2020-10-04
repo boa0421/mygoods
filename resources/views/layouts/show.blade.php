@@ -115,6 +115,7 @@
                                 <!--    <p>{{ $interest->interest }}</p>-->
                                 <!--@endforeach-->
                             </ul>
+                            {{-- フォローボタン --}}
                             <div>
                                 @if ( Auth::check() )
                                     @if (Auth::id() != $user->id)
@@ -128,6 +129,7 @@
                                     <a class="btn btn-blue" href="{{ action('Admin\UserFollowController@create', ['id' => $user->id]) }}">フォロー</a>
                                 @endif
                             </div>
+                            {{-- フォローボタンここまで --}}
                         </div>
                     </div>
                 </div>
