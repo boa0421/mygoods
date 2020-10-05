@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use App\Tag;
 use App\Post;
 use App\PostTag;
+use Auth;
 
 class TagsController extends Controller
 {
@@ -26,8 +27,9 @@ class TagsController extends Controller
     public function index(Request $request, $id)
     {
         $tag = Tag::find($id);
+        $user = Auth::user();
         $posts = $tag->posts()->get();
         
-        return view('tags.index',['posts'=>$posts, 'tag'=>$tag]);
+        return view('tags.index',['posts'=>$posts, 'tag'=>$tag, 'user'=>$user]);
     }
 }

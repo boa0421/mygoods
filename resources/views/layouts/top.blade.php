@@ -49,6 +49,8 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
+                            <li class="nav-item dropdown"><a class="nav-link" href="{{ action('PostsController@index', ['id' => $login_user->id]) }}">{{ $login_user->name }}のマイページへ</a></li>
+                            <li class="nav-item dropdown"><a class="nav-link" href="{{ action('Admin\UsersController@edit') }}">アカウント編集</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -75,7 +77,7 @@
             
             <div class="row top-image">
                 <a href="about">
-                    <img class="top-image col-lg-12" src="{{ asset('storage/image/Flowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
+                    <img class="top-image col-lg-12" src="{{ asset('public/storage/image/Flowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
                 </a>
             </div>
             <main class="py-4">

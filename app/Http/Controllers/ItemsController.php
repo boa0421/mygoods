@@ -14,12 +14,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Item;
 use App\Post;
+use Auth;
 
 class ItemsController extends Controller
 {
     public function index(Request $request)
     {
         $items = Item::paginate(4);
+        $user = Auth::user();
         
         // アイテム検索機能
         $cond_title = $request->cond_title;
@@ -29,7 +31,7 @@ class ItemsController extends Controller
             "検索結果はありませんでした";
         }
         
-        return view('items.index', ['items' => $items, 'cond_title' => $cond_title]);
+        return view('items.index', ['items' => $items, 'cond_title' => $cond_title, 'user' => $user]);
     }
     
 }

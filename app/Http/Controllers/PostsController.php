@@ -39,7 +39,7 @@ class PostsController extends Controller
     /**
      * ポスト詳細表示
      *  
-     * @param int $id ユーザーid
+     * @param int $id ポストid
      * 
      */
     public function show(Request $request, $id)
@@ -53,15 +53,17 @@ class PostsController extends Controller
     public function top(Request $request)
     {
         $posts = Post::paginate(6);
+        $login_user = Auth::user();
         $users = User::orderBy('created_at','Desc')->take(3)->get();
         $tags = Tag::orderBy('created_at','Desc')->take(3)->get();
         
-        return view('posts.top',['posts'=>$posts, 'users'=>$users, 'tags'=>$tags]);
+        return view('posts.top',['posts'=>$posts, 'users'=>$users, 'tags'=>$tags, 'login_user'=>$login_user]);
     }
     
     public function about()
     {
-        return view('about');
+        $user = Auth::user();
+        return view('about', ['user'=>$user]);
     }
 
 }
