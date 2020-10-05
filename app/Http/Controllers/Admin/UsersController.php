@@ -36,32 +36,42 @@ class UsersController extends Controller
         // 変数定義
         $user = User::find($request->id);
         $user->name = $request->user_name;
-        $user->password = bcrypt($request->user_password);
+        // $user->password = $request->user_password;
+        // $user->password = bcrypt($request->user_password);
         
         $form = $request->all();
         
         // profile_imageを上書きするとき
         // profile_imageの投稿があれば保存、なければnull
-        if (isset($form['image'])) {
+        // if (isset($form['image'])) {
             
             // imageをpublic/imageに保存するとき
             // $path = $request->file('image')->store('public/image');
             // $user->profile_image = basename($path);
             
             // imageをs3に保存
-            $path = Storage::disk('s3')->putFile('/',$form['profile_image'],'public');
-            $user->profile_image = Storage::disk('s3')->url($path);
+        //     $path = Storage::disk('s3')->putFile('/',$form['profile_image'],'public');
+        //     $user->profile_image = Storage::disk('s3')->url($path);
             
-        } else {
-            $user->profile_image = null;
-        }
+        // } else {
+        //     $user->profile_image = null;
+        // }
       
         unset($form['_token']);
-        unset($form['image']);
+        // unset($form['image']);
       
         $user->fill($form);
         $user->save();
+        
         return redirect('posts/'.$user->id);
+    }
+    
+    public function delete(Request $request)
+    {
+        $user = Auth::user();
+        $user->delete();
+        
+        return redirect('/');
     }
     
     /**
