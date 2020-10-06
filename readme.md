@@ -1,6 +1,8 @@
 # My goods
  お気に入りグッズの紹介サイトです。<br >
  画像にタグやアイテム情報を追加して紹介することができます。 <br >
+ 
+  <img width="1400" alt="スクリーンショット トップページ" src="https://user-images.githubusercontent.com/64133701/95173893-48385c80-07f4-11eb-8e9f-973f54162bd7.jpg">
 
 # URL
 https://arcane-harbor-76318.herokuapp.com/ <br >

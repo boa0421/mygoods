@@ -16,7 +16,7 @@
         {{-- このサービスの説明 --}}
         <div class="row">
             <section class="about-contents">
-                <img class="side-image col-lg-6" src="public/image/top.jpg" alt="トップページの画像" title="トップページの画像">
+                <img class="side-image col-lg-6" src="/image/top.jpg" alt="トップページの画像" title="トップページの画像">
                 <div class="main-side">
                     <h2>みんなのおすすめ商品をチェック</h2>
                     <p>気になるものがあるけれど買おうかどうか悩んでいる。</p>
@@ -35,7 +35,7 @@
                 </div>
             </section>
             <section class="about-contents">
-                <img class="side-image col-lg-6" src="image/users.jpg" alt="ユーザー一覧の画像" title="ユーザー一覧の画像">
+                <img class="side-image col-lg-6" src="/image/users.jpg" alt="ユーザー一覧の画像" title="ユーザー一覧の画像">
                 <div class="main-side">
                     <h2>お気に入りのユーザーを見つける</h2>
                     <p>ユーザー一覧ページから気になるユーザーを見つけることができます。</p>
@@ -44,8 +44,7 @@
                 </div>
             </section>
             <section class="about-contents">
-                <!--<img class="side-image col-lg-6" src="{{ asset('storage/image/item.jpg') }}" alt="アイテム一覧ページの画像" title="アイテム一覧ページの画像">-->
-                <h2 class="logo-img"></h2>
+                <img class="side-image col-lg-6" src="/image/item.jpg" alt="アイテム一覧ページの画像" title="アイテム一覧ページの画像">
                 <div class="main-side">
                     <h2>気になるアイテムを見つける</h2>
                     <p>投稿に関連したアイテムは店舗URLやECサイトに直接アクセスできます。</p>

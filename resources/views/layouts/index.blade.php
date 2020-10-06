@@ -76,7 +76,7 @@
             {{-- ここまでナビゲーションバー --}}
             <div class="row top-image">
                 <a href="{{ action('PostsController@about') }}">
-                    <img class="top-image col-lg-12" src="{{ asset('storage/image/SmallFlowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
+                    <img class="top-image col-lg-12" src="/image/smallflowers.png" alt="花のイラスト" title="お気に入りを見つけよう">
                 </a>
             </div>
 
