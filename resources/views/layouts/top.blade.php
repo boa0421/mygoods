@@ -77,7 +77,7 @@
             
             <div class="row top-image">
                 <a href="about">
-                    <img class="top-image col-lg-12" src="{{ url::asset('public/storage/image/Flowers.png') }}" alt="花のイラスト" title="お気に入りを見つけよう">
+                    <img class="top-image col-lg-12" src="storage/Flowers.png" alt="花のイラスト" title="お気に入りを見つけよう">
                 </a>
             </div>
             <main class="py-4">
