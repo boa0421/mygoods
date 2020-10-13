@@ -5,7 +5,7 @@
   <img width="1400" alt="スクリーンショット トップページ" src="https://user-images.githubusercontent.com/64133701/95173893-48385c80-07f4-11eb-8e9f-973f54162bd7.jpg">
 
 # URL
-https://arcane-harbor-76318.herokuapp.com/ <br >
+https://my-goods.net/ <br >
 
 # 使用技術
 - PHP 7.2.33
