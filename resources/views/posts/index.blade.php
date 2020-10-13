@@ -32,6 +32,8 @@
                     <a href="{{ action('Admin\PostsController@add') }}" role="button" class="post-new-create-btn btn btn-primary">新規作成</a>
                 </div>
             @endif
+        </div>
+        <div class="row">
             {{-- 投稿一覧表示 --}}
             @if (isset($posts))
                 <div class="main-index">
